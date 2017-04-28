@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="button" Click="sendBtn" Content="Send" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+        <TextBox x:Name="textBox" Height="23" Margin="122,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="From:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80.66"/>
+        <Label x:Name="label1" Content="To:" HorizontalAlignment="Left" Margin="10,40.96,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" Height="23" Margin="122,44.96,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Message:" HorizontalAlignment="Left" Margin="10,102.88,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Object:" HorizontalAlignment="Left" Margin="10,71.92,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" Height="23" Margin="122,75.92,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox3" Margin="122,106.88,10,112.706" TextWrapping="Wrap"/>
     </Grid>
 </Window>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="MailSecure.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MailSecure"
+        mc:Ignorable="d"
+        Title="Login" Height="259.556" Width="300">
+    <Grid>
+        <Label x:Name="label" Content="Password:" Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <PasswordBox x:Name="passwordBox" Margin="10,40.96,10,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Login" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+    </Grid>
+</Window>

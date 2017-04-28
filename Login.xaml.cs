@@ -10,23 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MailSecure {
+namespace MailSecure
+{
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Login.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
+    public partial class Login : Window
+    {
+        public Login()
+        {
             InitializeComponent();
-        }
-
-        private void sendBtn(object sender, RoutedEventArgs e) {
-            Login login = new Login();
-
-            login.Show();
-
         }
     }
 }
