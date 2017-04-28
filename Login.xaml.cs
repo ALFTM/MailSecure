@@ -23,5 +23,10 @@ namespace MailSecure
         {
             InitializeComponent();
         }
+
+        private void loginBtn(object sender, RoutedEventArgs e) {
+            App.mailSender.setCredentials(this.passwordBox.SecurePassword);
+            this.Close();
+        }
     }
 }
