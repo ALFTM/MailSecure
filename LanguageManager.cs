@@ -30,26 +30,26 @@ namespace MailSecure
             }
         }
 
-        public void SwitchLanguage()
+        public void SwitchLanguage(string newLanguage)
         {
-            if ("fr".Equals(language))
+            switch (newLanguage)
             {
-                ci = CultureInfo.CreateSpecificCulture("en");
-                language = "en";
+                case "fr":
+                    ci = CultureInfo.CreateSpecificCulture("fr");
+                    language = "fr";
+                    break;
+                case "en":
+                    ci = CultureInfo.CreateSpecificCulture("en");
+                    language = "en";
+                    break;
             }
-            else
-            {
-                ci = CultureInfo.CreateSpecificCulture("fr");
-                language = "fr";
-            }
-            
         }
 
         public string GetStringFromLanguage(string libelle)
         {
             if(null == resManag)
             {
-                resManag = new ResourceManager("MailSecure.Resource.Global", typeof(LanguageManager).Assembly);
+                resManag = new ResourceManager("MailSecure.Resources.Global", typeof(LanguageManager).Assembly);
             }
             return resManag.GetString(libelle, ci);
         }

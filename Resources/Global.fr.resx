@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="from_lbl" xml:space="preserve">
+    <value>De :</value>
+  </data>
   <data name="language_lbl" xml:space="preserve">
     <value>FR</value>
+  </data>
+  <data name="mesage_lbl" xml:space="preserve">
+    <value>Message :</value>
+  </data>
+  <data name="object_lbl" xml:space="preserve">
+    <value>Objet :</value>
+  </data>
+  <data name="optionCancel_lbl" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="optionLanguage_lbl" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="optionOk_lbl" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="send_lbl" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="to_lbl" xml:space="preserve">
+    <value>À :</value>
   </data>
 </root>
