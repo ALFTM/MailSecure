@@ -2,7 +2,8 @@
 using System.Windows;
 using System.Net;
 using System.Net.Mail;
-
+using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace MailSecure {
     /// <summary>
@@ -32,6 +33,22 @@ namespace MailSecure {
         private void loginBtn(object sender, RoutedEventArgs e) {
             Login login = new Login();
             login.Show();
+        }
+
+        private void Option_Window(object sender, RoutedEventArgs e)
+        {
+            Option optionWindow = new Option();
+            optionWindow.ShowDialog();
+            RefreshContent();
+        }
+
+        private void RefreshContent()
+        {
+            fromLabel.GetBindingExpression(Label.ContentProperty).UpdateTarget();
+            toLabel.GetBindingExpression(Label.ContentProperty).UpdateTarget();
+            objectLabel.GetBindingExpression(Label.ContentProperty).UpdateTarget();
+            messageLabel.GetBindingExpression(Label.ContentProperty).UpdateTarget();
+            sendButton.GetBindingExpression(Button.ContentProperty).UpdateTarget();
         }
     }
 }
