@@ -6,21 +6,18 @@
         xmlns:local="clr-namespace:MailSecure"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <Menu Name="Menu" Height="20" VerticalAlignment="Stretch">
-            <Frame Name="Option" Content="Option" MouseLeftButtonDown="Option_Window" />
-        </Menu>
-        <Grid>
-            <Button x:Name="sendButton" Click="sendBtn" Content="{Binding SendButton}" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
-            <TextBox x:Name="fromTextBox" Height="23" Margin="122,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <Label x:Name="fromLabel" Content="{Binding FromLabel}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80.66"/>
-            <Label x:Name="toLabel" Content="{Binding ToLabel}" HorizontalAlignment="Left" Margin="10,40.96,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="toTextBox" Height="23" Margin="122,44.96,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <Label x:Name="messageLabel" Content="{Binding MesageLabel}" HorizontalAlignment="Left" Margin="10,102.88,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="objectLabel" Content="{Binding ObjectLabel}" HorizontalAlignment="Left" Margin="10,71.92,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="objectTextBox" Height="23" Margin="122,75.92,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBox x:Name="messageTextBox" Margin="122,106.88,10,112.706" TextWrapping="Wrap"/>
-            <Button x:Name="loginButton" Content="login" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Click="loginBtn"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Frame Name="SendEncrypt" Height="40" Content="Send" VerticalContentAlignment="Center" MouseLeftButtonDown="SendMessage_UC" />
+            <Frame Name="ReadDecrypt" Height="40" Content="Decrypt" />
+            <Image Name="Option" Height="40" Source="Images/OptionButton.png" MouseLeftButtonDown="Option_UC" />
+        </StackPanel>
+        <Grid Grid.Column="1" Name="GridContent">
+            
         </Grid>
-    </StackPanel>
+    </Grid>
 </Window>

@@ -10,14 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MailSecure
+namespace MailSecure.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour Option.xaml
     /// </summary>
-    public partial class Option : Window
+    public partial class Option : UserControl
     {
         private LanguageManager optionLanguageManager;
         public string LanguageLabel { get { return optionLanguageManager.GetStringFromLanguage("optionLanguage_lbl"); } }
@@ -34,6 +35,8 @@ namespace MailSecure
 
         private void AddLanguageToComboBox()
         {
+            Language_comboBox.Items.Clear();
+
             // Language FR
             var comboBoxItemFR = new ComboBoxItem();
             comboBoxItemFR.Content = "fr";
@@ -49,7 +52,7 @@ namespace MailSecure
             // Select current language
             for (int i = 0; i < Language_comboBox.Items.Count; i++)
             {
-                if (LanguageManager.language.Equals(((ComboBoxItem) Language_comboBox.Items[i]).Content.ToString()))
+                if (LanguageManager.language.Equals(((ComboBoxItem)Language_comboBox.Items[i]).Content.ToString()))
                 {
                     Language_comboBox.SelectedIndex = i;
                 }
@@ -62,13 +65,12 @@ namespace MailSecure
             if (!newLanguage.Equals(LanguageManager.language))
             {
                 optionLanguageManager.SwitchLanguage(newLanguage);
-                this.Close();
+                RefreshContent();
             }
         }
-
-        private void cancel_button_Click(object sender, RoutedEventArgs e)
+        private void RefreshContent()
         {
-            this.Close();
+            Language.GetBindingExpression(Label.ContentProperty).UpdateTarget();
         }
     }
 }

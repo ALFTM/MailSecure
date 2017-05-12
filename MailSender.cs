@@ -13,7 +13,7 @@ namespace MailSecure {
         public string FromLabel { get { return mailSenderLangMngr.GetStringFromLanguage("from_lbl"); } }
         public string ToLabel { get { return mailSenderLangMngr.GetStringFromLanguage("to_lbl"); } }
         public string ObjectLabel { get { return mailSenderLangMngr.GetStringFromLanguage("object_lbl"); } }
-        public string MesageLabel { get { return mailSenderLangMngr.GetStringFromLanguage("mesage_lbl"); } }
+        public string MesageLabel { get { return mailSenderLangMngr.GetStringFromLanguage("message_lbl"); } }
         public string SendButton { get { return mailSenderLangMngr.GetStringFromLanguage("send_lbl"); } }
         public string server { get; set; }
         public int port { get; set; }
