@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="MailSecure.UserControls.SendMessage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MailSecure.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Button x:Name="sendButton" Click="sendBtn" Content="{Binding SendButton}" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+        <TextBox x:Name="fromTextBox" Height="23" Margin="122,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="fromLabel" Content="{Binding FromLabel}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80.66"/>
+        <Label x:Name="toLabel" Content="{Binding ToLabel}" HorizontalAlignment="Left" Margin="10,40.96,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="toTextBox" Height="23" Margin="122,44.96,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="messageLabel" Content="{Binding MesageLabel}" HorizontalAlignment="Left" Margin="10,102.88,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="objectLabel" Content="{Binding ObjectLabel}" HorizontalAlignment="Left" Margin="10,71.92,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="objectTextBox" Height="23" Margin="122,75.92,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="messageTextBox" Margin="122,106.88,10,112.706" TextWrapping="Wrap"/>
+        <Button x:Name="loginButton" Content="login" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Click="loginBtn"/>
+    </Grid>
+</UserControl>
