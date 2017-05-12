@@ -129,9 +129,6 @@
   <data name="object_lbl" xml:space="preserve">
     <value>Object :</value>
   </data>
-  <data name="optionCancel_lbl" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
   <data name="optionLanguage_lbl" xml:space="preserve">
     <value>Language</value>
   </data>

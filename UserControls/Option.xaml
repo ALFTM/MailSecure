@@ -19,7 +19,6 @@
         </Grid.RowDefinitions>
         <Label Name="Language" Content="{Binding LanguageLabel}" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Left"/>
         <ComboBox Name="Language_comboBox" Height="20" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
-        <Button Name="ok_button" Content="{Binding OkButton}" Grid.Column="1" Grid.Row="3" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ok_button_Click"/>
-        <Button Name="cancel_button" Content="{Binding CancelButton}" Grid.Column="1" Grid.Row="3" Width="50" Margin="0, 0, 55, 0" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <Button Name="ok_button" Content="{Binding OkButton}" Grid.Column="1" Grid.Row="3" Width="50" HorizontalAlignment="Right" Margin="0, 0, 10, 0" VerticalAlignment="Center" Click="ok_button_Click"/>
     </Grid>
 </UserControl>

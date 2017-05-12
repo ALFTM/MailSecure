@@ -71,7 +71,6 @@ namespace MailSecure.UserControls
         private void RefreshContent()
         {
             Language.GetBindingExpression(Label.ContentProperty).UpdateTarget();
-            cancel_button.GetBindingExpression(Button.ContentProperty).UpdateTarget();
         }
     }
 }
