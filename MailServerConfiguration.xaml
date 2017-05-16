@@ -1,0 +1,60 @@
+﻿<Window x:Class="MailSecure.MailServerConfigurationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MailSecure"
+        mc:Ignorable="d"
+        Title="Ajouter un compte" Height="450" Width="500" ResizeMode="NoResize">
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".12*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height=".15*"></RowDefinition>
+ 
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" ShowGridLines="False" Background="#FFF1F1F1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label x:Name="userTitleLabel" Content="Informations Utilisateur" Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+            <Label x:Name="userNameLabel" Content="Nom" Grid.Row="1" Grid.Column="0"/>
+            <Label x:Name="userEmailLabel" Content="Adresse mail" Grid.Row="2" Grid.Column="0"/>
+
+            <TextBox x:Name="userNameTextBox" Grid.Row="1" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center" />
+            <TextBox x:Name="userEmailTextBox" Grid.Row="2" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center" ></TextBox>
+
+            <Label x:Name="ServerTitleLabel" Content="Informations Serveur" Grid.Row="3" Grid.Column="0" FontWeight="Bold"></Label>
+            <Label x:Name="smtpLabel" Content="Serveur sortant (SMTP)" Grid.Row="4" Grid.Column="0"></Label>
+
+            <TextBox x:Name="smtpServerTextBox" Grid.Row="4" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center"></TextBox>
+
+            <Label x:Name="userLoginLabel" Content="Information connexion" Grid.Row="5" Grid.Column="0" FontWeight="Bold"></Label>
+            <Label x:Name="loginLabel" Content="Identifiant" Grid.Row="6" Grid.Column="0"></Label>
+            <Label x:Name="passwordLabel" Content="Mot de passe" Grid.Row="7" Grid.Column="0"></Label>
+
+            <TextBox x:Name="loginTextBox" Grid.Row="6" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center"/>
+            <PasswordBox x:Name="passwordPasswordBox" Grid.Row="7" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center"></PasswordBox>
+        </Grid>
+        <Grid Grid.Row="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width=".4*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="connectionButton" Content="Connexion" Grid.Column="1" Margin="10"/>
+        </Grid>
+
+        <Label x:Name="headerTitleLabel" Content="Configurer un serveur SMTP" VerticalContentAlignment="Center" FontWeight="Bold"/>
+    </Grid>
+</Window>
