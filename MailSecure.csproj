@@ -74,7 +74,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ServerFactConst.cs" />
+    <Compile Include="Constants\AppConst.cs" />
+    <Compile Include="Constants\ServerFactConst.cs" />
     <Compile Include="UserControls\Option.xaml.cs">
       <DependentUpon>Option.xaml</DependentUpon>
     </Compile>
