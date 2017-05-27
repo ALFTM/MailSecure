@@ -52,7 +52,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width=".4*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="connectionButton" Content="Connexion" Grid.Column="1" Margin="10"/>
+            <Button x:Name="connectionButton" Content="Connexion" Grid.Column="1" Margin="10" Click="SaveConfiguration"/>
         </Grid>
 
         <Label x:Name="headerTitleLabel" Content="Configurer un serveur SMTP" VerticalContentAlignment="Center" FontWeight="Bold"/>

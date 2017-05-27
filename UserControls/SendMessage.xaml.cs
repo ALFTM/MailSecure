@@ -42,8 +42,10 @@ namespace MailSecure.UserControls
 
         private void loginBtn(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            //Login login = new Login();
+            MailServerConfigurationWindow mailConf = new MailServerConfigurationWindow();
+            mailConf.ShowDialog();
+            //login.Show();
         }
     }
 }

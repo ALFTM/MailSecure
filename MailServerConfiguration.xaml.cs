@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Security.Cryptography;
+
 
 namespace MailSecure
 {
@@ -22,6 +12,37 @@ namespace MailSecure
         public MailServerConfigurationWindow()
         {
             InitializeComponent();
+        }
+
+        private void SaveConfiguration(object sender, RoutedEventArgs e)
+        {
+            UserMailFacts userFacts = new UserMailFacts();
+
+            this.CryptPassword(ref userFacts);
+
+            userFacts.userName = this.userNameTextBox.Text;
+            userFacts.login = this.loginTextBox.Text;
+            userFacts.smtpAdress = this.smtpServerTextBox.Text;
+            userFacts.email = this.userEmailTextBox.Text;
+
+            BinaryMCSFileManager.WriteStructInFile(userFacts);
+        }
+
+        public void CryptPassword(ref UserMailFacts userFacts)
+        {
+            byte[] plainText = System.Text.Encoding.UTF8.GetBytes(this.passwordPasswordBox.Password);
+
+            // Generate additional entropy (will be used as the Initialization vector)
+            byte[] entropy = new byte[20];
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            rng.GetBytes(entropy);
+
+            byte[] encodeText = ProtectedData.Protect(plainText, entropy, DataProtectionScope.CurrentUser);
+
+            plainText.Initialize();
+
+            userFacts.entropy = entropy;
+            userFacts.encodingText = encodeText;
         }
     }
 }
