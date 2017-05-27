@@ -12,7 +12,7 @@ namespace MailSecure
             FileStream fileStream;
             BinaryWriter writer;
 
-            Directory.CreateDirectory(folderPath);
+            CreateFolderAndFile();
 
 
             try
@@ -39,7 +39,8 @@ namespace MailSecure
 
         public static UserMailFacts ReadStructInFile()
         {
-            string filePath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
+            string filePath = folderPath + "\\" + AppConst.USER_CONFIG_FILE_NAME;
             FileStream fileStream;
             BinaryReader reader;
             UserMailFacts userFacts = new UserMailFacts();
@@ -95,11 +96,25 @@ namespace MailSecure
 
             try
             {
-                File.Create(filePath);
+                FileStream file = File.Create(filePath);
+                file.Close();
             }
             catch (IOException e)
             {
                 Console.WriteLine(e.ToString());
+            }
+        }
+
+        public static void CreateFolderAndFile()
+        {
+            if(!CheckIfFolderExist())
+            {
+                CreateConfigFolder();
+            }
+
+            if(!CheckIfConfigFileExist())
+            {
+                CreateConfigFile();
             }
         }
     }

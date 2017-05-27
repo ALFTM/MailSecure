@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MailSecure
 {
-    public struct UserMailFacts
+    public class UserMailFacts
     {
-        public string userName;
-        public string email;
-        public string smtpAdress;
-        public string login;
-        public byte[] encodingText;
-        public byte[] entropy;
+        public string userName { get; set; }
+        public string email { get; set; }
+        public string smtpAdress { get; set; }
+        public string login { get; set; }
+        public byte[] encodingText { get; set; }
+        public byte[] entropy { get; set; }
     }
 
     
