@@ -14,10 +14,11 @@ namespace MailSecure
 
             Directory.CreateDirectory(folderPath);
 
+
             try
             {
-                
-                fileStream = File.Open(filePath, FileMode.OpenOrCreate);
+
+                fileStream = File.Open(filePath, FileMode.Open);
                 writer = new BinaryWriter(fileStream);
 
                 writer.Write(facts.userName);
@@ -27,8 +28,10 @@ namespace MailSecure
                 writer.Write(facts.encodingText.Length);
                 writer.Write(facts.encodingText);
                 writer.Write(facts.entropy);
+
+                fileStream.Close();
             }
-            catch(FileNotFoundException e)
+            catch (FileNotFoundException e)
             {
                 Console.WriteLine(e.ToString());
             }
@@ -53,6 +56,51 @@ namespace MailSecure
             userFacts.entropy = reader.ReadBytes(20);
 
             return userFacts;
+        }
+
+        public static bool CheckIfConfigFileExist()
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
+            string filePath = folderPath + "\\" + AppConst.USER_CONFIG_FILE_NAME;
+
+            return File.Exists(filePath);
+        }
+
+        public static bool CheckIfFolderExist()
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
+
+            return Directory.Exists(folderPath);
+
+        }
+
+        public static void CreateConfigFolder()
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
+
+            try
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+
+        public static void CreateConfigFile()
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
+            string filePath = folderPath + "\\" + AppConst.USER_CONFIG_FILE_NAME;
+
+            try
+            {
+                File.Create(filePath);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
     }
 }
