@@ -78,6 +78,9 @@
     <Compile Include="BinaryMCSFileManager.cs" />
     <Compile Include="Constants\AppConst.cs" />
     <Compile Include="Constants\ServerFactConst.cs" />
+    <Compile Include="SplashScreen\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Option.xaml.cs">
       <DependentUpon>Option.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SplashScreen\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Option.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
