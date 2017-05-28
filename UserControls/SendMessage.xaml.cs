@@ -15,7 +15,7 @@ namespace MailSecure.UserControls
             InitializeComponent();
             mailSender = App.mailSender;
             this.getCurrentUser();
-            DataContext = App.currentUser;
+            DataContext = App.CurrentUserData;
         }
 
         private void sendBtn(object sender, RoutedEventArgs e)
@@ -24,9 +24,9 @@ namespace MailSecure.UserControls
             string subject = this.objectTextBox.Text.ToString();
             string body = this.messageTextBox.Text.ToString();
 
-            MailMessage mail = new MailMessage(App.currentUser.email, to, subject, body);
+            MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.email, to, subject, body);
             mailSender.setMailMessage(mail);
-            mailSender.setCurrentUser(App.currentUser);
+            mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
 
             mailSender.SendMail();
         }
@@ -43,7 +43,8 @@ namespace MailSecure.UserControls
         {
             if(BinaryMCSFileManager.CheckIfConfigFileExist())
             {
-                App.currentUser = BinaryMCSFileManager.ReadStructInFile();
+                App.CurrentUserData.CurrentUser = BinaryMCSFileManager.ReadStructInFile();
+                App.CurrentUserData.DisplayedName = App.CurrentUserData.CurrentUser.userName;
             }
         }
     }

@@ -29,7 +29,8 @@ namespace MailSecure
 
             if(res)
             {
-                App.currentUser = userFacts;
+                App.CurrentUserData.CurrentUser = userFacts;
+                App.CurrentUserData.DisplayedName = userFacts.userName;
             }
 
             this.Close();

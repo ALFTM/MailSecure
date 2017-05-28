@@ -7,7 +7,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Button x:Name="sendButton" Click="sendBtn" Content="Send" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
-        <Label x:Name="emailLabel" Margin="122,10,10,0" VerticalAlignment="Top" Content="{Binding email}"/>
+        <Label x:Name="emailLabel" Margin="122,10,10,0" VerticalAlignment="Top" Content="{Binding Path=DisplayedName, Mode=TwoWay}"/>
         <Label x:Name="fromLabel" Content="From: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80.66"/>
         <Label x:Name="toLabel" Content="To:" HorizontalAlignment="Left" Margin="10,40.96,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="toTextBox" Height="23" Margin="122,44.96,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
