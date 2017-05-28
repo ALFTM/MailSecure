@@ -25,7 +25,14 @@ namespace MailSecure
             userFacts.smtpAdress = this.smtpServerTextBox.Text;
             userFacts.email = this.userEmailTextBox.Text;
 
-            BinaryMCSFileManager.WriteStructInFile(userFacts);
+            bool res = BinaryMCSFileManager.WriteStructInFile(userFacts);
+
+            if(res)
+            {
+                App.currentUser = userFacts;
+            }
+
+            this.Close();
         }
 
         public void CryptPassword(ref UserMailFacts userFacts)

@@ -9,14 +9,13 @@ namespace MailSecure.UserControls
     /// </summary>
     public partial class SendMessage : UserControl
     {
-        UserMailFacts currentUser;
         MailSender mailSender;
         public SendMessage()
         {
             InitializeComponent();
             mailSender = App.mailSender;
             this.getCurrentUser();
-            DataContext = currentUser;
+            DataContext = App.currentUser;
         }
 
         private void sendBtn(object sender, RoutedEventArgs e)
@@ -25,9 +24,9 @@ namespace MailSecure.UserControls
             string subject = this.objectTextBox.Text.ToString();
             string body = this.messageTextBox.Text.ToString();
 
-            MailMessage mail = new MailMessage(currentUser.email, to, subject, body);
+            MailMessage mail = new MailMessage(App.currentUser.email, to, subject, body);
             mailSender.setMailMessage(mail);
-            mailSender.setCurrentUser(currentUser);
+            mailSender.setCurrentUser(App.currentUser);
 
             mailSender.SendMail();
         }
@@ -44,7 +43,7 @@ namespace MailSecure.UserControls
         {
             if(BinaryMCSFileManager.CheckIfConfigFileExist())
             {
-                currentUser = BinaryMCSFileManager.ReadStructInFile();
+                App.currentUser = BinaryMCSFileManager.ReadStructInFile();
             }
         }
     }

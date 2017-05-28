@@ -5,7 +5,7 @@ namespace MailSecure
 {
     class BinaryMCSFileManager
     {
-        public static void WriteStructInFile(UserMailFacts facts)
+        public static bool WriteStructInFile(UserMailFacts facts)
         {
             string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
             string filePath = folderPath + "\\" + AppConst.USER_CONFIG_FILE_NAME;
@@ -30,11 +30,15 @@ namespace MailSecure
                 writer.Write(facts.entropy);
 
                 fileStream.Close();
+
+                return true;
             }
             catch (FileNotFoundException e)
             {
                 Console.WriteLine(e.ToString());
             }
+
+            return false;
         }
 
         public static UserMailFacts ReadStructInFile()
