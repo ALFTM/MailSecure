@@ -34,6 +34,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-        <ProgressBar Value="50" Grid.Row="2" HorizontalContentAlignment="Stretch" Margin="20" MaxHeight="10" MaxWidth="300" Background="#00000000" BorderBrush="#00BCBCBC" Foreground="#FFF64F00"/>
+        <ProgressBar Name="ProgressBar"  Grid.Row="2" HorizontalContentAlignment="Stretch" Margin="20" MaxHeight="10" MaxWidth="300" Background="#00000000" BorderBrush="#00BCBCBC" Foreground="#FFF64F00"/>
     </Grid>
 </Window>

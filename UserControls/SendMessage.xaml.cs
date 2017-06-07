@@ -14,7 +14,6 @@ namespace MailSecure.UserControls
         {
             InitializeComponent();
             mailSender = App.mailSender;
-            this.getCurrentUser();
             DataContext = App.CurrentUserData;
         }
 
@@ -39,13 +38,6 @@ namespace MailSecure.UserControls
             //login.Show();
         }
 
-        private void getCurrentUser()
-        {
-            if(BinaryMCSFileManager.CheckIfConfigFileExist())
-            {
-                App.CurrentUserData.CurrentUser = BinaryMCSFileManager.ReadStructInFile();
-                App.CurrentUserData.DisplayedName = App.CurrentUserData.CurrentUser.userName;
-            }
-        }
+        
     }
 }
