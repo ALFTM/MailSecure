@@ -22,7 +22,8 @@ namespace MailSecure.UserControls
         {
             string to = this.toTextBox.Text.ToString();
             string subject = this.objectTextBox.Text.ToString();
-            string body = this.messageTextBox.Text.ToString();
+            string messageCryted = Encryption.Encrypt(this.messageTextBox.Text.ToString(), "password");
+            string body = messageCryted;
 
             MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.email, to, subject, body);
             mailSender.setMailMessage(mail);

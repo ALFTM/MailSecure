@@ -78,6 +78,10 @@
     <Compile Include="BinaryMCSFileManager.cs" />
     <Compile Include="Constants\AppConst.cs" />
     <Compile Include="Constants\ServerFactConst.cs" />
+    <Compile Include="Encryption.cs" />
+    <Compile Include="UserControls\DecryptMessage.xaml.cs">
+      <DependentUpon>DecryptMessage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Option.xaml.cs">
       <DependentUpon>Option.xaml</DependentUpon>
     </Compile>
@@ -110,6 +114,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\DecryptMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Option.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

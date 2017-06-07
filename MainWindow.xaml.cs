@@ -28,10 +28,21 @@ namespace MailSecure {
             ChangeViewContent(sendMessageUC);
         }
 
+        private void DecryptMessage_UC(object sender, RoutedEventArgs e)
+        {
+            DecryptMessage decryptMessageUC = new DecryptMessage();
+            ChangeViewContent(decryptMessageUC);
+        }
+
         public void ChangeViewContent(UserControl uc)
         {
             GridContent.Children.Clear();
             GridContent.Children.Add(uc);
+        }
+
+        private void ReadDecrypt_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
         }
     }
 }
