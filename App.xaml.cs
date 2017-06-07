@@ -29,13 +29,18 @@ namespace MailSecure
             // Longest loading
             await LongLoading();
 
-            // Shortest loading
-            if(!await this.ShortLoading()) {
-                Login login = new Login();
-                login.ShowDialog();
-            }
+
             MainWindow = new MainWindow();
-            MainWindow.Show();
+            // Shortest loading
+
+            if (!await this.ShortLoading()) {
+                MainWindow.Show();
+                MailServerConfigurationWindow mailConfigurationWindow = new MailServerConfigurationWindow();
+                mailConfigurationWindow.Show();
+            } else {
+                MainWindow.Show();
+            }
+            
             splashScreen.Close();
             splashScreen = null;
         }
