@@ -8,12 +8,12 @@
         Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Frame Name="SendEncrypt" Height="40" Content="Send" VerticalContentAlignment="Center" MouseLeftButtonDown="SendMessage_UC" />
-            <Frame Name="ReadDecrypt" Height="40" Content="Decrypt" />
+            <Frame Name="SendEncrypt" Height="40" Content="Send" HorizontalContentAlignment="Center" MouseLeftButtonDown="SendMessage_UC" />
+            <Frame Name="ReadDecrypt" Height="40" Content="Decrypt" MouseLeftButtonDown="DecryptMessage_UC" />
             <Image Name="Option" Height="40" Source="Images/OptionButton.png" MouseLeftButtonDown="Option_UC" />
         </StackPanel>
         <Grid Grid.Column="1" Name="GridContent">

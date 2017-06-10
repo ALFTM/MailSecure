@@ -28,6 +28,12 @@ namespace MailSecure {
             ChangeViewContent(sendMessageUC);
         }
 
+        private void DecryptMessage_UC(object sender, RoutedEventArgs e)
+        {
+            DecryptMessage decryptMessageUC = new DecryptMessage();
+            ChangeViewContent(decryptMessageUC);
+        }
+
         public void ChangeViewContent(UserControl uc)
         {
             GridContent.Children.Clear();
