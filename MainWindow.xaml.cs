@@ -39,10 +39,5 @@ namespace MailSecure {
             GridContent.Children.Clear();
             GridContent.Children.Add(uc);
         }
-
-        private void ReadDecrypt_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-
-        }
     }
 }

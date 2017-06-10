@@ -79,6 +79,9 @@
     <Compile Include="Constants\AppConst.cs" />
     <Compile Include="Constants\ServerFactConst.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="PasswordPopup.xaml.cs">
+      <DependentUpon>PasswordPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DecryptMessage.xaml.cs">
       <DependentUpon>DecryptMessage.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,7 @@
     </Compile>
     <Compile Include="UserDataContext.cs" />
     <Compile Include="EmailManagement\UserMailFacts.cs" />
+    <Compile Include="Utils.cs" />
     <Page Include="EmailManagement\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +118,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PasswordPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\DecryptMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
