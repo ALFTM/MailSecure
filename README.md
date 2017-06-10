@@ -3,8 +3,10 @@
 </p>
 
 [![GitHub release](https://img.shields.io/github/release/ALFTM/MailSecure.svg?style=flat-square)](https://github.com/ALFTM/MailSecure/release)
-[![Github All Releases](https://img.shields.io/github/downloads/ALFTM/MailSecure/total.svg?style=flat-square)]()
+[![GitHub issues](https://img.shields.io/github/issues/ALFTM/MailSecure.svg?style=flat-square)](https://github.com/ALFTM/MailSecure/issues) 
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/ALFTM/MailSecure.svg?style=flat-square)](https://github.com/ALFTM/MailSecure/pulls)
+[![Github All Releases](https://img.shields.io/github/downloads/ALFTM/MailSecure/total.svg?style=flat-square)]()
+
 
 Mail Secure is a C# app that encrypt and decrypt your email. It use your actual email address and send your email through SMTP.
 
