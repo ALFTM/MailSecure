@@ -82,6 +82,9 @@
     <Compile Include="PasswordPopup.xaml.cs">
       <DependentUpon>PasswordPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DecryptMessage.xaml.cs">
       <DependentUpon>DecryptMessage.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
     <Page Include="PasswordPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplashScreen\SplashScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\DecryptMessage.xaml">
       <SubType>Designer</SubType>
