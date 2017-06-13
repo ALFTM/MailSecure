@@ -1,29 +1,37 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
-
 
 namespace MailSecure
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml
     /// </summary>
-    public partial class App : Application {
+    public partial class App : Application
+    {
         public static MailSender mailSender { get; set; }
         public static UserDataContext CurrentUserData { get; set; }
 
         private SplashScreen.SplashScreen splashScreen;
 
-        public App() {
+        public App()
+        {
             splashScreen = new SplashScreen.SplashScreen();
             splashScreen.Show();
         }
 
-        public void getCurrentUser() {
+        public void getCurrentUser()
+        {
             CurrentUserData.CurrentUser = BinaryMCSFileManager.ReadStructInFile();
             CurrentUserData.DisplayedName = App.CurrentUserData.CurrentUser.userName;
         }
 
-        protected override async void OnStartup(StartupEventArgs e) {
+        protected override async void OnStartup(StartupEventArgs e)
+        {
             base.OnStartup(e);
 
             // Longest loading
@@ -37,15 +45,17 @@ namespace MailSecure
                 MainWindow.Show();
                 MailServerConfigurationWindow mailConfigurationWindow = new MailServerConfigurationWindow();
                 mailConfigurationWindow.Show();
-            } else {
+            }
+            else {
                 MainWindow.Show();
             }
-            
+
             splashScreen.Close();
             splashScreen = null;
         }
 
-        private async Task LongLoading() {
+        private async Task LongLoading()
+        {
             bool canGetUser = true;
             splashScreen.SetProgress(0, 4);
             if (!BinaryMCSFileManager.CheckIfFolderExist()) {
@@ -74,12 +84,13 @@ namespace MailSecure
             if (canGetUser) {
                 getCurrentUser();
             }
-         
+
             await Task.Delay(500);
 
         }
 
-        private async Task<bool> ShortLoading() {
+        private async Task<bool> ShortLoading()
+        {
             splashScreen.SetProgress(4);
 
             if (null == CurrentUserData.DisplayedName) {

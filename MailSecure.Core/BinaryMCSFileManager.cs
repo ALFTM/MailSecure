@@ -3,7 +3,7 @@ using System;
 
 namespace MailSecure
 {
-    class BinaryMCSFileManager
+    public class BinaryMCSFileManager
     {
         public static bool WriteStructInFile(UserMailFacts facts)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MailSecure
 {
-    class Utils
+    public class Utils
     {
         private static Random random = new Random();
         public static string RandomPassword(int length)
