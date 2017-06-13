@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MailSecure
 {
-    class Encryption
+    public class Encryption
     {
         private const int keySize = 256;
         
