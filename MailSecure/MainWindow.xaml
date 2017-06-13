@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSecure"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -17,7 +17,7 @@
             <Image Name="Option" Height="40" Source="Images/OptionButton.png" MouseLeftButtonDown="Option_UC" />
         </StackPanel>
         <Grid Grid.Column="1" Name="GridContent">
-            
+
         </Grid>
     </Grid>
 </Window>

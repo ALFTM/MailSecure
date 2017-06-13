@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/ALFTM/MailSecure/blob/dev/Images/logo_256.png"/>
+  <img src="https://github.com/ALFTM/MailSecure/blob/dev/MailSecure/Images/logo_256.png"/>
 </p>
 
 [![GitHub release](https://img.shields.io/github/release/ALFTM/MailSecure.svg?style=flat-square)](https://github.com/ALFTM/MailSecure/release)
@@ -21,4 +21,7 @@ Launch it and set your name, email, and the SMTP address of your email server.
 ### Credits ###
 
 - [xTeddyR](https://github.com/xTeddyR)
+
 - [Sorion](https://github.com/Sorion)
+
+

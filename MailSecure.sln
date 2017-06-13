@@ -1,38 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure", "MailSecure.csproj", "{06A973DC-94CC-441A-8924-B81EDEC355AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure", "MailSecure\MailSecure.csproj", "{15728759-A11D-4C3F-9683-A4807DF8D786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure.Core", "MailSecure.Core\MailSecure.Core.csproj", "{A47AAE88-2F39-4955-957C-03A36F49EDC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure.Utils", "MailSecure.Utils\MailSecure.Utils.csproj", "{8BB1C827-0033-413B-943B-51F0BFC6532A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|ARM = Debug|ARM
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|ARM = Release|ARM
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|ARM.Build.0 = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|x64.Build.0 = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Debug|x86.Build.0 = Debug|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|ARM.ActiveCfg = Release|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|ARM.Build.0 = Release|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|x64.ActiveCfg = Release|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|x64.Build.0 = Release|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|x86.ActiveCfg = Release|Any CPU
-		{06A973DC-94CC-441A-8924-B81EDEC355AA}.Release|x86.Build.0 = Release|Any CPU
+		{15728759-A11D-4C3F-9683-A4807DF8D786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15728759-A11D-4C3F-9683-A4807DF8D786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15728759-A11D-4C3F-9683-A4807DF8D786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15728759-A11D-4C3F-9683-A4807DF8D786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A47AAE88-2F39-4955-957C-03A36F49EDC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A47AAE88-2F39-4955-957C-03A36F49EDC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A47AAE88-2F39-4955-957C-03A36F49EDC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A47AAE88-2F39-4955-957C-03A36F49EDC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB1C827-0033-413B-943B-51F0BFC6532A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB1C827-0033-413B-943B-51F0BFC6532A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB1C827-0033-413B-943B-51F0BFC6532A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB1C827-0033-413B-943B-51F0BFC6532A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
