@@ -71,6 +71,18 @@ namespace MailSecure
             return File.Exists(filePath);
         }
 
+        public static bool IsFileEmpty()
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
+            string filePath = folderPath + "\\" + AppConst.USER_CONFIG_FILE_NAME;
+
+            if (new FileInfo(filePath).Length == 0) {
+                return true;
+            }
+
+            return false;
+        }
+
         public static bool CheckIfFolderExist()
         {
             string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);

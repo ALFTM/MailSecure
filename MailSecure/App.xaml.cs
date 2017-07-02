@@ -73,6 +73,11 @@ namespace MailSecure
                 await Task.Delay(200);
             }
 
+            splashScreen.SetProgress(1.5, 4);
+            if(BinaryMCSFileManager.IsFileEmpty()) {
+                canGetUser = false;
+            }
+
             await Task.Delay(500);
 
             splashScreen.SetProgress(2);
