@@ -16,17 +16,20 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="messageCryptedLabel" Content="Message Crypté :" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0"/>
             <TextBox x:Name="messageCryptedTextBox" Margin="5,5,5,5"  Grid.Column="1" />
+            <Label x:Name="filesLabel" Content="" HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Column="2"/>
+            <Button x:Name="findFileButton" Content="Parcourir" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="findFileButton_Click"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="passwordLabel" Content="Mot de passe :" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0"/>
             <TextBox x:Name="passwordTextBox" Grid.Column="1" Margin="5,0,5,0" VerticalAlignment="Center"/>
@@ -34,11 +37,13 @@
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="messageDecryptedLabel" Content="Message Décrypté :" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0"/>
             <TextBox x:Name="messageDecryptedTextBox" Margin="5,5,5,5" Grid.Column="1" />
+            <Button x:Name="saveFileButton" Content="Enregistrer" Grid.Column="2" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Click="saveFileButton_Click"/>
         </Grid>        
     </Grid>
 </UserControl>

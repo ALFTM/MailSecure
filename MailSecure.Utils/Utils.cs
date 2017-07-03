@@ -15,5 +15,10 @@ namespace MailSecure
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        public static string GetFileNameFromPath(string path)
+        {
+            return path.Substring(path.LastIndexOf('\\') + 1);
+        }
     }
 }

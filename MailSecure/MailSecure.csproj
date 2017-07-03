@@ -59,8 +59,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Constants\AppConst.cs" />
-    <Compile Include="Constants\ServerFactConst.cs" />
     <Compile Include="EmailManagement\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>

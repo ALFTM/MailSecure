@@ -1,4 +1,7 @@
-﻿using System.Net.Mail;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
+using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,6 +13,8 @@ namespace MailSecure.UserControls
     public partial class SendMessage : UserControl
     {
         MailSender mailSender;
+        private string fileToEncrypt;
+
         public SendMessage()
         {
             InitializeComponent();
@@ -26,6 +31,16 @@ namespace MailSecure.UserControls
             string body = messageCryted;
 
             MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.email, to, subject, body);
+            if (string.IsNullOrEmpty(fileToEncrypt) == false)
+            {
+                byte[] byteArray = Encryption.EncryptFile(fileToEncrypt, "", randomPassword);
+                string filePath = AppDomain.CurrentDomain.BaseDirectory + "\\" + fileLabel.Content;
+                FileStream fs = new FileStream(filePath, FileMode.CreateNew);
+                fs.Write(byteArray, 0, byteArray.Length);
+                fs.Flush();
+                fs.Close();
+                mail.Attachments.Add(new Attachment(filePath));
+            }
             mailSender.setMailMessage(mail);
             mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
             
@@ -44,6 +59,18 @@ namespace MailSecure.UserControls
             //login.Show();
         }
 
-        
+        private void attachmentButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileToLoad = new OpenFileDialog();
+            fileToLoad.Filter = "All Files (*.*)|*.*";
+            fileToLoad.FilterIndex = 1;
+            fileToLoad.Multiselect = false;
+
+            if (fileToLoad.ShowDialog() == true)
+            {
+                fileToEncrypt = fileToLoad.FileName;
+                fileLabel.Content = Utils.GetFileNameFromPath(fileToLoad.FileName);
+            }
+        }
     }
 }

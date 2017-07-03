@@ -24,7 +24,7 @@ namespace MailSecure
             userFacts.login = this.loginTextBox.Text;
             userFacts.smtpAdress = this.smtpServerTextBox.Text;
             userFacts.email = this.userEmailTextBox.Text;
-
+            
             bool res = BinaryMCSFileManager.WriteStructInFile(userFacts);
 
             if(res)
