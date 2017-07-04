@@ -39,7 +39,7 @@ namespace MailSecure.UserControls
                 string destPath = fileLabel.Content + ".lock";
                 FileEncryption fileEncryption = new FileEncryption();
 
-                fileEncryption.EncryptFile(filePath, destPath, randomPassword);
+                fileEncryption.EncryptFile(fileToEncrypt, destPath, randomPassword);
                 mail.Attachments.Add(new Attachment(destPath));
             }
             mailSender.setMailMessage(mail);
