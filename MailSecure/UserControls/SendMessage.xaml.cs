@@ -4,6 +4,8 @@ using System.IO;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
+using MailSecure.Security;
+using MailSecure.Core;
 
 namespace MailSecure.UserControls
 {

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Security.Cryptography;
-
+using MailSecure.Core;
 
 namespace MailSecure
 {

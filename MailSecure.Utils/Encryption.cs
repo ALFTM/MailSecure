@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MailSecure
+namespace MailSecure.Security
 {
     public class Encryption
     {
