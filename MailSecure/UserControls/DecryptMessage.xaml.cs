@@ -28,25 +28,20 @@ namespace MailSecure.UserControls
             
             if (fileToDecrypt != null)
             {
-                byte[] byteArray = Encryption.DecryptFile((FileStream)fileToDecrypt, passwordTextBox.Text);
-                if (byteArray != null)
-                {
-                    Stream decryptedFile;
-                    SaveFileDialog saveFileDialog = new SaveFileDialog();
-                    saveFileDialog.Filter = "All files(*.*)|(*.*)";
-                    saveFileDialog.FilterIndex = 1;
-                    saveFileDialog.RestoreDirectory = true;
+                string destPath = "";
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "All files(*.*)|(*.*)";
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.RestoreDirectory = true;
 
-                    if(saveFileDialog.ShowDialog() == true)
-                    {
-                        if((decryptedFile = saveFileDialog.OpenFile()) != null)
-                        {
-                            decryptedFile.Write(byteArray, 0, byteArray.Length);
-                            decryptedFile.Flush();
-                            decryptedFile.Close();
-                        }
-                    }
+                if(saveFileDialog.ShowDialog() == true)
+                {
+                    destPath = saveFileDialog.FileName;
                 }
+
+                FileEncryption fileEncryption = new FileEncryption();
+
+                fileEncryption.DecryptFile(filesLabel.Content.ToString(), destPath, passwordTextBox.Text);
             }
         }
 

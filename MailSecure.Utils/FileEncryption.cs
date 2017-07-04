@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace MailSecure.Security
 {
-    class FileEncryption
+    public class FileEncryption
     {
         public readonly byte[] salt = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }; // Must be at least eight bytes.  MAKE THIS SALTIER!
         public const int iterations = 1042; // Recommendation is >= 1000.
@@ -16,7 +16,7 @@ namespace MailSecure.Security
         /// <param name="password">The password for the decryption.</param>
         /// <param name="salt">The salt to be applied to the password.</param>
         /// <param name="iterations">The number of iterations Rfc2898DeriveBytes should use before generating the key and initialization vector for the decryption.</param>
-        public void DecryptFile(string sourceFilename, string destinationFilename, string password, byte[] salt, int iterations)
+        public void DecryptFile(string sourceFilename, string destinationFilename, string password)
         {
             AesManaged aes = new AesManaged();
             aes.BlockSize = aes.LegalBlockSizes[0].MaxSize;
@@ -51,7 +51,7 @@ namespace MailSecure.Security
         /// <param name="password">The password for the encryption.</param>
         /// <param name="salt">The salt to be applied to the password.</param>
         /// <param name="iterations">The number of iterations Rfc2898DeriveBytes should use before generating the key and initialization vector for the decryption.</param>
-        public void EncryptFile(string sourceFilename, string destinationFilename, string password, byte[] salt, int iterations)
+        public void EncryptFile(string sourceFilename, string destinationFilename, string password)
         {
             AesManaged aes = new AesManaged();
             aes.BlockSize = aes.LegalBlockSizes[0].MaxSize;

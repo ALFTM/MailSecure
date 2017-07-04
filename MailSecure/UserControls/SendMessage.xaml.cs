@@ -35,13 +35,12 @@ namespace MailSecure.UserControls
             MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.email, to, subject, body);
             if (string.IsNullOrEmpty(fileToEncrypt) == false)
             {
-                byte[] byteArray = Encryption.EncryptFile(fileToEncrypt, "", randomPassword);
                 string filePath = AppDomain.CurrentDomain.BaseDirectory + "\\" + fileLabel.Content;
-                FileStream fs = new FileStream(filePath, FileMode.CreateNew);
-                fs.Write(byteArray, 0, byteArray.Length);
-                fs.Flush();
-                fs.Close();
-                mail.Attachments.Add(new Attachment(filePath));
+                string destPath = fileLabel.Content + ".lock";
+                FileEncryption fileEncryption = new FileEncryption();
+
+                fileEncryption.EncryptFile(filePath, destPath, randomPassword);
+                mail.Attachments.Add(new Attachment(destPath));
             }
             mailSender.setMailMessage(mail);
             mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
