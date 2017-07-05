@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure", "MailSecure\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure.Core", "MailSecure.Core\MailSecure.Core.csproj", "{A47AAE88-2F39-4955-957C-03A36F49EDC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure.Utils", "MailSecure.Utils\MailSecure.Utils.csproj", "{8BB1C827-0033-413B-943B-51F0BFC6532A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSecure.Security", "MailSecure.Utils\MailSecure.Security.csproj", "{8BB1C827-0033-413B-943B-51F0BFC6532A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

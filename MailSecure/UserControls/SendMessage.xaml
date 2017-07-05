@@ -16,5 +16,7 @@
         <TextBox x:Name="objectTextBox" Height="23" Margin="122,75.92,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="messageTextBox" Margin="122,106.88,10,112.706" TextWrapping="Wrap"/>
         <Button x:Name="loginButton" Content="login" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Click="loginBtn"/>
+        <Label x:Name="fileLabel" Content="" HorizontalAlignment="Left" Margin="122,215,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="attachmentButton" Content="Joindre un Fichier" HorizontalAlignment="Left" Margin="186,206,0,0" VerticalAlignment="Top" Width="104" Height="44" Click="attachmentButton_Click"/>
     </Grid>
 </UserControl>

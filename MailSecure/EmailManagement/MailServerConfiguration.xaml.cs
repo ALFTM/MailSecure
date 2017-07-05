@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Security.Cryptography;
-
+using MailSecure.Core;
 
 namespace MailSecure
 {
@@ -24,7 +24,7 @@ namespace MailSecure
             userFacts.login = this.loginTextBox.Text;
             userFacts.smtpAdress = this.smtpServerTextBox.Text;
             userFacts.email = this.userEmailTextBox.Text;
-
+            
             bool res = BinaryMCSFileManager.WriteStructInFile(userFacts);
 
             if(res)

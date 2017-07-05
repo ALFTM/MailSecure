@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Security;
 using System.Security.Cryptography;
 
-namespace MailSecure {
+namespace MailSecure.Core {
 
     public class MailSender {
         public string server { get; set; }

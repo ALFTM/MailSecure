@@ -1,4 +1,4 @@
-﻿namespace MailSecure
+﻿namespace MailSecure.Core
 {
     public static class AppConst
     {
