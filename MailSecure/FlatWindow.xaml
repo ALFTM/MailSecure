@@ -74,7 +74,7 @@
 
                                         <!-- App Icon -->
                                         <Button Style="{StaticResource SystemIconButton}" Grid.Column="0" Padding="8" Command="{Binding MenuCommand}">
-                                            <Image Source="pack://application:,,,/Media/Icon/logo_256.png"></Image>
+                                            <Image Source="pack://application:,,,/Media/Icon/logo_neg.png"></Image>
                                         </Button>
 
                                         <!-- App Title -->
