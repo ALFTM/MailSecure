@@ -12,7 +12,7 @@ namespace MailSecure.UserControls
     public partial class DecryptMessage : UserControl
     {
         private Stream fileToDecrypt;
-        private Stream fileDecrypted;
+        private string fullPath;
 
         public DecryptMessage()
         {
@@ -21,6 +21,12 @@ namespace MailSecure.UserControls
 
         private void decryptMessageButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(passwordTextBox.Text))
+            {
+                MessageBox.Show("Entrer le mot de passe.");
+                return;
+            }
+
             if (!string.IsNullOrEmpty(messageCryptedTextBox.Text))
             {
                 messageDecryptedTextBox.Text = Encryption.Decrypt(messageCryptedTextBox.Text, passwordTextBox.Text);
@@ -41,7 +47,7 @@ namespace MailSecure.UserControls
 
                 FileEncryption fileEncryption = new FileEncryption();
 
-                fileEncryption.DecryptFile(filesLabel.Content.ToString(), destPath, passwordTextBox.Text);
+                fileEncryption.DecryptFile(fullPath, destPath, passwordTextBox.Text);
             }
         }
 
@@ -56,6 +62,7 @@ namespace MailSecure.UserControls
             {
                 fileToDecrypt = new FileStream(fileToLoad.FileName, FileMode.Open, FileAccess.Read);
                 filesLabel.Content = Utils.GetFileNameFromPath(fileToLoad.FileName);
+                fullPath = fileToLoad.FileName;
             }
         }
 
@@ -69,7 +76,7 @@ namespace MailSecure.UserControls
             if (saveFileDialog.FileName != "")
             {
                 FileStream fs = (FileStream) saveFileDialog.OpenFile();
-                fileDecrypted.CopyTo(fs);
+                //fileDecrypted.CopyTo(fs);
             }
         }
     }
