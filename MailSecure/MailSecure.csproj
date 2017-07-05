@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>app-logo.ico</ApplicationIcon>
+    <ApplicationIcon>Media\Icon\app-logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -153,11 +153,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\logo_256.png" />
-    <Resource Include="Images\OptionButton.png" />
+    <Resource Include="Media\logo_256.png" />
+    <Resource Include="Media\OptionButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="app-logo.ico" />
+    <Resource Include="Media\Icon\app-logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MailSecure.Core\MailSecure.Core.csproj">
