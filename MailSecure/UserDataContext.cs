@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using MailSecure.Core;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace MailSecure

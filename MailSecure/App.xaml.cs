@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
+using MailSecure.Core;
 
 namespace MailSecure
 {
@@ -71,6 +67,11 @@ namespace MailSecure
                 splashScreen.SetProgress(1.5);
                 BinaryMCSFileManager.CreateConfigFile();
                 await Task.Delay(200);
+            }
+
+            splashScreen.SetProgress(1.5, 4);
+            if(BinaryMCSFileManager.IsFileEmpty()) {
+                canGetUser = false;
             }
 
             await Task.Delay(500);
