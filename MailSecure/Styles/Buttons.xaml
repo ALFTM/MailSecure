@@ -167,12 +167,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
-                    <Grid>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <Image Source="pack://application:,,,/Media/sent.png" Margin="6"/>
-                            <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                        </StackPanel>
-                    </Grid>
+                    <Border x:Name="border"
+                            CornerRadius="0"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="Transparent" 
+                            SnapsToDevicePixels="True">
+                        <Grid x:Name="grid">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="pack://application:,,,/Media/sent.png" Margin="6"/>
+                                <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
@@ -202,12 +208,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
-                    <Grid>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <Image Source="pack://application:,,,/Media/unlock.png" Margin="6"/>
-                            <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                        </StackPanel>
-                    </Grid>
+                    <Border x:Name="border"
+                            CornerRadius="0"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="Transparent" 
+                            SnapsToDevicePixels="True">
+                        <Grid  x:Name="grid">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="pack://application:,,,/Media/unlock.png" Margin="6"/>
+                                <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
@@ -237,12 +249,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
-                    <Grid>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <Image Source="pack://application:,,,/Media/about.png" Margin="6"/>
-                            <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                        </StackPanel>
-                    </Grid>
+                    <Border x:Name="border"
+                            CornerRadius="0"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="Transparent" 
+                            SnapsToDevicePixels="True">
+                        <Grid  x:Name="grid">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="pack://application:,,,/Media/about.png" Margin="6"/>
+                                <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>

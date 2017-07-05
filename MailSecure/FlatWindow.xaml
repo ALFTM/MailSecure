@@ -119,5 +119,12 @@
 
     <Grid Background="{StaticResource PrimaryBrush}">
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <local:SideMenu Grid.Column="0" />
+
     </Grid>
 </Window>
