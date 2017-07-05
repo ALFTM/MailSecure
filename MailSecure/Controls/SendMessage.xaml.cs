@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using MailSecure.Security;
 using MailSecure.Core;
 
-namespace MailSecure.UserControls
+namespace MailSecure
 {
     /// <summary>
     /// Logique d'interaction pour SendMessage.xaml

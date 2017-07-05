@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using MailSecure.Security;
 
-namespace MailSecure.UserControls
+namespace MailSecure
 {
     /// <summary>
     /// Logique d'interaction pour DecryptMessage.xaml
