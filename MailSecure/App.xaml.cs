@@ -35,15 +35,18 @@ namespace MailSecure
 
 
             MainWindow = new MainWindow();
+            FlatWindow FlatWindow = new FlatWindow();
             // Shortest loading
 
             if (!await this.ShortLoading()) {
-                MainWindow.Show();
+               // MainWindow.Show();
+                FlatWindow.Show();
                 MailServerConfigurationWindow mailConfigurationWindow = new MailServerConfigurationWindow();
                 mailConfigurationWindow.Show();
             }
             else {
-                MainWindow.Show();
+                //MainWindow.Show();
+                FlatWindow.Show();
             }
 
             splashScreen.Close();

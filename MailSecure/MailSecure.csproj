@@ -66,6 +66,9 @@
     <Compile Include="EmailManagement\MailServerConfiguration.xaml.cs">
       <DependentUpon>MailServerConfiguration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FlatWindow.xaml.cs">
+      <DependentUpon>FlatWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LanguageManager.cs" />
     <Compile Include="PasswordPopup.xaml.cs">
       <DependentUpon>PasswordPopup.xaml</DependentUpon>
@@ -83,6 +86,8 @@
       <DependentUpon>SendMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserDataContext.cs" />
+    <Compile Include="ViewModel\WIndowViewModel.cs" />
+    <Compile Include="WindowResizer.cs" />
     <Page Include="EmailManagement\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +95,10 @@
     <Page Include="EmailManagement\MailServerConfiguration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FlatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -108,6 +117,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SplashScreen\SplashScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Texts.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -144,6 +169,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx" />
     <EmbeddedResource Include="Resources\Global.fr.resx" />
+    <Resource Include="Media\Fonts\Roboto-Black.ttf" />
+    <Resource Include="Media\Fonts\Roboto-BlackItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Bold.ttf" />
+    <Resource Include="Media\Fonts\Roboto-BoldItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Italic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Light.ttf" />
+    <Resource Include="Media\Fonts\Roboto-LightItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Medium.ttf" />
+    <Resource Include="Media\Fonts\Roboto-MediumItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Regular.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Thin.ttf" />
+    <Resource Include="Media\Fonts\Roboto-ThinItalic.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,7 +190,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Media\logo_256.png" />
+    <Resource Include="Media\Icon\logo_256.png" />
     <Resource Include="Media\OptionButton.png" />
   </ItemGroup>
   <ItemGroup>
@@ -169,5 +206,6 @@
       <Name>MailSecure.Security</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
