@@ -16,11 +16,11 @@
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width=".6*" />
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Source="pack://application:,,,/Media/Icon/logo_256.png" MaxHeight="80" MaxWidth="80" HorizontalAlignment="Left"/>
-            <TextBlock Grid.Column="1" Text="Mail Secure" FontFamily="{StaticResource RobotoRegular}" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="0" Text="Mail Secure" FontFamily="{StaticResource RobotoRegular}" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Image Grid.Column="1" Source="pack://application:,,,/Media/Icon/logo_256.png" MaxHeight="50" MaxWidth="64" HorizontalAlignment="Left"/>
         </Grid>
 
         <StackPanel Height="Auto" Grid.Row="1" Background="{StaticResource PrimaryDarkBrush}" Orientation="Vertical">
