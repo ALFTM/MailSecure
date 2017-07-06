@@ -17,7 +17,6 @@
             <Image Name="Option" Height="40" Source="Images/OptionButton.png" MouseLeftButtonDown="Option_UC" />
         </StackPanel>
         <Grid Grid.Column="1" Name="GridContent">
-
         </Grid>
     </Grid>
 </Window>

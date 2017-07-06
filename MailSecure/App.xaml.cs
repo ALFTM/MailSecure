@@ -38,7 +38,6 @@ namespace MailSecure
             // Shortest loading
 
             if (!await this.ShortLoading()) {
-               // MainWindow.Show();
                 MainWindow.Show();
                 MailServerConfigurationWindow mailConfigurationWindow = new MailServerConfigurationWindow();
                 mailConfigurationWindow.Show();
