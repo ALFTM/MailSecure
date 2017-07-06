@@ -25,6 +25,7 @@ namespace MailSecure
         public ICommand OpenSettingCommand { get; set; }
         public ICommand OpenSendingMailCommand { get; set; }
         public ICommand OpenUnlockCommand { get; set; }
+        public ICommand OpenAboutCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -37,6 +38,7 @@ namespace MailSecure
             OpenSettingCommand = new RelayCommand(() => OpenSettingWindow());
             OpenSendingMailCommand = new RelayCommand(() => ChangeCurrentPage(PageType.SendingPage));
             OpenUnlockCommand = new RelayCommand(() => ChangeCurrentPage(PageType.UnlockPage));
+            OpenAboutCommand = new RelayCommand(() => OpenAboutWindow());
         }
         #endregion
 
@@ -46,6 +48,12 @@ namespace MailSecure
         {
             ChangeCurrentPage(PageType.SettingPage);
             MailServerConfigurationWindow window = new MailServerConfigurationWindow();
+            window.ShowDialog();
+        }
+
+        private void OpenAboutWindow()
+        {
+            AboutWindow window = new AboutWindow();
             window.ShowDialog();
         }
 
