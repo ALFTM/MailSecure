@@ -89,6 +89,7 @@
       <DependentUpon>SendMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserDataContext.cs" />
+    <Compile Include="ViewModel\SideMenuViewModel.cs" />
     <Compile Include="ViewModel\WIndowViewModel.cs" />
     <Compile Include="WindowResizer.cs" />
     <Page Include="Controls\SideMenu.xaml">

@@ -10,6 +10,7 @@ namespace MailSecure
         public SideMenu()
         {
             InitializeComponent();
+            DataContext = new SideMenuViewModel();
         }
     }
 }

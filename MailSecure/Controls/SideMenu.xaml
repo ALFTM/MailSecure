@@ -30,7 +30,7 @@
         <StackPanel Height="Auto" Grid.Row="1" Background="{StaticResource PrimaryDarkBrush}" Orientation="Vertical">
             <Button Style="{StaticResource SentMenuButton}" Content="Sent Mail" Margin="0,0,0,5"  />
             <Button Style="{StaticResource UnlockMenuButton}" Content="Unlock Mail" Margin="0,0,0,5" />
-            <Button Style="{StaticResource SettingButton}" Content="Settings" Margin="0,0,0,5" />
+            <Button Style="{StaticResource SettingButton}" Content="Settings" Margin="0,0,0,5" Command="{Binding OpenSettingCommand}" />
             <Button Style="{StaticResource AboutButton}" Content="About MailSecure ?" Margin="0,0,0,5" />
         </StackPanel>
     </Grid>
