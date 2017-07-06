@@ -163,7 +163,7 @@
     <Style TargetType="{x:Type Button}" x:Key="SentMenuButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="Height" Value="42" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -173,10 +173,23 @@
                             Background="{StaticResource PrimaryDarkBrush}" 
                             SnapsToDevicePixels="True">
                         <Grid x:Name="grid">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="pack://application:,,,/Media/sent.png" Margin="6"/>
-                                <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                            </StackPanel>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Image Grid.Column="0" Source="pack://application:,,,/Media/sent.png"
+                                   MaxHeight="20"
+                                   Opacity=".6"
+                                   Margin="6"
+                                   HorizontalAlignment="Right"/>
+                            <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
+                                       FontFamily="{StaticResource RobotoThin}"
+                                       Opacity=".6"
+                                       Margin="50 0"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Left"
+                                       Foreground="White" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -204,7 +217,7 @@
     <Style TargetType="{x:Type Button}" x:Key="UnlockMenuButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="Height" Value="42" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -213,11 +226,24 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{StaticResource PrimaryDarkBrush}" 
                             SnapsToDevicePixels="True">
-                        <Grid  x:Name="grid">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="pack://application:,,,/Media/unlock.png" Margin="6"/>
-                                <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                            </StackPanel>
+                        <Grid x:Name="grid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="pack://application:,,,/Media/unlock.png" 
+                                   MaxHeight="20"
+                                   Opacity=".6"
+                                   Margin="6" 
+                                   HorizontalAlignment="Right"/>
+                            <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
+                                       FontFamily="{StaticResource RobotoThin}"
+                                       Opacity=".6"
+                                       Margin="50 0"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Left"
+                                       Foreground="White" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -245,7 +271,7 @@
     <Style TargetType="{x:Type Button}" x:Key="AboutButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="Height" Value="42" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -254,11 +280,24 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{StaticResource PrimaryDarkBrush}" 
                             SnapsToDevicePixels="True">
-                        <Grid  x:Name="grid">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="pack://application:,,,/Media/about.png" Margin="6"/>
-                                <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                            </StackPanel>
+                        <Grid x:Name="grid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="pack://application:,,,/Media/about.png" 
+                                   MaxHeight="20"
+                                   Opacity=".6"
+                                   Margin="6" 
+                                   HorizontalAlignment="Right"/>
+                            <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
+                                       FontFamily="{StaticResource RobotoThin}" 
+                                       Opacity=".6"
+                                       Margin="50 0"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Left"
+                                       Foreground="White" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -286,7 +325,7 @@
     <Style TargetType="{x:Type Button}" x:Key="SettingButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="Height" Value="42" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -295,11 +334,24 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{StaticResource PrimaryDarkBrush}" 
                             SnapsToDevicePixels="True">
-                        <Grid  x:Name="grid">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="pack://application:,,,/Media/setting.png" Margin="6"/>
-                                <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource RobotoThin}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                            </StackPanel>
+                        <Grid x:Name="grid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="pack://application:,,,/Media/setting.png" 
+                                   MaxHeight="20"
+                                   Opacity=".6"
+                                   Margin="6" 
+                                   HorizontalAlignment="Right"/>
+                            <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
+                                       FontFamily="{StaticResource RobotoThin}" 
+                                       Opacity=".6"
+                                       Margin="50 0"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Left"
+                                       Foreground="White" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

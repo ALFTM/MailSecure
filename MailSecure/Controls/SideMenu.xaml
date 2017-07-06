@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSecure"
              mc:Ignorable="d" 
-             MaxWidth="250"
-             MinWidth="200"
-             d:DesignHeight="400" d:DesignWidth="250">
+             MaxWidth="275"
+             MinWidth="275"
+             d:DesignHeight="400" d:DesignWidth="275">
     <Grid Background="{StaticResource PrimaryDarkBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height=".6*"/>
@@ -19,15 +19,19 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width=".6*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Mail Secure" FontFamily="{StaticResource RobotoRegular}" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="0" Text="Mail Secure" 
+                       FontFamily="{StaticResource RobotoRegular}" 
+                       FontSize="20" Foreground="White" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Opacity="0.6"/>
             <Image Grid.Column="1" Source="pack://application:,,,/Media/Icon/logo_256.png" MaxHeight="50" MaxWidth="64" HorizontalAlignment="Left"/>
         </Grid>
 
         <StackPanel Height="Auto" Grid.Row="1" Background="{StaticResource PrimaryDarkBrush}" Orientation="Vertical">
-            <Button Style="{StaticResource SentMenuButton}" Content="Sent Mail"  />
-            <Button Style="{StaticResource UnlockMenuButton}" Content="Unlock Mail"  />
-            <Button Style="{StaticResource SettingButton}" Content="Settings"  />
-            <Button Style="{StaticResource AboutButton}" Content="About MailSecure ?" />
+            <Button Style="{StaticResource SentMenuButton}" Content="Sent Mail" Margin="0,0,0,5"  />
+            <Button Style="{StaticResource UnlockMenuButton}" Content="Unlock Mail" Margin="0,0,0,5" />
+            <Button Style="{StaticResource SettingButton}" Content="Settings" Margin="0,0,0,5" />
+            <Button Style="{StaticResource AboutButton}" Content="About MailSecure ?" Margin="0,0,0,5" />
         </StackPanel>
     </Grid>
     
