@@ -117,7 +117,7 @@
 
     </WindowChrome.WindowChrome>
 
-    <Grid Background="{StaticResource PrimaryBrush}">
+    <Grid Background="{StaticResource BackgroundBrush}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".4*" />

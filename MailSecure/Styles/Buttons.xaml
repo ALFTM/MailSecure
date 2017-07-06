@@ -74,7 +74,7 @@
         </Style.Triggers>
     </Style>
 
-    <!-- Action Buttin -->
+    <!-- Action Button -->
     <Style TargetType="{x:Type Button}" x:Key="ActionButton" BasedOn="{StaticResource BaseStyle}">
 
         <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
@@ -170,7 +170,7 @@
                     <Border x:Name="border"
                             CornerRadius="0"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="Transparent" 
+                            Background="{StaticResource PrimaryDarkBrush}" 
                             SnapsToDevicePixels="True">
                         <Grid x:Name="grid">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -183,14 +183,14 @@
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource Primary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation From="{StaticResource Primary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation From="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -211,7 +211,7 @@
                     <Border x:Name="border"
                             CornerRadius="0"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="Transparent" 
+                            Background="{StaticResource PrimaryDarkBrush}" 
                             SnapsToDevicePixels="True">
                         <Grid  x:Name="grid">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -224,14 +224,14 @@
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource Primary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation From="{StaticResource Primary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation From="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -252,7 +252,7 @@
                     <Border x:Name="border"
                             CornerRadius="0"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="Transparent" 
+                            Background="{StaticResource PrimaryDarkBrush}" 
                             SnapsToDevicePixels="True">
                         <Grid  x:Name="grid">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -265,14 +265,14 @@
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource Primary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation From="{StaticResource Primary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation From="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
