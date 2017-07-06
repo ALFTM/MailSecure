@@ -223,5 +223,8 @@
   <ItemGroup>
     <Resource Include="Media\about.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\setting.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

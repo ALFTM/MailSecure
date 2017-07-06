@@ -120,7 +120,7 @@
     <Grid Background="{StaticResource BackgroundBrush}">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".4*" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
