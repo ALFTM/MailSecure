@@ -126,5 +126,6 @@
 
         <local:SideMenu Grid.Column="0" />
 
+        <Frame Name="currentFrame" Grid.Column="1"/>
     </Grid>
 </Window>
