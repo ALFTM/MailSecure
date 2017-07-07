@@ -73,6 +73,9 @@
       <DependentUpon>FlatWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LanguageManager.cs" />
+    <Compile Include="Pages\SendingPage.xaml.cs">
+      <DependentUpon>SendingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\SendingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -126,6 +126,6 @@
 
         <local:SideMenu Grid.Column="0" />
 
-        <Frame Name="currentFrame" Grid.Column="1"/>
+        <Frame Name="currentFrame" Grid.Column="1" Source="Pages/SendingPage.xaml"/>
     </Grid>
 </Window>

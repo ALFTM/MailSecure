@@ -1,0 +1,79 @@
+﻿<Page x:Class="MailSecure.SendingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MailSecure"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="SendingPage">
+
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <!--From Section -->
+            <RowDefinition Height="Auto" />
+            <!--To Section -->
+            <RowDefinition Height="Auto" />
+            <!--Object Section -->
+            <RowDefinition Height="Auto" />
+            <!--Content Section -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--From Section -->
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <!-- Label -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Text Box -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Label -->
+            <TextBlock Grid.Column="0" 
+                       Text="De :"
+                       Foreground="White"
+                       Opacity=".6"/>
+
+            <!-- Text Box -->
+            <TextBox Grid.Column="1" Background="{StaticResource BackgroundBrush}" BorderThickness="0">
+
+            </TextBox>
+
+
+        </Grid>
+
+        <!--To Section -->
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <!-- Label -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Text Box -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Label -->
+            <TextBlock Grid.Column="0" 
+                       Text="A :"
+                       Foreground="White"
+                       Opacity=".6"/>
+
+            <!-- Text Box -->
+            <TextBox Grid.Column="1" Background="{StaticResource BackgroundBrush}" BorderThickness="0">
+
+            </TextBox>
+
+
+        </Grid>
+
+        <!--Object Section -->
+
+        <Grid Grid.Row="2" Background="{StaticResource BackgroundBrush}">
+            <!-- overlay with hint text -->
+            <TextBlock Text="Object" Foreground="LightSteelBlue" Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty}" />
+            <!-- enter term here -->
+            <TextBox Name="txtSearchBox" Background="Transparent" BorderThickness="0" />
+        </Grid>
+
+    </Grid>
+</Page>
