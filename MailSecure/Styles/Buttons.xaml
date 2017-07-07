@@ -6,7 +6,7 @@
         <!-- Warning Order is important -->
         <ResourceDictionary Source="Colors.xaml"></ResourceDictionary>
         <ResourceDictionary Source="Fonts.xaml"></ResourceDictionary>
-        
+
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Hoverless -->
@@ -25,7 +25,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!-- Icon System Button -->
     <Style TargetType="{x:Type Button}" x:Key="SystemIconButton" BasedOn="{StaticResource Hoverless}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
@@ -122,7 +122,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!-- Action Red Button -->
     <Style TargetType="{x:Type Button}" x:Key="ActionButtonRed" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{StaticResource SecondaryBrush}" />
@@ -159,6 +159,46 @@
         </Setter>
     </Style>
 
+    <!-- Text Button -->
+    <Style TargetType="{x:Type Button}" x:Key="TextButton" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" CornerRadius="15" 
+                            Background="{StaticResource SecondaryBrush}">
+                        <Grid x:Name="RootGrid">
+                            <ContentPresenter x:Name="ContentPresenter"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            </ContentPresenter>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource SecondaryLight}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation From="{StaticResource SecondaryLight}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!-- Sent Menu Bouton -->
     <Style TargetType="{x:Type Button}" x:Key="SentMenuButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
@@ -170,14 +210,14 @@
                     <Border x:Name="border"
                             CornerRadius="0"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{StaticResource PrimaryDarkBrush}" 
+                            Background="{TemplateBinding Property=Background}" 
                             SnapsToDevicePixels="True">
                         <Grid x:Name="grid">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width=".2*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            
+
                             <Image Grid.Column="0" Source="pack://application:,,,/Media/sent.png"
                                    MaxHeight="20"
                                    Opacity=".6"
@@ -193,14 +233,14 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <EventTrigger RoutedEvent="MouseLeave">
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation From="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
@@ -212,7 +252,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <!-- Unlock Menu Bouton -->
     <Style TargetType="{x:Type Button}" x:Key="UnlockMenuButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
@@ -224,7 +263,7 @@
                     <Border x:Name="border"
                             CornerRadius="0"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{StaticResource PrimaryDarkBrush}" 
+                            Background="{TemplateBinding Background}" 
                             SnapsToDevicePixels="True">
                         <Grid x:Name="grid">
                             <Grid.ColumnDefinitions>
@@ -247,14 +286,14 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <EventTrigger RoutedEvent="MouseLeave">
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation From="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
@@ -266,7 +305,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <!-- About Bouton -->
     <Style TargetType="{x:Type Button}" x:Key="AboutButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
@@ -278,7 +316,7 @@
                     <Border x:Name="border"
                             CornerRadius="0"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{StaticResource PrimaryDarkBrush}" 
+                            Background="{TemplateBinding Background}"  
                             SnapsToDevicePixels="True">
                         <Grid x:Name="grid">
                             <Grid.ColumnDefinitions>
@@ -301,14 +339,14 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <EventTrigger RoutedEvent="MouseLeave">
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation From="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
@@ -320,7 +358,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <!-- Setting Bouton -->
     <Style TargetType="{x:Type Button}" x:Key="SettingButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
@@ -332,7 +369,7 @@
                     <Border x:Name="border"
                             CornerRadius="0"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{StaticResource PrimaryDarkBrush}" 
+                            Background="{TemplateBinding Background}" 
                             SnapsToDevicePixels="True">
                         <Grid x:Name="grid">
                             <Grid.ColumnDefinitions>
@@ -355,14 +392,14 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <EventTrigger RoutedEvent="MouseLeave">
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation From="{StaticResource Secondary}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
@@ -374,6 +411,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 
 </ResourceDictionary>
