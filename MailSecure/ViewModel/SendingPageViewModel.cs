@@ -1,4 +1,6 @@
 ﻿using MailSecure.Core;
+using Microsoft.Win32;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -21,10 +23,13 @@ namespace MailSecure
             }
         }
 
+        public ObservableCollection<string> AttachementsList;
+
         #endregion
 
         #region Commands
         public ICommand DisplayCopyFieldsCommand { get; set; }
+        public ICommand AddAttachementCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -33,7 +38,9 @@ namespace MailSecure
         /// </summary>
         public SendingPageViewModel()
         {
+            AttachementsList = new ObservableCollection<string>();
             DisplayCopyFieldsCommand = new RelayCommand(() => SetCopyVisibility());
+            AddAttachementCommand = new RelayCommand(() => AddAttachement());
         }
         #endregion
 
@@ -41,6 +48,20 @@ namespace MailSecure
         private void SetCopyVisibility()
         {
             CopyFieldVisibility = CopyFieldVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void AddAttachement()
+        {
+            OpenFileDialog fileToLoad = new OpenFileDialog();
+            fileToLoad.Filter = "All Files (*.*)|*.*";
+            fileToLoad.FilterIndex = 1;
+            fileToLoad.Multiselect = true;
+
+            if (fileToLoad.ShowDialog() == true) {
+                for(int i = 0; i < fileToLoad.FileNames.Length; i++) {
+                    AttachementsList.Add(fileToLoad.FileNames[i]);
+                }
+            }
         }
         #endregion
     }

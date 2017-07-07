@@ -268,5 +268,8 @@
   <ItemGroup>
     <Resource Include="Media\github.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\attachement.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
