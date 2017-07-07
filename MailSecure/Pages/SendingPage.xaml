@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MailSecure"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="500" d:DesignWidth="400"
       Title="SendingPage">
 
     <Grid Background="{StaticResource BackgroundBrush}">
@@ -71,6 +71,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <!-- Text Box -->
                     <ColumnDefinition Width="*" />
+                    <!-- Cc & Cci Activation Button -->
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <!-- Label -->
@@ -90,6 +92,11 @@
                          FontSize="20">
 
                 </TextBox>
+
+                <Button Grid.Column="2" Style="{StaticResource TextButton}"
+                        Background="{Binding CopyFieldVisibility}"
+                        Command="{Binding DisplayCopyFieldsCommand}"
+                        Content="Cc &amp; Cci" />
             </Grid>
 
             <Border Grid.Row="1" BorderThickness="0 0 0 1" 
@@ -97,7 +104,7 @@
         </Grid>
 
         <!-- Cc & Cci Section -->
-        <Grid Grid.Row="2" Visibility="Visible">
+        <Grid Grid.Row="2" Visibility="{Binding CopyFieldVisibility}">
             <Grid.RowDefinitions>
                 <!-- Cc Field -->
                 <RowDefinition Height="Auto"/>

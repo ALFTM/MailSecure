@@ -10,6 +10,7 @@ namespace MailSecure
         public SendingPage()
         {
             InitializeComponent();
+            DataContext = new SendingPageViewModel();
         }
     }
 }

@@ -146,6 +146,7 @@
         <Button Style="{StaticResource TextButton}" Grid.Row="2" 
                 Width="100"
                 Margin="5"
+                Background="{StaticResource SecondaryBrush}"
                 Command="{Binding CloseCommand}">
             <TextBlock Text="CLOSE" FontFamily="{StaticResource RobotoThin}">
             </TextBlock>
