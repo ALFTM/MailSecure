@@ -25,21 +25,18 @@
         </RichTextBox>
 
         <!-- The Toolbar-->
-        <Grid Grid.Row="1" Background="White">
-            <StackPanel Orientation="Horizontal">
-                <ToggleButton Command="EditingCommands.ToggleBold" Width="32" Height="32" Name="btnBold">
+        <ToolBar Grid.Row="1" Style="{StaticResource CustomToolbar}" Background="White">
+            <ToggleButton Command="EditingCommands.ToggleBold" Width="32" Height="32" Name="btnBold">
                 <TextBlock FontFamily="{StaticResource RobotoBold}" Text="G" />
-                </ToggleButton>
-                <ToggleButton Command="EditingCommands.ToggleItalic" Width="32" Height="32" Name="btnItalic">
-                    <TextBlock FontFamily="{StaticResource RobotoItalic}" Text="I" />
-                </ToggleButton>
-                <ToggleButton Command="EditingCommands.ToggleUnderline" Width="32" Height="32" Name="btnUnderline">
-                    <TextBlock FontFamily="{StaticResource RobotoRegular}" Text="S" TextDecorations="Underline" />
-                </ToggleButton>
-                <Border Margin="5 0" BorderThickness="0 0 1 0" BorderBrush="{StaticResource PrimaryLightBrush}" />
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
-            </StackPanel>
-
-        </Grid>
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleItalic" Width="32" Height="32" Name="btnItalic">
+                <TextBlock FontFamily="{StaticResource RobotoItalic}" Text="I" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleUnderline" Width="32" Height="32" Name="btnUnderline">
+                <TextBlock FontFamily="{StaticResource RobotoRegular}" Text="S" TextDecorations="Underline" />
+            </ToggleButton>
+            <Separator />
+            <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+        </ToolBar>
     </Grid>
 </UserControl>
