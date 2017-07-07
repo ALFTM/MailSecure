@@ -25,5 +25,9 @@
 
     <Color x:Key="SecondaryDark">#9a0007</Color>
     <SolidColorBrush x:Key="SecondaryDarkBrush" Color="{StaticResource SecondaryDark}"/>
+    
+    <!-- Other Colors-->
+    
+    
 
 </ResourceDictionary>

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSecure"
         mc:Ignorable="d"
-        Title="AboutWindow" Height="350" Width="350"
+        Title="AboutWindow" Height="400" Width="475"
         WindowStyle="None" 
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
+        AllowsTransparency="True" ResizeMode="NoResize">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:FlatWindow}">
@@ -94,7 +94,54 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center" />
 
-        <StackPanel Grid.Row="1" Background="{StaticResource PrimaryDarkBrush}" />
+        <Grid Grid.Row="1" Background="{StaticResource PrimaryDarkBrush}" >
+            <Grid.RowDefinitions>
+                <!-- Spacer -->
+                <RowDefinition Height=".1*"/>
+                <!-- Logo Section-->
+                <RowDefinition Height=".3*"/>
+                <!-- Version Section -->
+                <RowDefinition Height=".1*" />
+                <!-- Spacer -->
+                <RowDefinition Height=".3*"/>
+                <!-- Content Section -->
+                <RowDefinition Height="*" />
+                <!-- Link Section -->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Logo Section-->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="pack://application:,,,/Media/Icon/logo_white_black.png" MaxHeight="128"/>
+                <TextBlock Text="Mail Secure" 
+                           FontFamily="{StaticResource RobotoRegular}"
+                           FontSize="32"
+                           Foreground="White"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            
+            <!-- Version Section -->
+            <TextBlock Grid.Row="2" Text="Version 1.5.0" Foreground="White" HorizontalAlignment="Center" />
+
+            <!-- Content Section -->
+            <StackPanel Grid.Row="4"
+                        Orientation="Vertical">
+                <TextBlock Text="Copyright © 2017 MailSecure." Foreground="White"  HorizontalAlignment="Center" />
+                <Border Height="12" />
+                <TextBlock Text="MailSecure® is made by ALFTM" Foreground="White"  HorizontalAlignment="Center" />
+                <Border Height="34" />
+                <TextBlock Text="Teddy Reino" Foreground="White"  HorizontalAlignment="Center" />
+                <TextBlock Text="Maxime Pelte" Foreground="White"  HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <!-- Link Section -->
+            <TextBlock Grid.Row="5" HorizontalAlignment="Center" Margin="5">
+                    <Hyperlink NavigateUri="https://github.com/ALFTM/MailSecure" RequestNavigate="Hyperlink_RequestNavigate" Foreground="White">
+                        <Image Source="pack://application:,,,/Media/github.png" Stretch="None"/>
+                        GitHub
+                    </Hyperlink>
+            </TextBlock>
+        </Grid>
 
         <Button Style="{StaticResource TextButton}" Grid.Row="2" 
                 Width="100"

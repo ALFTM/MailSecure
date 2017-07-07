@@ -167,9 +167,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="15" 
-                            Background="#388e3c">
-                        <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                    <Border x:Name="border" CornerRadius="15" 
+                            Background="{StaticResource SecondaryBrush}">
+                        <Grid x:Name="RootGrid">
                             <ContentPresenter x:Name="ContentPresenter"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -182,14 +182,14 @@
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource SecondaryDark}" Duration="0:0:0.3" Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="{StaticResource SecondaryLight}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation From="{StaticResource SecondaryDark}" Duration="0:0:0.3" Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation From="{StaticResource SecondaryLight}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>

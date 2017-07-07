@@ -238,6 +238,11 @@
   <ItemGroup>
     <Resource Include="Media\setting.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\Icon\logo_white_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\github.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
