@@ -10,13 +10,22 @@
     <Grid>
         <Grid.RowDefinitions>
             <!-- The Toolbar-->
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <!-- RichBox -->
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <!-- RichBox -->
+        <RichTextBox Grid.Row="0" 
+                     Name="rtbEditor" 
+                     SelectionChanged="rtbEditor_SelectionChanged"
+                     Background="{StaticResource BackgroundBrush}"
+                     Foreground="White">
+            
+        </RichTextBox>
+
         <!-- The Toolbar-->
-        <ToolBar Grid.Row="0">
+        <ToolBar Grid.Row="1">
             <ToggleButton Command="EditingCommands.ToggleBold" Width="32" Height="32" Name="btnBold">
                 <TextBlock FontFamily="{StaticResource RobotoBold}" Text="G" />
             </ToggleButton>
@@ -27,10 +36,5 @@
                 <TextBlock FontFamily="{StaticResource RobotoRegular}" Text="S" TextDecorations="Underline" />
             </ToggleButton>
         </ToolBar>
-        
-        <!-- RichBox -->
-        <RichTextBox Grid.Row="1" Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged">
-            
-        </RichTextBox>
     </Grid>
 </UserControl>
