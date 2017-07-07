@@ -222,6 +222,7 @@
         </Grid>
 
         <!--Content Section -->
+        <local:RichTextBoxControl Grid.Row="4" Margin="20 0"></local:RichTextBoxControl>
 
     </Grid>
 </Page>

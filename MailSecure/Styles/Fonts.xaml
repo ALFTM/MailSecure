@@ -4,6 +4,8 @@
 
     <FontFamily x:Key="RobotoRegular">pack://application:,,,/Media/Fonts/#Roboto</FontFamily>
     <FontFamily x:Key="RobotoThin">pack://application:,,,/Media/Fonts/#Roboto Thin</FontFamily>
+    <FontFamily x:Key="RobotoBold">pack://application:,,,/Media/Fonts/#Roboto Bold</FontFamily>
+    <FontFamily x:Key="RobotoItalic">pack://application:,,,/Media/Fonts/#Roboto Italic</FontFamily>
     
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="{StaticResource RobotoRegular}"></Setter>
