@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Converter\BaseConverter.cs" />
     <Compile Include="Converter\CurrentPageTypeToColor.cs" />
+    <Compile Include="Converter\VisibilityToBoolConverter.cs" />
     <Compile Include="EmailManagement\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>

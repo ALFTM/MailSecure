@@ -14,6 +14,8 @@
             <RowDefinition Height="Auto" />
             <!--To Section -->
             <RowDefinition Height="Auto" />
+            <!-- Cc & Cci Section -->
+            <RowDefinition Height="Auto" />
             <!--Object Section -->
             <RowDefinition Height="Auto" />
             <!--Content Section -->
@@ -21,59 +23,114 @@
         </Grid.RowDefinitions>
 
         <!--From Section -->
-        <Grid Grid.Row="0" >
-            <Grid.ColumnDefinitions>
-                <!-- Label -->
-                <ColumnDefinition Width="Auto"/>
-                <!-- Text Box -->
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Margin="20 10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="5 10">
+                <Grid.ColumnDefinitions>
+                    <!-- Label -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Text Box -->
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <!-- Label -->
-            <TextBlock Grid.Column="0" 
+                <!-- Label -->
+                <TextBlock Grid.Column="0" 
                        Text="De :"
                        Foreground="White"
+                       FontSize="20"
                        Opacity=".6"/>
 
-            <!-- Text Box -->
-            <TextBox Grid.Column="1" Background="{StaticResource BackgroundBrush}" BorderThickness="0">
+                <!-- Text Box -->
+                <TextBox Grid.Column="1" 
+                         Background="{StaticResource BackgroundBrush}"
+                         Foreground="White"
+                         Opacity=".6"
+                         BorderThickness="0"
+                         Margin="5 0"
+                         FontSize="20">
 
-            </TextBox>
+                </TextBox>
+            </Grid>
 
-
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" 
+                    BorderBrush="{DynamicResource PrimaryLightBrush}" />
         </Grid>
 
         <!--To Section -->
-        <Grid Grid.Row="1" >
-            <Grid.ColumnDefinitions>
-                <!-- Label -->
-                <ColumnDefinition Width="Auto"/>
-                <!-- Text Box -->
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Margin="20 10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="5 10">
+                <Grid.ColumnDefinitions>
+                    <!-- Label -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Text Box -->
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <!-- Label -->
-            <TextBlock Grid.Column="0" 
+                <!-- Label -->
+                <TextBlock Grid.Column="0" 
                        Text="A :"
                        Foreground="White"
+                       FontSize="20"
                        Opacity=".6"/>
 
-            <!-- Text Box -->
-            <TextBox Grid.Column="1" Background="{StaticResource BackgroundBrush}" BorderThickness="0">
+                <!-- Text Box -->
+                <TextBox Grid.Column="1" 
+                         Background="{StaticResource BackgroundBrush}"
+                         Foreground="White"
+                         Opacity=".6"
+                         BorderThickness="0"
+                         Margin="5 0"
+                         FontSize="20">
 
-            </TextBox>
+                </TextBox>
+            </Grid>
 
-
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" 
+                    BorderBrush="{DynamicResource PrimaryLightBrush}" />
         </Grid>
 
         <!--Object Section -->
+        <Grid Grid.Row="3" Margin="20 10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="5 10">
+                <Grid.ColumnDefinitions>
+                    <!-- Label -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Text Box -->
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="2" Background="{StaticResource BackgroundBrush}">
-            <!-- overlay with hint text -->
-            <TextBlock Text="Object" Foreground="LightSteelBlue" Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty}" />
-            <!-- enter term here -->
-            <TextBox Name="txtSearchBox" Background="Transparent" BorderThickness="0" />
+                <!-- overlay with hint text -->
+                <TextBlock Grid.Row="0" Text="Object"
+                       Margin="2"
+                       Foreground="White"
+                       Opacity=".6"
+                       FontSize="20"
+                       Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty, Converter={local:VisibilityToBoolConverter}}" />
+                <!-- enter term here -->
+                <TextBox Grid.Row="0"
+                     Name="txtSearchBox" 
+                     Background="Transparent" 
+                     BorderThickness="0"
+                     FontSize="20"
+                     Foreground="White" CaretBrush="White" />
+            </Grid>
+
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" 
+                    BorderBrush="{DynamicResource PrimaryLightBrush}" />
         </Grid>
+
+        <!--Content Section -->
 
     </Grid>
 </Page>
