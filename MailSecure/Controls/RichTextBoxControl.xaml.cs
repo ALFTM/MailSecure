@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -12,6 +13,7 @@ namespace MailSecure
         public RichTextBoxControl()
         {
             InitializeComponent();
+            cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
         }
 
         private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
@@ -27,7 +29,12 @@ namespace MailSecure
             temp = rtbEditor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
             //cmbFontFamily.SelectedItem = temp;
             temp = rtbEditor.Selection.GetPropertyValue(Inline.FontSizeProperty);
-            //cmbFontSize.Text = temp.ToString();
+            cmbFontSize.Text = temp.ToString();
+        }
+
+        private void cmbFontSize_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            rtbEditor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.Text);
         }
     }
 }
