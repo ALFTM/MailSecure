@@ -1,6 +1,8 @@
 ﻿using MailSecure.Core;
+using MailSecure.Security;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -10,6 +12,7 @@ namespace MailSecure
     {
         #region Private members
         private Visibility copyFieldVisibility = Visibility.Collapsed;
+        private Visibility attachementVisibility = Visibility.Collapsed;
         #endregion
 
         #region Public members
@@ -23,7 +26,17 @@ namespace MailSecure
             }
         }
 
-        public ObservableCollection<string> AttachementsList;
+        public Visibility AttachementVisibility
+        {
+            get => copyFieldVisibility;
+            set
+            {
+                copyFieldVisibility = value;
+                OnPropertyChanged(nameof(attachementVisibility));
+            }
+        }
+
+        public ObservableCollection<AttachementsFacts> AttachementsList { get; set; }
 
         #endregion
 
@@ -38,7 +51,7 @@ namespace MailSecure
         /// </summary>
         public SendingPageViewModel()
         {
-            AttachementsList = new ObservableCollection<string>();
+            AttachementsList = new ObservableCollection<AttachementsFacts>();
             DisplayCopyFieldsCommand = new RelayCommand(() => SetCopyVisibility());
             AddAttachementCommand = new RelayCommand(() => AddAttachement());
         }
@@ -59,8 +72,26 @@ namespace MailSecure
 
             if (fileToLoad.ShowDialog() == true) {
                 for(int i = 0; i < fileToLoad.FileNames.Length; i++) {
-                    AttachementsList.Add(fileToLoad.FileNames[i]);
+
+                    var file = fileToLoad.FileNames[i];
+
+                    AttachementsList.Add(new AttachementsFacts() {
+                        FileFullPath = file,
+                        FileName = Utils.GetFileNameFromPath(file),
+                        FileSize = new FileInfo(file).Length 
+                    });
                 }
+
+                CheckIfttachementIsEmpty();
+            }
+        }
+
+        private void CheckIfttachementIsEmpty()
+        {
+            if (AttachementsList.Count == 0) {
+                AttachementVisibility = Visibility.Visible;
+            } else {
+                AttachementVisibility = Visibility.Collapsed;
             }
         }
         #endregion

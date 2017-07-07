@@ -18,6 +18,8 @@
             <RowDefinition Height="Auto" />
             <!--Object Section -->
             <RowDefinition Height="Auto" />
+            <!--Attachements Section -->
+            <RowDefinition Height="Auto" />
             <!--Content Section -->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -221,8 +223,39 @@
                     BorderBrush="{DynamicResource PrimaryLightBrush}" />
         </Grid>
 
+        <!-- Attachements Section -->
+        <Grid Grid.Row="4" Margin="20 10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="5 10">
+                <Grid.ColumnDefinitions>
+                    <!-- Label -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- list Box -->
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Label -->
+                <TextBlock Grid.Column="0" 
+                       Text="Attachement"
+                       Foreground="White"
+                       FontSize="20"
+                       Opacity=".6"/>
+
+
+            </Grid>
+            <!-- Text Box -->
+            <local:AttachementListControl Grid.Row="1" />
+
+            <Border Grid.Row="2" BorderThickness="0 0 0 1" 
+                    BorderBrush="{DynamicResource PrimaryLightBrush}" />
+        </Grid>
+
         <!--Content Section -->
-        <local:RichTextBoxControl Grid.Row="4" Margin="20 0 20 2"></local:RichTextBoxControl>
+        <local:RichTextBoxControl Grid.Row="5" Margin="20 0 20 2"></local:RichTextBoxControl>
 
     </Grid>
 </Page>

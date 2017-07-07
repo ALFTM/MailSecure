@@ -63,6 +63,12 @@
     <Compile Include="About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Attachement\AttachementListControl.xaml.cs">
+      <DependentUpon>AttachementListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Attachement\AttachementListItemControl.xaml.cs">
+      <DependentUpon>AttachementListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RichTextBoxControl.xaml.cs">
       <DependentUpon>RichTextBoxControl.xaml</DependentUpon>
     </Compile>
@@ -112,6 +118,14 @@
     <Compile Include="ViewModel\WIndowViewModel.cs" />
     <Compile Include="WindowResizer.cs" />
     <Page Include="About\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Attachement\AttachementListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Attachement\AttachementListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
