@@ -1,26 +1,11 @@
 ﻿using MailSecure.Core;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MailSecure
 {
-    class SideMenuViewModel : BaseViewModel
+    class SideMenuViewModel : ContextViewModel
     {
-        #region Private members
-        private PageType currentPage;
-        #endregion
-
-        #region Public Members
-        public PageType CurrentPage
-        {
-            get => currentPage;
-            set
-            {
-                currentPage = value;
-                OnPropertyChanged(nameof(currentPage));
-            }
-        }
-        #endregion
-
         #region Commands
         public ICommand OpenSettingCommand { get; set; }
         public ICommand OpenSendingMailCommand { get; set; }

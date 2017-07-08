@@ -73,6 +73,9 @@
     <Compile Include="Controls\Attachement\AttachementListItemControl.xaml.cs">
       <DependentUpon>AttachementListItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Frame.xaml.cs">
+      <DependentUpon>Frame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RichTextBoxControl.xaml.cs">
       <DependentUpon>RichTextBoxControl.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,8 @@
     </Compile>
     <Compile Include="UserDataContext.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\ContextViewModel.cs" />
+    <Compile Include="ViewModel\FrameViewModel.cs" />
     <Compile Include="ViewModel\SendingPageViewModel.cs" />
     <Compile Include="ViewModel\SideMenuViewModel.cs" />
     <Compile Include="ViewModel\WIndowViewModel.cs" />
@@ -132,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Attachement\AttachementListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Frame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
