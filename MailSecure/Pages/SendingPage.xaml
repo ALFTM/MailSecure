@@ -46,15 +46,16 @@
                        Opacity=".6"/>
 
                 <!-- Text Box -->
-                <TextBox Grid.Column="1" 
-                         Background="{StaticResource BackgroundBrush}"
-                         Foreground="White"
-                         Opacity=".6"
-                         BorderThickness="0"
-                         Margin="5 0"
-                         FontSize="20">
+                <TextBlock Grid.Column="1"
+                           DataContext="{x:Static local:App.CurrentUserData}"
+                           Text="{Binding DisplayedName}"
+                           Background="{StaticResource BackgroundBrush}"
+                           Foreground="White"
+                           Opacity=".6"
+                           Margin="5 0"
+                           FontSize="20">
 
-                </TextBox>
+                </TextBlock>
             </Grid>
 
             <Border Grid.Row="1" BorderThickness="0 0 0 1" 
