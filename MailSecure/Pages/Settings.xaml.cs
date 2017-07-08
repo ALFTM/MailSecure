@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MailSecure.Pages
+namespace MailSecure
 {
     /// <summary>
     /// Logique d'interaction pour Settings.xaml

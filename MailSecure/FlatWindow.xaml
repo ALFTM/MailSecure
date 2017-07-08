@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:System="clr-namespace:System;assembly=System"
         xmlns:local="clr-namespace:MailSecure"
         mc:Ignorable="d"
         x:Name="AppWindow"
@@ -126,6 +129,23 @@
 
         <local:SideMenu Grid.Column="0" />
 
-        <Frame Name="currentFrame" Grid.Column="1" Source="Pages/SendingPage.xaml"/>
+        <Frame Name="currentFrame" Grid.Column="1" Source="Pages/SendingPage.xaml">
+            <!--<i:Interaction.Triggers>
+                <ei:DataTrigger Binding="{Binding Path=App.CurrentUserData.CurrentPage}" Value="{x:Static local:PageType.SendingPage}">
+                    <ei:ChangePropertyAction PropertyName="Source">
+                        <ei:ChangePropertyAction.Value>
+                            <System:Uri>Pages/SendingPage.xaml</System:Uri>
+                        </ei:ChangePropertyAction.Value>
+                    </ei:ChangePropertyAction>
+                </ei:DataTrigger>
+                <ei:DataTrigger Binding="{Binding Path=App.CurrentUserData.CurrentPage}" Value="{x:Static local:PageType.SettingPage}">
+                    <ei:ChangePropertyAction PropertyName="Source">
+                        <ei:ChangePropertyAction.Value>
+                            <System:Uri>Pages/Settings.xaml</System:Uri>
+                        </ei:ChangePropertyAction.Value>
+                    </ei:ChangePropertyAction>
+                </ei:DataTrigger>
+            </i:Interaction.Triggers>-->
+        </Frame>
     </Grid>
 </Window>

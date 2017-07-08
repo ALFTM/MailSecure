@@ -35,7 +35,7 @@ namespace MailSecure
         public SideMenuViewModel()
         {
             CurrentPage = App.CurrentUserData.CurrentPage;
-            OpenSettingCommand = new RelayCommand(() => OpenSettingWindow());
+            OpenSettingCommand = new RelayCommand(() => ChangeCurrentPage(PageType.SettingPage));
             OpenSendingMailCommand = new RelayCommand(() => ChangeCurrentPage(PageType.SendingPage));
             OpenUnlockCommand = new RelayCommand(() => ChangeCurrentPage(PageType.UnlockPage));
             OpenAboutCommand = new RelayCommand(() => OpenAboutWindow());
