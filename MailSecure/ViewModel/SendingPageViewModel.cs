@@ -28,10 +28,10 @@ namespace MailSecure
 
         public Visibility AttachementVisibility
         {
-            get => copyFieldVisibility;
+            get => attachementVisibility;
             set
             {
-                copyFieldVisibility = value;
+                attachementVisibility = value;
                 OnPropertyChanged(nameof(attachementVisibility));
             }
         }
@@ -43,6 +43,7 @@ namespace MailSecure
         #region Commands
         public ICommand DisplayCopyFieldsCommand { get; set; }
         public ICommand AddAttachementCommand { get; set; }
+        public ICommand RemoveAttachementCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -54,6 +55,7 @@ namespace MailSecure
             AttachementsList = new ObservableCollection<AttachementsFacts>();
             DisplayCopyFieldsCommand = new RelayCommand(() => SetCopyVisibility());
             AddAttachementCommand = new RelayCommand(() => AddAttachement());
+            RemoveAttachementCommand = new RelayParameterizedCommand(param => RemoveAttachement(param));
         }
         #endregion
 
@@ -86,9 +88,15 @@ namespace MailSecure
             }
         }
 
+        private void RemoveAttachement(object param)
+        {
+            AttachementsList.Remove(param as AttachementsFacts);
+            CheckIfttachementIsEmpty();
+        }
+
         private void CheckIfttachementIsEmpty()
         {
-            if (AttachementsList.Count == 0) {
+            if (AttachementsList.Count != 0) {
                 AttachementVisibility = Visibility.Visible;
             } else {
                 AttachementVisibility = Visibility.Collapsed;

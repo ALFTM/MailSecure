@@ -81,6 +81,8 @@
     </Compile>
     <Compile Include="Converter\BaseConverter.cs" />
     <Compile Include="Converter\CurrentPageTypeToColor.cs" />
+    <Compile Include="Converter\FileNameToIconConverter.cs" />
+    <Compile Include="Converter\FileSizeFormatConverter.cs" />
     <Compile Include="Converter\VisibilityToBoolConverter.cs" />
     <Compile Include="Converter\VisibilityToColorConverter.cs" />
     <Compile Include="EmailManagement\Login.xaml.cs">

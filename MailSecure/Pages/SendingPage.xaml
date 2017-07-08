@@ -224,7 +224,7 @@
         </Grid>
 
         <!-- Attachements Section -->
-        <Grid Grid.Row="4" Margin="20 10" >
+        <Grid Grid.Row="4" Margin="20 10" Visibility="{Binding AttachementVisibility}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

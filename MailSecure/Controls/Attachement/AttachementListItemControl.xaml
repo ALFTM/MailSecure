@@ -6,17 +6,37 @@
              xmlns:local="clr-namespace:MailSecure"
              mc:Ignorable="d" 
              Height="50"
-             MinWidth="70"
-             MaxWidth="120"
-             d:DesignHeight="50" d:DesignWidth="120">
+             Width="170"
+             d:DesignHeight="50" d:DesignWidth="170">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <!-- File Icon -->
             <ColumnDefinition Width="Auto"/>
+            <!-- File Facts -->
+            <ColumnDefinition Width="*"/>
+            <!-- Delete Button -->
+            <ColumnDefinition Width=".25*"/>
             
         </Grid.ColumnDefinitions>
-
-        <TextBlock Text="{Binding FileName, FallbackValue=Unknonw}" VerticalAlignment="Center" Padding="5" TextTrimming="WordEllipsis" />
-        <Button Grid.Column="1" Background="White" BorderThickness="0" Content="X" />
+        <!-- File Icon -->
+        <Image Margin="4" Source="{Binding FileFullPath, Converter={local:FileNameToIconConverter}}" MaxWidth="32" MaxHeight="32" />
+        <!-- File Facts -->
+        <StackPanel Grid.Column="1" Orientation="Vertical" MaxWidth="100" HorizontalAlignment="Left" Margin="0 4">
+            <TextBlock Text="{Binding FileName, FallbackValue=Unknonw}" 
+                       VerticalAlignment="Center" Padding="4" 
+                       TextTrimming="WordEllipsis" />
+            <TextBlock Text="{Binding FileSize, Converter={local:FileSizeFormatConverter}, FallbackValue=Unknonwn size}"
+                       VerticalAlignment="Center"
+                       FontSize="11"
+                       Padding="4"/>
+        </StackPanel>
+        
+        <!-- Delete Button -->
+        <Button Grid.Column="2"  
+                Style="{StaticResource TextButtonSquare}" 
+                Command="{Binding Path=DataContext.RemoveAttachementCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+                CommandParameter="{Binding}"
+                Background="White" 
+                Content="X" />
     </Grid>
 </UserControl>
