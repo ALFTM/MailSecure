@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Net;
-using System.Windows;
 using System.Net.Mail;
 using System.Security;
 using System.Security.Cryptography;
