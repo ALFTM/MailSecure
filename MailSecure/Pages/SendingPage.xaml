@@ -234,8 +234,6 @@
                 <Grid.ColumnDefinitions>
                     <!-- Label -->
                     <ColumnDefinition Width="Auto"/>
-                    <!-- list Box -->
-                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <!-- Label -->
@@ -248,7 +246,7 @@
 
             </Grid>
             <!-- Text Box -->
-            <local:AttachementListControl Grid.Row="1" />
+            <local:AttachementListControl Grid.Row="1" Margin="0 0 2 4"/>
 
             <Border Grid.Row="2" BorderThickness="0 0 0 1" 
                     BorderBrush="{DynamicResource PrimaryLightBrush}" />

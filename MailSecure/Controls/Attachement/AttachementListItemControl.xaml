@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSecure"
              mc:Ignorable="d" 
-             Height="50"
-             Width="170"
-             d:DesignHeight="50" d:DesignWidth="170">
-    <Grid Background="White">
+             Height="54"
+             Width="174"
+             d:DesignHeight="50" d:DesignWidth="174">
+    <Grid Background="White" Opacity="0.9" Margin="0 0 4 4">
         <Grid.ColumnDefinitions>
             <!-- File Icon -->
             <ColumnDefinition Width="Auto"/>
