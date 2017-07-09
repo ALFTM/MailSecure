@@ -76,6 +76,9 @@
     <Compile Include="Controls\Frame.xaml.cs">
       <DependentUpon>Frame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Option.xaml.cs">
+      <DependentUpon>Option.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RichTextBoxControl.xaml.cs">
       <DependentUpon>RichTextBoxControl.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,7 @@
     </Compile>
     <Compile Include="Converter\BaseConverter.cs" />
     <Compile Include="Converter\CurrentPageTypeToColor.cs" />
+    <Compile Include="Converter\CurrentPageTypeToPage.cs" />
     <Compile Include="Converter\FileNameToIconConverter.cs" />
     <Compile Include="Converter\FileSizeFormatConverter.cs" />
     <Compile Include="Converter\VisibilityToBoolConverter.cs" />
@@ -114,9 +118,6 @@
     <Compile Include="Controls\DecryptMessage.xaml.cs">
       <DependentUpon>DecryptMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Option.xaml.cs">
-      <DependentUpon>Option.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\SendMessage.xaml.cs">
       <DependentUpon>SendMessage.xaml</DependentUpon>
     </Compile>
@@ -129,8 +130,8 @@
     <Compile Include="ViewModel\WIndowViewModel.cs" />
     <Compile Include="WindowResizer.cs" />
     <Page Include="About\AboutWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Attachement\AttachementListControl.xaml">
       <SubType>Designer</SubType>
@@ -143,6 +144,10 @@
     <Page Include="Controls\Frame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Option.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\RichTextBoxControl.xaml">
       <SubType>Designer</SubType>
@@ -209,10 +214,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\DecryptMessage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\Option.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

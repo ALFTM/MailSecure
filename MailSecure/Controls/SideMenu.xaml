@@ -49,7 +49,7 @@
             <Button Style="{StaticResource AboutButton}" 
                     Content="About MailSecure" 
                     Margin="0,0,0,5"
-                    Command="{Binding OpenAboutCommand}"
+                    Command="{Binding OpenAboutCmand}"
                     Background="{Binding CurrentPage, Converter={local:CurrentPageTypeToColor}, ConverterParameter=about }"/>
         </StackPanel>
     </Grid>

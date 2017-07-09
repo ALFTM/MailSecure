@@ -10,7 +10,7 @@ namespace MailSecure
     class ContextViewModel : BaseViewModel
     {
         #region Private members
-        private PageType currentPage;
+        private PageType currentPage = PageType.SendingPage;
         #endregion
 
         #region Public Members

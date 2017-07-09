@@ -9,22 +9,5 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <Frame Name="currentFrame">
-        <i:Interaction.Triggers>
-            <ei:DataTrigger Binding="{Binding CurrentPage}" Value="{x:Static local:PageType.SendingPage}">
-                <ei:ChangePropertyAction PropertyName="Source">
-                    <ei:ChangePropertyAction.Value>
-                        pack://application:,,,/Pages/SendingPage.xaml
-                    </ei:ChangePropertyAction.Value>
-                </ei:ChangePropertyAction>
-            </ei:DataTrigger>
-            <ei:DataTrigger Binding="{Binding CurrentPage}" Value="{x:Static local:PageType.SettingPage}">
-                <ei:ChangePropertyAction PropertyName="Source">
-                    <ei:ChangePropertyAction.Value>
-                        pack://application:,,,/Pages/Settings.xaml
-                    </ei:ChangePropertyAction.Value>
-                </ei:ChangePropertyAction>
-            </ei:DataTrigger>
-        </i:Interaction.Triggers>
-    </Frame>
+    <Frame Source="{Binding CurrentPage, Converter={local:CurrentPageTypeToPage}}" />
 </UserControl>
