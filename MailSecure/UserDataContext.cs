@@ -7,7 +7,7 @@ namespace MailSecure
     public class UserDataContext: INotifyPropertyChanged
     {
         private UserMailFacts currentUser;
-        private PageType currentPage = PageType.SendingPage;
+        private PageType currentPage = PageType.SettingPage;
         private string displayedName;
 
         public UserMailFacts CurrentUser {

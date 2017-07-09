@@ -23,11 +23,7 @@ namespace MailSecure
         public Settings()
         {
             InitializeComponent();
-        }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            DataContext = new SettingViewModel();
         }
     }
 }

@@ -126,6 +126,7 @@
     <Compile Include="ViewModel\ContextViewModel.cs" />
     <Compile Include="ViewModel\FrameViewModel.cs" />
     <Compile Include="ViewModel\SendingPageViewModel.cs" />
+    <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\SideMenuViewModel.cs" />
     <Compile Include="ViewModel\WIndowViewModel.cs" />
     <Compile Include="WindowResizer.cs" />
@@ -300,6 +301,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\attachement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
