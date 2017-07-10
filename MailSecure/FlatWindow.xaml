@@ -129,23 +129,6 @@
 
         <local:SideMenu Grid.Column="0" />
 
-        <Frame Name="currentFrame" Grid.Column="1" Source="Pages/SendingPage.xaml">
-            <!--<i:Interaction.Triggers>
-                <ei:DataTrigger Binding="{Binding Path=App.CurrentUserData.CurrentPage}" Value="{x:Static local:PageType.SendingPage}">
-                    <ei:ChangePropertyAction PropertyName="Source">
-                        <ei:ChangePropertyAction.Value>
-                            <System:Uri>Pages/SendingPage.xaml</System:Uri>
-                        </ei:ChangePropertyAction.Value>
-                    </ei:ChangePropertyAction>
-                </ei:DataTrigger>
-                <ei:DataTrigger Binding="{Binding Path=App.CurrentUserData.CurrentPage}" Value="{x:Static local:PageType.SettingPage}">
-                    <ei:ChangePropertyAction PropertyName="Source">
-                        <ei:ChangePropertyAction.Value>
-                            <System:Uri>Pages/Settings.xaml</System:Uri>
-                        </ei:ChangePropertyAction.Value>
-                    </ei:ChangePropertyAction>
-                </ei:DataTrigger>
-            </i:Interaction.Triggers>-->
-        </Frame>
+        <local:PageChangerControl Grid.Column="1" DataContext="{x:Static local:App.CurrentUserData}"/>
     </Grid>
 </Window>

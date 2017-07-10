@@ -73,6 +73,9 @@
     <Compile Include="Controls\Attachement\AttachementListItemControl.xaml.cs">
       <DependentUpon>AttachementListItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PageChangerControl.xaml.cs">
+      <DependentUpon>PageChangerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RichTextBoxControl.xaml.cs">
       <DependentUpon>RichTextBoxControl.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,7 @@
     </Compile>
     <Compile Include="Converter\BaseConverter.cs" />
     <Compile Include="Converter\CurrentPageTypeToColor.cs" />
+    <Compile Include="Converter\CurrentPageTypeToPageConverter.cs" />
     <Compile Include="Converter\FileNameToIconConverter.cs" />
     <Compile Include="Converter\FileSizeFormatConverter.cs" />
     <Compile Include="Converter\VisibilityToBoolConverter.cs" />
@@ -95,8 +99,8 @@
     <Compile Include="Pages\SendingPage.xaml.cs">
       <DependentUpon>SendingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="mdd\PageType.cs" />
     <Compile Include="PasswordPopup.xaml.cs">
@@ -132,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\PageChangerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\RichTextBoxControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Settings.xaml">
+    <Page Include="Pages\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
