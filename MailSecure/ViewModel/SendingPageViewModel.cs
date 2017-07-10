@@ -155,48 +155,60 @@ namespace MailSecure
 
         private void SendMessage()
         {
+            var mail = PrepareMessage();
+            App.mailSender.setMailMessage(mail);
+            App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
+            App.mailSender.SendMail();
+
+            ClearFields();
+        }
+
+        public MailMessage PrepareMessage()
+        {
             MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.login, To) {
                 Subject = MessageObject
             };
 
-
-            var xamlText = GetXamlString();
-
-            var HtmlBody = HtmlFromXamlConverter.ConvertXamlToHtml(xamlText);
-
-
-            mail.Body = HtmlBody;
+            mail.Body = GetHtmlStringFromXaml(GetXamlString());
             mail.IsBodyHtml = true;
 
-            System.Console.WriteLine("Object : " + MessageObject);
+            AddCcAndCciInMail(ref mail);
 
+            AddAttachmentsInMail(ref mail);
+
+            return mail;
+
+        }
+
+        private void AddCcAndCciInMail(ref MailMessage mail)
+        {
             if (Cc.Length != 0) {
                 mail.CC.Add(Cc);
             }
 
-            if(Cci.Length != 0) {
+            if (Cci.Length != 0) {
                 mail.Bcc.Add(Cci);
             }
-            
+        }
 
-            for(int i  = 0; i < AttachementsList.Count; i++) {
+        private void AddAttachmentsInMail(ref MailMessage mail)
+        {
+            for (int i = 0; i < AttachementsList.Count; i++) {
                 var file = AttachementsList[i].FileFullPath;
                 Attachment item = new Attachment(file);
                 mail.Attachments.Add(item);
             }
-
-            App.mailSender.setMailMessage(mail);
-            App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
-
-            App.mailSender.SendMail();
-
-            ClearFields();
         }
 
         private string GetXamlString()
         {
             var richTextBox = RichTextBoxControler.rtbEditor;
             return XamlWriter.Save(richTextBox.Document);
+        }
+
+        private string GetHtmlStringFromXaml(string xamlString)
+        {
+            return HtmlFromXamlConverter.ConvertXamlToHtml(xamlString);
         }
 
         private void ClearFields()
@@ -206,6 +218,7 @@ namespace MailSecure
             Cci = "";
             MessageObject = "";
             AttachementsList.Clear();
+            RichTextBoxControler.rtbEditor.Document.Blocks.Clear();
 
         }
 
