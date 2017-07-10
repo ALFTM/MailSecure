@@ -5,9 +5,10 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Mail;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
+
+using MailSecure.FormatConverter;
 
 namespace MailSecure
 {
@@ -158,12 +159,14 @@ namespace MailSecure
                 Subject = MessageObject
             };
 
-            var richTextBox = RichTextBoxControler.rtbEditor;
-            string richText = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd).Text;
 
-            System.Console.WriteLine("Body : " + richText);
+            var xamlText = GetXamlString();
 
-            mail.Body = richText;
+            var HtmlBody = HtmlFromXamlConverter.ConvertXamlToHtml(xamlText);
+
+
+            mail.Body = HtmlBody;
+            mail.IsBodyHtml = true;
 
             System.Console.WriteLine("Object : " + MessageObject);
 
@@ -188,6 +191,12 @@ namespace MailSecure
             App.mailSender.SendMail();
 
             ClearFields();
+        }
+
+        private string GetXamlString()
+        {
+            var richTextBox = RichTextBoxControler.rtbEditor;
+            return XamlWriter.Save(richTextBox.Document);
         }
 
         private void ClearFields()

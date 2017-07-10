@@ -253,6 +253,10 @@
     <Resource Include="Media\Icon\app-logo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FormatConverter\MailSecure.FormatConverter.csproj">
+      <Project>{cb214f0d-059f-4760-a78b-e893ccde2b63}</Project>
+      <Name>MailSecure.FormatConverter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MailSecure.Core\MailSecure.Core.csproj">
       <Project>{a47aae88-2f39-4955-957c-03a36f49edc9}</Project>
       <Name>MailSecure.Core</Name>
