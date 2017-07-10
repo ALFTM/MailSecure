@@ -12,6 +12,8 @@ namespace MailSecure
         public static MailSender mailSender { get; set; }
         public static UserDataContext CurrentUserData { get; set; }
 
+        public static SendingPageViewModel SendingPageViewModel { get; set; }
+
         private SplashScreen.SplashScreen splashScreen;
 
         public App()
@@ -34,7 +36,7 @@ namespace MailSecure
             await LongLoading();
 
 
-            MainWindow = new MainWindow();
+            MainWindow = new FlatWindow();
             // Shortest loading
 
             if (!await this.ShortLoading()) {
@@ -43,6 +45,7 @@ namespace MailSecure
                 mailConfigurationWindow.Show();
             }
             else {
+                //MainWindow.Show();
                 MainWindow.Show();
             }
 
