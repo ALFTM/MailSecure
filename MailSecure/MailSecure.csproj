@@ -85,10 +85,7 @@
     <Compile Include="Converter\FileSizeFormatConverter.cs" />
     <Compile Include="Converter\VisibilityToBoolConverter.cs" />
     <Compile Include="Converter\VisibilityToColorConverter.cs" />
-    <Compile Include="EmailManagement\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EmailManagement\MailServerConfiguration.xaml.cs">
+    <Compile Include="Controls\EmailManagement\MailServerConfiguration.xaml.cs">
       <DependentUpon>MailServerConfiguration.xaml</DependentUpon>
     </Compile>
     <Compile Include="FlatWindow.xaml.cs">
@@ -143,11 +140,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EmailManagement\Login.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="EmailManagement\MailServerConfiguration.xaml">
+    <Page Include="Controls\EmailManagement\MailServerConfiguration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
