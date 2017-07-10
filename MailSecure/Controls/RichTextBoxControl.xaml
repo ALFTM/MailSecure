@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="MailSecure.RichTextBoxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MailSecure"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- The Toolbar-->
+            <RowDefinition Height="*"/>
+            <!-- RichBox -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- RichBox -->
+        <RichTextBox Grid.Row="0"
+                     x:Name="rtbEditor" 
+                     SelectionChanged="rtbEditor_SelectionChanged"
+                     Background="{StaticResource BackgroundBrush}"
+                     Foreground="White">
+            
+        </RichTextBox>
+
+        <!-- The Toolbar-->
+        <ToolBar Grid.Row="1" Style="{StaticResource CustomToolbar}" Background="White">
+            <ToggleButton Command="EditingCommands.ToggleBold" Width="32" Height="32" Name="btnBold">
+                <TextBlock FontFamily="{StaticResource RobotoBold}" Text="G" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleItalic" Width="32" Height="32" Name="btnItalic">
+                <TextBlock FontFamily="{StaticResource RobotoItalic}" Text="I" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleUnderline" Width="32" Height="32" Name="btnUnderline">
+                <TextBlock FontFamily="{StaticResource RobotoRegular}" Text="S" TextDecorations="Underline" />
+            </ToggleButton>
+            <Separator />
+            <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+            <Separator />
+            <Button Width="32" Height="32" Command="{Binding AddAttachementCommand}">
+                <Viewbox MaxHeight="20">
+                    <Canvas Name="svg6" Width="24" Height="24">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="0" Y="0"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path2" Fill="#FF000000" Data="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/>
+                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4" Data="M0 0h24v24H0z"/>
+                    </Canvas>
+                </Viewbox>
+            </Button>
+            <Separator />
+            <Button HorizontalAlignment="Right" Content="Envoyer" Command="{Binding SendMailCommand}"></Button>
+        </ToolBar>
+    </Grid>
+</UserControl>

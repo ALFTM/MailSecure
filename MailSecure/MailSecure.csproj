@@ -8,11 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MailSecure</RootNamespace>
     <AssemblyName>MailSecure</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,13 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>app-logo.ico</ApplicationIcon>
+    <ApplicationIcon>Media\Icon\app-logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,66 +64,129 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EmailManagement\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="Window\About\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmailManagement\MailServerConfiguration.xaml.cs">
+    <Compile Include="Controls\Attachement\AttachementListControl.xaml.cs">
+      <DependentUpon>AttachementListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Attachement\AttachementListItemControl.xaml.cs">
+      <DependentUpon>AttachementListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PageChangerControl.xaml.cs">
+      <DependentUpon>PageChangerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RichTextBoxControl.xaml.cs">
+      <DependentUpon>RichTextBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SideMenu.xaml.cs">
+      <DependentUpon>SideMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\BaseConverter.cs" />
+    <Compile Include="Converter\CurrentPageTypeToColor.cs" />
+    <Compile Include="Converter\CurrentPageTypeToPageConverter.cs" />
+    <Compile Include="Converter\FileNameToIconConverter.cs" />
+    <Compile Include="Converter\FileSizeFormatConverter.cs" />
+    <Compile Include="Converter\VisibilityToBoolConverter.cs" />
+    <Compile Include="Converter\VisibilityToColorConverter.cs" />
+    <Compile Include="Controls\EmailManagement\MailServerConfiguration.xaml.cs">
       <DependentUpon>MailServerConfiguration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FlatWindow.xaml.cs">
+      <DependentUpon>FlatWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LanguageManager.cs" />
-    <Compile Include="PasswordPopup.xaml.cs">
+    <Compile Include="Pages\SendingPage.xaml.cs">
+      <DependentUpon>SendingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mdd\PageType.cs" />
+    <Compile Include="Window\PasswordPopup.xaml.cs">
       <DependentUpon>PasswordPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen\SplashScreen.xaml.cs">
+    <Compile Include="Window\SplashScreen\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DecryptMessage.xaml.cs">
+    <Compile Include="Controls\DecryptMessage.xaml.cs">
       <DependentUpon>DecryptMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Option.xaml.cs">
-      <DependentUpon>Option.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\SendMessage.xaml.cs">
-      <DependentUpon>SendMessage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserDataContext.cs" />
-    <Page Include="EmailManagement\Login.xaml">
+    <Compile Include="Window\UserDataContext.cs" />
+    <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\SendingPageViewModel.cs" />
+    <Compile Include="ViewModel\SideMenuViewModel.cs" />
+    <Compile Include="ViewModel\WIndowViewModel.cs" />
+    <Compile Include="Window\WindowResizer.cs" />
+    <Page Include="Window\About\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Attachement\AttachementListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Attachement\AttachementListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PageChangerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RichTextBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SideMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EmailManagement\MailServerConfiguration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="EmailManagement\MailServerConfiguration.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="FlatWindow.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="PasswordPopup.xaml">
+    <Page Include="Pages\SendingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\PasswordPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SplashScreen\SplashScreen.xaml">
+    <Page Include="Window\SplashScreen\SplashScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\DecryptMessage.xaml">
+    <Page Include="Styles\Buttons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Option.xaml">
+    <Page Include="Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\SendMessage.xaml">
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Texts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DecryptMessage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -143,6 +211,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx" />
     <EmbeddedResource Include="Resources\Global.fr.resx" />
+    <Resource Include="Media\Fonts\Roboto-Black.ttf" />
+    <Resource Include="Media\Fonts\Roboto-BlackItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Bold.ttf" />
+    <Resource Include="Media\Fonts\Roboto-BoldItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Italic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Light.ttf" />
+    <Resource Include="Media\Fonts\Roboto-LightItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Medium.ttf" />
+    <Resource Include="Media\Fonts\Roboto-MediumItalic.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Regular.ttf" />
+    <Resource Include="Media\Fonts\Roboto-Thin.ttf" />
+    <Resource Include="Media\Fonts\Roboto-ThinItalic.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -152,13 +232,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\logo_256.png" />
-    <Resource Include="Images\OptionButton.png" />
+    <Resource Include="Media\Icon\logo_256.png" />
+    <Resource Include="Media\OptionButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="app-logo.ico" />
+    <Resource Include="Media\Icon\app-logo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FormatConverter\MailSecure.FormatConverter.csproj">
+      <Project>{cb214f0d-059f-4760-a78b-e893ccde2b63}</Project>
+      <Name>MailSecure.FormatConverter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MailSecure.Core\MailSecure.Core.csproj">
       <Project>{a47aae88-2f39-4955-957c-03a36f49edc9}</Project>
       <Name>MailSecure.Core</Name>
@@ -167,6 +251,28 @@
       <Project>{8bb1c827-0033-413b-943b-51f0bfc6532a}</Project>
       <Name>MailSecure.Security</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Icon\logo_neg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\sent.png" />
+    <Resource Include="Media\unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Icon\logo_white_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\github.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\attachement.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
