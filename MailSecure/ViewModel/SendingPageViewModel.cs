@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
+using MailSecure.Security;
 
 using MailSecure.FormatConverter;
 
@@ -155,26 +156,33 @@ namespace MailSecure
 
         private void SendMessage()
         {
-            var mail = PrepareMessage();
+            string password = Utils.RandomPassword(8);
+            var mail = PrepareMessage(password);
+            
             App.mailSender.setMailMessage(mail);
             App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
             App.mailSender.SendMail();
 
+            DisplayPassWordBox(password);
+
             ClearFields();
         }
 
-        public MailMessage PrepareMessage()
+        public MailMessage PrepareMessage(string password)
         {
-            MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.login, To) {
-                Subject = MessageObject
-            };
+            var user = App.CurrentUserData.CurrentUser.email;
+            var body = GetHtmlStringFromXaml(GetXamlString());
+            
 
-            mail.Body = GetHtmlStringFromXaml(GetXamlString());
+            MailMessage mail = MailPreparator.GetEncryptedMail(body, password, GetFullPathArray());
+
+            MailAddress from = new MailAddress(user);
+            mail.From = from;
+            mail.To.Add(To);
+
             mail.IsBodyHtml = true;
 
             AddCcAndCciInMail(ref mail);
-
-            AddAttachmentsInMail(ref mail);
 
             return mail;
 
@@ -191,13 +199,16 @@ namespace MailSecure
             }
         }
 
-        private void AddAttachmentsInMail(ref MailMessage mail)
+        private Collection<string> GetFullPathArray()
         {
-            for (int i = 0; i < AttachementsList.Count; i++) {
-                var file = AttachementsList[i].FileFullPath;
-                Attachment item = new Attachment(file);
-                mail.Attachments.Add(item);
+            Collection<string> path = new Collection<string>();
+
+            for(int i = 0; i < AttachementsList.Count; i++) {
+                var item = AttachementsList[i].FileFullPath;
+                path.Add(item);
             }
+
+            return path;
         }
 
         private string GetXamlString()
@@ -220,6 +231,13 @@ namespace MailSecure
             AttachementsList.Clear();
             RichTextBoxControler.rtbEditor.Document.Blocks.Clear();
 
+        }
+
+        private void DisplayPassWordBox(string password)
+        {
+            var passwordPopup = new PasswordPopup();
+            passwordPopup.passwordGeneratedLabel.Content = "Password généré : " + password;
+            passwordPopup.Show();
         }
 
         #endregion
