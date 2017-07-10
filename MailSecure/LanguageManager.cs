@@ -10,13 +10,21 @@ namespace MailSecure
 {
     public class LanguageManager
     {
+        #region Private Property
         private static LanguageManager instance = null;
-        public static string language { get; set; }
         private ResourceManager resManag;
         private CultureInfo ci;
+        #endregion
 
+        #region Public Property
+        public static string Language { get; private set; }
+        #endregion
+
+        #region Constructor
         private LanguageManager() { }
+        #endregion
 
+        #region Methods public static
         public static LanguageManager GetInstance
         {
             get
@@ -24,23 +32,25 @@ namespace MailSecure
                 if (null == instance)
                 {
                     instance = new LanguageManager();
-                    language = "fr";
+                    Language = "fr";
                 }
                 return instance;
             }
         }
+        #endregion
 
+        #region Methods public
         public void SwitchLanguage(string newLanguage)
         {
             switch (newLanguage)
             {
-                case "fr":
+                case "FR":
                     ci = CultureInfo.CreateSpecificCulture("fr");
-                    language = "fr";
+                    Language = "FR";
                     break;
-                case "en":
+                case "EN":
                     ci = CultureInfo.CreateSpecificCulture("en");
-                    language = "en";
+                    Language = "EN";
                     break;
             }
         }
@@ -53,5 +63,11 @@ namespace MailSecure
             }
             return resManag.GetString(libelle, ci);
         }
+
+        public List<string> GetLanguages()
+        {
+            return new List<string>() { "FR", "EN" };
+        }
+        #endregion
     }
 }

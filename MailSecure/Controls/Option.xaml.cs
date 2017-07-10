@@ -52,7 +52,7 @@ namespace MailSecure
             // Select current language
             for (int i = 0; i < Language_comboBox.Items.Count; i++)
             {
-                if (LanguageManager.language.Equals(((ComboBoxItem)Language_comboBox.Items[i]).Content.ToString()))
+                if (LanguageManager.Language.Equals(((ComboBoxItem)Language_comboBox.Items[i]).Content.ToString()))
                 {
                     Language_comboBox.SelectedIndex = i;
                 }
@@ -62,7 +62,7 @@ namespace MailSecure
         private void ok_button_Click(object sender, RoutedEventArgs e)
         {
             var newLanguage = ((ComboBoxItem)Language_comboBox.SelectedItem).Content.ToString();
-            if (!newLanguage.Equals(LanguageManager.language))
+            if (!newLanguage.Equals(LanguageManager.Language))
             {
                 optionLanguageManager.SwitchLanguage(newLanguage);
                 RefreshContent();
