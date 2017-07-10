@@ -112,12 +112,6 @@
     <Compile Include="Controls\DecryptMessage.xaml.cs">
       <DependentUpon>DecryptMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Option.xaml.cs">
-      <DependentUpon>Option.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\SendMessage.xaml.cs">
-      <DependentUpon>SendMessage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Window\UserDataContext.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\SendingPageViewModel.cs" />
@@ -193,14 +187,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\DecryptMessage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\Option.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\SendMessage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
