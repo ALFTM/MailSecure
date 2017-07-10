@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
 
         <!-- RichBox -->
-        <RichTextBox Grid.Row="0" 
-                     Name="rtbEditor" 
+        <RichTextBox Grid.Row="0"
+                     x:Name="rtbEditor" 
                      SelectionChanged="rtbEditor_SelectionChanged"
                      Background="{StaticResource BackgroundBrush}"
                      Foreground="White">

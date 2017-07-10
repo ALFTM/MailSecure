@@ -5,11 +5,13 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Mail;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace MailSecure
 {
-    class SendingPageViewModel : BaseViewModel
+    public class SendingPageViewModel : BaseViewModel
     {
         #region Private members
         private Visibility copyFieldVisibility = Visibility.Collapsed;
@@ -21,6 +23,7 @@ namespace MailSecure
         #endregion
 
         #region Public members
+        public RichTextBoxControl RichTextBoxControler { get; set; }
         public Visibility CopyFieldVisibility
         {
             get => copyFieldVisibility;
@@ -154,6 +157,13 @@ namespace MailSecure
             MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.login, To) {
                 Subject = MessageObject
             };
+
+            var richTextBox = RichTextBoxControler.rtbEditor;
+            string richText = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd).Text;
+
+            System.Console.WriteLine("Body : " + richText);
+
+            mail.Body = richText;
 
             System.Console.WriteLine("Object : " + MessageObject);
 
