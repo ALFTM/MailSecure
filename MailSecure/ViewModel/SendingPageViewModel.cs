@@ -10,6 +10,7 @@ using System.Windows.Markup;
 using MailSecure.Security;
 
 using MailSecure.FormatConverter;
+using System;
 
 namespace MailSecure
 {
@@ -178,7 +179,8 @@ namespace MailSecure
 
             MailAddress from = new MailAddress(user);
             mail.From = from;
-            mail.To.Add(To);
+
+            AddRecipient(ref mail);
 
             mail.IsBodyHtml = true;
 
@@ -188,14 +190,25 @@ namespace MailSecure
 
         }
 
+        private void AddRecipient(ref MailMessage mail)
+        {
+            foreach(var address in To.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries)) {
+                mail.To.Add(address);
+            }
+        }
+
         private void AddCcAndCciInMail(ref MailMessage mail)
         {
             if (Cc.Length != 0) {
-                mail.CC.Add(Cc);
+                foreach (var address in Cc.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries)) {
+                    mail.CC.Add(address);
+                }
             }
 
             if (Cci.Length != 0) {
-                mail.Bcc.Add(Cci);
+                foreach (var address in Cci.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries)) {
+                    mail.Bcc.Add(address);
+                }
             }
         }
 
