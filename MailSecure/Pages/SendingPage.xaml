@@ -86,7 +86,8 @@
                        Opacity=".6"/>
 
                 <!-- Text Box -->
-                <TextBox Grid.Column="1" 
+                <TextBox Grid.Column="1"
+                         Text="{Binding To}"
                          Background="{StaticResource BackgroundBrush}"
                          Foreground="White"
                          Opacity=".6"
@@ -138,7 +139,8 @@
                        Opacity=".6"/>
 
                     <!-- Text Box -->
-                    <TextBox Grid.Column="1" 
+                    <TextBox Grid.Column="1"
+                             Text="{Binding Cc}"
                          Background="{StaticResource BackgroundBrush}"
                          Foreground="White"
                          Opacity=".6"
@@ -175,6 +177,7 @@
 
                     <!-- Text Box -->
                     <TextBox Grid.Column="1" 
+                             Text="{Binding Cci}"
                          Background="{StaticResource BackgroundBrush}"
                          Foreground="White"
                          Opacity=".6"
@@ -213,6 +216,7 @@
                        Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty, Converter={local:VisibilityToBoolConverter}}" />
                 <!-- enter term here -->
                 <TextBox Grid.Row="0"
+                         Text="{Binding MessageObject}"
                      Name="txtSearchBox" 
                      Background="Transparent" 
                      BorderThickness="0"

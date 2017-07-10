@@ -50,6 +50,8 @@
                     </Canvas>
                 </Viewbox>
             </Button>
+            <Separator />
+            <Button HorizontalAlignment="Right" Content="Envoyer" Command="{Binding SendMailCommand}"></Button>
         </ToolBar>
     </Grid>
 </UserControl>

@@ -3,6 +3,7 @@ using MailSecure.Security;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,6 +14,10 @@ namespace MailSecure
         #region Private members
         private Visibility copyFieldVisibility = Visibility.Collapsed;
         private Visibility attachementVisibility = Visibility.Collapsed;
+        private string to;
+        private string cc = "";
+        private string cci = "";
+        private string messageObject = "";
         #endregion
 
         #region Public members
@@ -36,6 +41,45 @@ namespace MailSecure
             }
         }
 
+        public string To
+        {
+            get => to;
+            set
+            {
+                to = value;
+                OnPropertyChanged(nameof(to));
+            }
+        }
+
+        public string Cc
+        {
+            get => cc;
+            set
+            {
+                cc = value;
+                OnPropertyChanged(nameof(cc));
+            }
+        }
+
+        public string Cci
+        {
+            get => cci;
+            set
+            {
+                cci = value;
+                OnPropertyChanged(nameof(cci));
+            }
+        }
+        public string MessageObject
+        {
+            get => messageObject;
+            set
+            {
+                messageObject = value;
+                OnPropertyChanged(nameof(messageObject));
+            }
+        }
+
         public ObservableCollection<AttachementsFacts> AttachementsList { get; set; }
 
         #endregion
@@ -44,6 +88,7 @@ namespace MailSecure
         public ICommand DisplayCopyFieldsCommand { get; set; }
         public ICommand AddAttachementCommand { get; set; }
         public ICommand RemoveAttachementCommand { get; set; }
+        public ICommand SendMailCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -55,6 +100,7 @@ namespace MailSecure
             AttachementsList = new ObservableCollection<AttachementsFacts>();
             DisplayCopyFieldsCommand = new RelayCommand(() => SetCopyVisibility());
             AddAttachementCommand = new RelayCommand(() => AddAttachement());
+            SendMailCommand = new RelayCommand(() => SendMessage());
             RemoveAttachementCommand = new RelayParameterizedCommand(param => RemoveAttachement(param));
         }
         #endregion
@@ -102,6 +148,48 @@ namespace MailSecure
                 AttachementVisibility = Visibility.Collapsed;
             }
         }
+
+        private void SendMessage()
+        {
+            MailMessage mail = new MailMessage(App.CurrentUserData.CurrentUser.login, To) {
+                Subject = MessageObject
+            };
+
+            System.Console.WriteLine("Object : " + MessageObject);
+
+            if (Cc.Length != 0) {
+                mail.CC.Add(Cc);
+            }
+
+            if(Cci.Length != 0) {
+                mail.Bcc.Add(Cci);
+            }
+            
+
+            for(int i  = 0; i < AttachementsList.Count; i++) {
+                var file = AttachementsList[i].FileFullPath;
+                Attachment item = new Attachment(file);
+                mail.Attachments.Add(item);
+            }
+
+            App.mailSender.setMailMessage(mail);
+            App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
+
+            App.mailSender.SendMail();
+
+            ClearFields();
+        }
+
+        private void ClearFields()
+        {
+            To = "";
+            Cc = "";
+            Cci = "";
+            MessageObject = "";
+            AttachementsList.Clear();
+
+        }
+
         #endregion
     }
 }
