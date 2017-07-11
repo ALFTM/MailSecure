@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
 
         <!-- RichBox -->
-        <RichTextBox Grid.Row="0" 
-                     Name="rtbEditor" 
+        <RichTextBox Grid.Row="0"
+                     x:Name="rtbEditor" 
                      SelectionChanged="rtbEditor_SelectionChanged"
                      Background="{StaticResource BackgroundBrush}"
                      Foreground="White">
@@ -50,6 +50,8 @@
                     </Canvas>
                 </Viewbox>
             </Button>
+            <Separator />
+            <Button HorizontalAlignment="Right" Content="Envoyer" Command="{Binding SendMailCommand}"></Button>
         </ToolBar>
     </Grid>
 </UserControl>

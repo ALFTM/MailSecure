@@ -64,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="About\AboutWindow.xaml.cs">
+    <Compile Include="Window\About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Attachement\AttachementListControl.xaml.cs">
@@ -73,11 +73,8 @@
     <Compile Include="Controls\Attachement\AttachementListItemControl.xaml.cs">
       <DependentUpon>AttachementListItemControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Frame.xaml.cs">
-      <DependentUpon>Frame.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Option.xaml.cs">
-      <DependentUpon>Option.xaml</DependentUpon>
+    <Compile Include="Controls\PageChangerControl.xaml.cs">
+      <DependentUpon>PageChangerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RichTextBoxControl.xaml.cs">
       <DependentUpon>RichTextBoxControl.xaml</DependentUpon>
@@ -87,15 +84,12 @@
     </Compile>
     <Compile Include="Converter\BaseConverter.cs" />
     <Compile Include="Converter\CurrentPageTypeToColor.cs" />
-    <Compile Include="Converter\CurrentPageTypeToPage.cs" />
+    <Compile Include="Converter\CurrentPageTypeToPageConverter.cs" />
     <Compile Include="Converter\FileNameToIconConverter.cs" />
     <Compile Include="Converter\FileSizeFormatConverter.cs" />
     <Compile Include="Converter\VisibilityToBoolConverter.cs" />
     <Compile Include="Converter\VisibilityToColorConverter.cs" />
-    <Compile Include="EmailManagement\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EmailManagement\MailServerConfiguration.xaml.cs">
+    <Compile Include="Controls\EmailManagement\MailServerConfiguration.xaml.cs">
       <DependentUpon>MailServerConfiguration.xaml</DependentUpon>
     </Compile>
     <Compile Include="FlatWindow.xaml.cs">
@@ -105,23 +99,20 @@
     <Compile Include="Pages\SendingPage.xaml.cs">
       <DependentUpon>SendingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="mdd\PageType.cs" />
-    <Compile Include="PasswordPopup.xaml.cs">
+    <Compile Include="Window\PasswordPopup.xaml.cs">
       <DependentUpon>PasswordPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen\SplashScreen.xaml.cs">
+    <Compile Include="Window\SplashScreen\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DecryptMessage.xaml.cs">
       <DependentUpon>DecryptMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SendMessage.xaml.cs">
-      <DependentUpon>SendMessage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserDataContext.cs" />
+    <Compile Include="Window\UserDataContext.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\ContextViewModel.cs" />
     <Compile Include="ViewModel\FrameViewModel.cs" />
@@ -129,9 +120,8 @@
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\SideMenuViewModel.cs" />
     <Compile Include="ViewModel\WIndowViewModel.cs" />
-    <Compile Include="WindowResizer.cs" />
-    <Page Include="About\AboutWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="Window\WindowResizer.cs" />
+    <Page Include="Window\About\AboutWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Attachement\AttachementListControl.xaml">
@@ -142,13 +132,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Frame.xaml">
+    <Page Include="Controls\PageChangerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\Option.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\RichTextBoxControl.xaml">
       <SubType>Designer</SubType>
@@ -158,11 +144,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EmailManagement\Login.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="EmailManagement\MailServerConfiguration.xaml">
+    <Page Include="Controls\EmailManagement\MailServerConfiguration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -170,31 +152,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\SendingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Settings.xaml">
+    <Page Include="Pages\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PasswordPopup.xaml">
+    <Page Include="Window\PasswordPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SplashScreen\SplashScreen.xaml">
+    <Page Include="Window\SplashScreen\SplashScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -215,10 +189,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\DecryptMessage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\SendMessage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -271,6 +241,10 @@
     <Resource Include="Media\Icon\app-logo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FormatConverter\MailSecure.FormatConverter.csproj">
+      <Project>{cb214f0d-059f-4760-a78b-e893ccde2b63}</Project>
+      <Name>MailSecure.FormatConverter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MailSecure.Core\MailSecure.Core.csproj">
       <Project>{a47aae88-2f39-4955-957c-03a36f49edc9}</Project>
       <Name>MailSecure.Core</Name>

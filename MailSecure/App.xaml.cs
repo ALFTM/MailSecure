@@ -12,6 +12,8 @@ namespace MailSecure
         public static MailSender mailSender { get; set; }
         public static UserDataContext CurrentUserData { get; set; }
 
+        public static SendingPageViewModel SendingPageViewModel { get; set; }
+
         private SplashScreen.SplashScreen splashScreen;
 
         public App()

@@ -126,6 +126,6 @@
 
         <local:SideMenu Grid.Column="0" />
 
-        <local:Frame Grid.Column="1" />
+        <local:PageChangerControl Grid.Column="1" DataContext="{x:Static local:App.CurrentUserData}"/>
     </Grid>
 </Window>

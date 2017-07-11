@@ -3,19 +3,30 @@ using MailSecure.Security;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Markup;
+using MailSecure.Security;
+
+using MailSecure.FormatConverter;
+using System;
 
 namespace MailSecure
 {
-    class SendingPageViewModel : BaseViewModel
+    public class SendingPageViewModel : BaseViewModel
     {
         #region Private members
         private Visibility copyFieldVisibility = Visibility.Collapsed;
         private Visibility attachementVisibility = Visibility.Collapsed;
+        private string to;
+        private string cc = "";
+        private string cci = "";
+        private string messageObject = "";
         #endregion
 
         #region Public members
+        public RichTextBoxControl RichTextBoxControler { get; set; }
         public Visibility CopyFieldVisibility
         {
             get => copyFieldVisibility;
@@ -36,6 +47,45 @@ namespace MailSecure
             }
         }
 
+        public string To
+        {
+            get => to;
+            set
+            {
+                to = value;
+                OnPropertyChanged(nameof(to));
+            }
+        }
+
+        public string Cc
+        {
+            get => cc;
+            set
+            {
+                cc = value;
+                OnPropertyChanged(nameof(cc));
+            }
+        }
+
+        public string Cci
+        {
+            get => cci;
+            set
+            {
+                cci = value;
+                OnPropertyChanged(nameof(cci));
+            }
+        }
+        public string MessageObject
+        {
+            get => messageObject;
+            set
+            {
+                messageObject = value;
+                OnPropertyChanged(nameof(messageObject));
+            }
+        }
+
         public ObservableCollection<AttachementsFacts> AttachementsList { get; set; }
 
         #endregion
@@ -44,6 +94,7 @@ namespace MailSecure
         public ICommand DisplayCopyFieldsCommand { get; set; }
         public ICommand AddAttachementCommand { get; set; }
         public ICommand RemoveAttachementCommand { get; set; }
+        public ICommand SendMailCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -55,6 +106,7 @@ namespace MailSecure
             AttachementsList = new ObservableCollection<AttachementsFacts>();
             DisplayCopyFieldsCommand = new RelayCommand(() => SetCopyVisibility());
             AddAttachementCommand = new RelayCommand(() => AddAttachement());
+            SendMailCommand = new RelayCommand(() => SendMessage());
             RemoveAttachementCommand = new RelayParameterizedCommand(param => RemoveAttachement(param));
         }
         #endregion
@@ -102,6 +154,105 @@ namespace MailSecure
                 AttachementVisibility = Visibility.Collapsed;
             }
         }
+
+        private void SendMessage()
+        {
+            string password = Utils.RandomPassword(8);
+            var mail = PrepareMessage(password);
+            
+            App.mailSender.setMailMessage(mail);
+            App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
+            App.mailSender.SendMail();
+
+            DisplayPassWordBox(password);
+
+            ClearFields();
+        }
+
+        public MailMessage PrepareMessage(string password)
+        {
+            var user = App.CurrentUserData.CurrentUser.email;
+            var body = GetHtmlStringFromXaml(GetXamlString());
+            
+
+            MailMessage mail = MailPreparator.GetEncryptedMail(body, password, GetFullPathArray());
+
+            MailAddress from = new MailAddress(user);
+            mail.From = from;
+
+            AddRecipient(ref mail);
+
+            mail.IsBodyHtml = true;
+
+            AddCcAndCciInMail(ref mail);
+
+            return mail;
+
+        }
+
+        private void AddRecipient(ref MailMessage mail)
+        {
+            foreach(var address in To.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries)) {
+                mail.To.Add(address);
+            }
+        }
+
+        private void AddCcAndCciInMail(ref MailMessage mail)
+        {
+            if (Cc.Length != 0) {
+                foreach (var address in Cc.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries)) {
+                    mail.CC.Add(address);
+                }
+            }
+
+            if (Cci.Length != 0) {
+                foreach (var address in Cci.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries)) {
+                    mail.Bcc.Add(address);
+                }
+            }
+        }
+
+        private Collection<string> GetFullPathArray()
+        {
+            Collection<string> path = new Collection<string>();
+
+            for(int i = 0; i < AttachementsList.Count; i++) {
+                var item = AttachementsList[i].FileFullPath;
+                path.Add(item);
+            }
+
+            return path;
+        }
+
+        private string GetXamlString()
+        {
+            var richTextBox = RichTextBoxControler.rtbEditor;
+            return XamlWriter.Save(richTextBox.Document);
+        }
+
+        private string GetHtmlStringFromXaml(string xamlString)
+        {
+            return HtmlFromXamlConverter.ConvertXamlToHtml(xamlString);
+        }
+
+        private void ClearFields()
+        {
+            To = "";
+            Cc = "";
+            Cci = "";
+            MessageObject = "";
+            AttachementsList.Clear();
+            RichTextBoxControler.rtbEditor.Document.Blocks.Clear();
+
+        }
+
+        private void DisplayPassWordBox(string password)
+        {
+            var passwordPopup = new PasswordPopup();
+            passwordPopup.passwordGeneratedLabel.Content = "Password généré : " + password;
+            passwordPopup.Show();
+        }
+
         #endregion
     }
 }

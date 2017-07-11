@@ -9,8 +9,9 @@ namespace MailSecure
     {
         public SendingPage()
         {
+            App.SendingPageViewModel = new SendingPageViewModel();
             InitializeComponent();
-            DataContext = new SendingPageViewModel();
+            DataContext = App.SendingPageViewModel;
         }
     }
 }
