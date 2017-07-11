@@ -169,23 +169,41 @@ namespace MailSecure
             switch (value) {
                 case 1:
                     Console.WriteLine("Outlook Account");
+                    OpenWindow("Outlook", ServerFactConst.OUTLOOK_SMTP);
                     break;
                 case 2:
                     Console.WriteLine("Exchange Account");
+                    OpenWindow("OFFICE 365", ServerFactConst.OFFICE_365_SMTP);
                     break;
                 case 3:
                     Console.WriteLine("Gmail Account");
+                    OpenWindow("Gmail", ServerFactConst.GMAIL_SMTP);
                     break;
                 case 4:
                     Console.WriteLine("Yahoo Account");
+                    OpenWindow("Yahoo!", ServerFactConst.YAHOO_SMTP);
                     break;
                 case 5:
                     Console.WriteLine("iCloud Account");
+                    OpenWindow("iCloud", ServerFactConst.ICLOUD_SMTP);
                     break;
                 default:
                     Console.WriteLine("Imap Account");
+                    OpenWindow();
                     break;
             }
+        }
+
+        private void OpenWindow(string title, string smtp)
+        {
+            MailServerConfigurationWindow window = new MailServerConfigurationWindow(title, smtp);
+            window.ShowDialog();
+        }
+
+        private void OpenWindow()
+        {
+            MailServerConfigurationWindow window = new MailServerConfigurationWindow();
+            window.ShowDialog();
         }
 
         #endregion

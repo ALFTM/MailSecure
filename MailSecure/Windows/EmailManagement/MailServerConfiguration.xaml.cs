@@ -12,6 +12,13 @@ namespace MailSecure
         public MailServerConfigurationWindow()
         {
             InitializeComponent();
+            DataContext = new ServerConfigurationViewModel(this);
+        }
+
+        public MailServerConfigurationWindow(string title, string smtp)
+        {
+            InitializeComponent();
+            DataContext = new ServerConfigurationViewModel(this, title, smtp);
         }
 
         private void SaveConfiguration(object sender, RoutedEventArgs e)
