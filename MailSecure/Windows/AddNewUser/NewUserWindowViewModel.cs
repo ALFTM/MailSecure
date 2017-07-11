@@ -13,8 +13,10 @@ namespace MailSecure
 
         public string Outlook { get; set; } = "pack://application:,,,/Media/Email/outlook.png";
         public string Exchange { get; set; } = "pack://application:,,,/Media/Email/exchange.png";
+        public string Gmail { get; set; } = "pack://application:,,,/Media/Email/google.png";
         public string Yahoo { get; set; } = "pack://application:,,,/Media/Email/yahoo.png";
         public string ICloud { get; set; } = "pack://application:,,,/Media/Email/icloud.png";
+        public string Default { get; set; } = "pack://application:,,,/Media/Email/default.png";
 
         public int MinimumHeight { get; set; } = 200;
 

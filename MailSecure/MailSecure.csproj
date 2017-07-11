@@ -287,7 +287,9 @@
   <ItemGroup>
     <Resource Include="Media\add.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\Email\default.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\Email\exchange.png" />
     <Resource Include="Media\Email\google.png" />

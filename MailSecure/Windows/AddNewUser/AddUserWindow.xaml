@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="AddUserWindow" Height="400" Width="300"
+        Title="AddUserWindow" Height="500" Width="450"
         AllowsTransparency="True">
     <Window.Resources>
         <Style TargetType="{x:Type local:AddUserWindow}">
@@ -132,20 +132,34 @@
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
                 <Button Style="{StaticResource EmailCommonButton}" 
+                        Background="{StaticResource BackgroundBrush}"
                         Content="Outlook" 
                         Tag="{Binding Outlook, Converter={local:ImagePathToImageSourceConverter}}" />
 
-                <Button Style="{StaticResource EmailCommonButton}" 
+                <Button Style="{StaticResource EmailCommonButton}"
+                        Background="{StaticResource BackgroundBrush}"
                         Content="Exchange" 
                         Tag="{Binding Exchange, Converter={local:ImagePathToImageSourceConverter}}" />
 
+                <Button Style="{StaticResource EmailCommonButton}"
+                        Background="{StaticResource BackgroundBrush}"
+                        Content="Gmail" 
+                        Tag="{Binding Gmail, Converter={local:ImagePathToImageSourceConverter}}" />
+
                 <Button Style="{StaticResource EmailCommonButton}" 
+                        Background="{StaticResource BackgroundBrush}"
                         Content="Yahoo" 
                         Tag="{Binding Yahoo, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}" 
+                        Background="{StaticResource BackgroundBrush}"
                         Content="iCloud" 
                         Tag="{Binding ICloud, Converter={local:ImagePathToImageSourceConverter}}" />
+
+                <Button Style="{StaticResource EmailCommonButton}" 
+                        Background="{StaticResource BackgroundBrush}"
+                        Content="Imap" 
+                        Tag="{Binding Default, Converter={local:ImagePathToImageSourceConverter}}" />
 
             </StackPanel>
         </ScrollViewer>
