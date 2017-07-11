@@ -8,6 +8,15 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="Settings">
 
+    <Page.Resources>
+        <Storyboard x:Key="Storyboard" 
+                    Storyboard.TargetName="RotateImage"
+                    Storyboard.TargetProperty="RenderTransform.(RotateTransform.Angle)">
+            <DoubleAnimation  From="0" To="360" BeginTime="00:00:00:000" Duration="00:00:00:005"
+                              RepeatBehavior="Forever"/>
+        </Storyboard>
+    </Page.Resources>
+
     <Grid Background="{StaticResource PrimaryDarkBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*" />
@@ -18,7 +27,24 @@
                 <ColumnDefinition Width="0.3*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Source="pack://application:,,,/Media/setting.png" MaxHeight="50" MaxWidth="64" HorizontalAlignment="Left" Opacity="0.6"/>
+            <Image x:Name="RotateImage" Grid.Column="0" Source="pack://application:,,,/Media/setting.png" 
+                   MaxHeight="50" 
+                   MaxWidth="64" 
+                   HorizontalAlignment="Left" 
+                   RenderTransformOrigin="0.5 , 0.5"
+                   Opacity="0.6">
+                <Image.RenderTransform>
+                    <RotateTransform Angle="0" />
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard Storyboard="{StaticResource Storyboard}"/>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Image.Triggers>
+                
+            </Image>
             
             <TextBlock Grid.Column="1" Text="Paramètre"
                        FontFamily="{StaticResource RobotoRegular}" 
@@ -42,17 +68,7 @@
                     
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.2*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="pack://application:,,,/Media/add.png" MaxHeight="30" HorizontalAlignment="Center" Opacity="0.6"/>
-
-                    <TextBlock Grid.Column="1" Text="Ajouter un compte"
-                       FontFamily="{StaticResource RobotoThin}" 
-                       Foreground="White" 
-                       VerticalAlignment="Center" HorizontalAlignment="Left"
-                       Opacity="0.6"/>
+                    <Button Style="{StaticResource NewUserButton}" Content="Add New User" Command="{Binding AddNewUserCommand}"/>
                 </Grid>
             </Grid>
         </Grid>
