@@ -64,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Window\About\AboutWindow.xaml.cs">
+    <Compile Include="Windows\About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Attachement\AttachementListControl.xaml.cs">
@@ -103,22 +103,26 @@
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="mdd\PageType.cs" />
-    <Compile Include="Window\PasswordPopup.xaml.cs">
+    <Compile Include="Windows\AddNewUser\AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddNewUser\NewUserWindowViewModel.cs" />
+    <Compile Include="Windows\PasswordPopup.xaml.cs">
       <DependentUpon>PasswordPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window\SplashScreen\SplashScreen.xaml.cs">
+    <Compile Include="Windows\SplashScreen\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DecryptMessage.xaml.cs">
       <DependentUpon>DecryptMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window\UserDataContext.cs" />
+    <Compile Include="Windows\UserDataContext.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\SendingPageViewModel.cs" />
     <Compile Include="ViewModel\SideMenuViewModel.cs" />
     <Compile Include="ViewModel\WIndowViewModel.cs" />
-    <Compile Include="Window\WindowResizer.cs" />
-    <Page Include="Window\About\AboutWindow.xaml">
+    <Compile Include="Windows\WindowResizer.cs" />
+    <Page Include="Windows\About\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,11 +166,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window\PasswordPopup.xaml">
+    <Page Include="Windows\AddNewUser\AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PasswordPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Window\SplashScreen\SplashScreen.xaml">
+    <Page Include="Windows\SplashScreen\SplashScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -274,5 +282,6 @@
   <ItemGroup>
     <Resource Include="Media\attachement.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
