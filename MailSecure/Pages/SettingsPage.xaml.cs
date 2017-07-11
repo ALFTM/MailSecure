@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace MailSecure
 {
@@ -10,6 +11,7 @@ namespace MailSecure
         public SettingsPage()
         {
             InitializeComponent();
+            DataContext = new SettingsPageViewModel();
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
