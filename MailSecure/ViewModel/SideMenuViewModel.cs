@@ -21,6 +21,13 @@ namespace MailSecure
         }
         #endregion
 
+        #region Content Language
+        public string SendMail { get { return App.ApplicationLanguage.GetStringFromLanguage("sendMailMenu_lbl"); } }
+        public string UnlockMail { get { return App.ApplicationLanguage.GetStringFromLanguage("unlockMailMenu_lbl"); } }
+        public string Settings { get { return App.ApplicationLanguage.GetStringFromLanguage("settingMenu_lbl"); } }
+        public string About { get { return App.ApplicationLanguage.GetStringFromLanguage("aboutMenu_lbl"); } }
+        #endregion
+
         #region Commands
         public ICommand OpenSettingCommand { get; set; }
         public ICommand OpenSendingMailCommand { get; set; }

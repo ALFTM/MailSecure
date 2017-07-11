@@ -24,13 +24,13 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="0.2*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Image x:Name="RotateImage" Grid.Column="0" Source="pack://application:,,,/Media/setting.png" 
                    MaxHeight="50" 
                    MaxWidth="64" 
-                   HorizontalAlignment="Left" 
+                   HorizontalAlignment="Center" 
                    RenderTransformOrigin="0.5 , 0.5"
                    Opacity="0.6">
                 <Image.RenderTransform>
@@ -45,8 +45,8 @@
                 </Image.Triggers>
                 
             </Image>
-            
-            <TextBlock Grid.Column="1" Text="Paramètre"
+
+            <TextBlock Name="SettingText" Grid.Column="1" Text="{Binding Setting, FallbackValue=Toto}"
                        FontFamily="{StaticResource RobotoRegular}" 
                        FontSize="20" Foreground="White" 
                        VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -59,16 +59,19 @@
                     <RowDefinition Height="0.2*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
+
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    
-                    
+
+                    <Image Grid.Column="0" Source="pack://application:,,,/Media/language.png" MaxHeight="30" VerticalAlignment="Center" Opacity="0.6"/>
+
+                    <ComboBox Name="Language_comboBox" ItemsSource="{Binding LanguageItems}" SelectedItem="{Binding LanguageSelected}" SelectionChanged="Language_comboBox_SelectionChanged" Grid.Column="1" Width="150" Background="Black" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Button Style="{StaticResource NewUserButton}" Content="Add New User" Command="{Binding AddNewUserCommand}"/>
+                    <Button Style="{StaticResource NewUserButton}" Content="{Binding AddAccount}" Command="{Binding AddNewUserCommand}" Name="AddAcountButton"/>
                 </Grid>
             </Grid>
         </Grid>

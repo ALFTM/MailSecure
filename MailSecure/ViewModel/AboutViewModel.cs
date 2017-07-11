@@ -91,6 +91,18 @@ namespace MailSecure
 
         #endregion
 
+        #region Content Language
+        public string AboutLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("aboutMenu_lbl"); } }
+        public string ApplicationTitleLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("titleApplication_lbl"); } }
+        public string VersionLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("version_lbl"); } }
+        public string CopyrightLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("copyright_lbl"); } }
+        public string OrganisationLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("organisation_lbl"); } }
+        public string Developer1Lbl { get { return App.ApplicationLanguage.GetStringFromLanguage("developerALFTM1_lbl"); } }
+        public string Developer2Lbl { get { return App.ApplicationLanguage.GetStringFromLanguage("developerALFTM2_lbl"); } }
+        public string GithubLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("github_lbl"); } }
+        public string CloseLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("close_lbl").ToUpper(); } }
+        #endregion
+
         #region Commands
 
         public ICommand CloseCommand { get; set; }
