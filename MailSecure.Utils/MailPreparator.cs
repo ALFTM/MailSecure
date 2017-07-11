@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Mail;
+using MailSecure.Core;
 
 namespace MailSecure.Security
 {
@@ -29,6 +30,7 @@ namespace MailSecure.Security
 
         private static void AddEncryptedFiled(ref MailMessage mail, ref Collection<string> list, ref string password)
         {
+            DirectoryManager.CreateTempFolder();
             for(int i = 0; i < list.Count; i++) {
                 var item = list[i];
                 string filePath = item;

@@ -192,7 +192,7 @@ namespace MailSecure
             AddRecipient(ref mail);
 
             mail.IsBodyHtml = true;
-
+            
             AddCcAndCciInMail(ref mail);
 
             return mail;
@@ -252,7 +252,7 @@ namespace MailSecure
             MessageObject = "";
             AttachementsList.Clear();
             RichTextBoxControler.rtbEditor.Document.Blocks.Clear();
-
+            DirectoryManager.ClearTempFolder();
         }
 
         private void DisplayPassWordBox(string password)
