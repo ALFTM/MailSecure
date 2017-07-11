@@ -40,6 +40,8 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <Image Grid.Column="0" Source="pack://application:,,,/Media/language.png" MaxHeight="30" VerticalAlignment="Center" Opacity="0.6"/>
+                    
                     <ComboBox Name="Language_comboBox" ItemsSource="{Binding LanguageItems}" SelectedItem="{Binding LanguageSelected}" SelectionChanged="Language_comboBox_SelectionChanged" Grid.Column="1" Width="150" Background="Black" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
 
