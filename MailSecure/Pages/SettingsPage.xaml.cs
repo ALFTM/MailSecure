@@ -10,6 +10,7 @@ namespace MailSecure
         public SettingsPage()
         {
             InitializeComponent();
+            DataContext = new SettingsPageViewModel();
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

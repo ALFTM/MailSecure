@@ -42,17 +42,7 @@
                     
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.2*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="pack://application:,,,/Media/add.png" MaxHeight="30" HorizontalAlignment="Center" Opacity="0.6"/>
-
-                    <TextBlock Grid.Column="1" Text="Ajouter un compte"
-                       FontFamily="{StaticResource RobotoThin}" 
-                       Foreground="White" 
-                       VerticalAlignment="Center" HorizontalAlignment="Left"
-                       Opacity="0.6"/>
+                    <Button Style="{StaticResource NewUserButton}" Content="Add New User" Command="{Binding AddNewUserCommand}"/>
                 </Grid>
             </Grid>
         </Grid>

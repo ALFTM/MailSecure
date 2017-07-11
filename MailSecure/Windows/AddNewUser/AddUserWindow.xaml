@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="AddUserWindow" Height="300" Width="300">
+        Title="AddUserWindow" Height="400" Width="300"
+        AllowsTransparency="True">
     <Window.Resources>
         <Style TargetType="{x:Type local:AddUserWindow}">
             <Setter Property="Template">
@@ -114,12 +115,26 @@
     </WindowChrome.WindowChrome>
 
     <Grid Background="{StaticResource BackgroundBrush}">
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
+        <Grid.RowDefinitions>
+            <!-- Title -->
+            <RowDefinition Height="Auto"/>
+            <!-- List of predefined server -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Title -->
+        <TextBlock Grid.Row="0" Text="Choose an account" />
+        
+        <!-- List of predefined server -->
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <Button Content="Outlook" />
+                <Button Content="Exchange"/>
+                <Button Content="Gmail" />
+                <Button Content="Yahoo" />
+                <Button Content="iCloud" />
+                <Button Content="Imap" />
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Window>
