@@ -40,7 +40,7 @@
 
                 <!-- Label -->
                 <TextBlock Grid.Column="0" 
-                       Text="De :"
+                       Text="{Binding FromLbl}"
                        Foreground="White"
                        FontSize="20"
                        Opacity=".6"/>
@@ -80,7 +80,7 @@
 
                 <!-- Label -->
                 <TextBlock Grid.Column="0" 
-                       Text="A :"
+                       Text="{Binding ToLbl}"
                        Foreground="White"
                        FontSize="20"
                        Opacity=".6"/>
@@ -101,7 +101,7 @@
                         Background="{Binding CopyFieldVisibility, Converter={local:VisibilityToColorConverter}}"
                         Command="{Binding DisplayCopyFieldsCommand}"
                         MinWidth="60"
-                        Content="Cc &amp; Cci" />
+                        Content="{Binding CcAndBccLbl}" />
             </Grid>
 
             <Border Grid.Row="1" BorderThickness="0 0 0 1" 
@@ -133,7 +133,7 @@
 
                     <!-- Label -->
                     <TextBlock Grid.Column="0" 
-                       Text="Cc :"
+                       Text="{Binding CcLbl}"
                        Foreground="White"
                        FontSize="20"
                        Opacity=".6"/>
@@ -170,10 +170,10 @@
 
                     <!-- Label -->
                     <TextBlock Grid.Column="0" 
-                       Text="Cci :"
+                       Text="{Binding BccLbl}"
                        Foreground="White"
                        FontSize="20"
-                       Opacity=".6"/>
+                       Opacity="0.6"/>
 
                     <!-- Text Box -->
                     <TextBox Grid.Column="1" 
@@ -208,7 +208,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- overlay with hint text -->
-                <TextBlock Grid.Row="0" Text="Object"
+                <TextBlock Grid.Row="0" Text="{Binding ObjectLbl}"
                        Margin="2"
                        Foreground="White"
                        Opacity=".6"
@@ -243,7 +243,7 @@
 
                 <!-- Label -->
                 <TextBlock Grid.Column="0" 
-                       Text="Attachement"
+                       Text="{Binding AttachementLbl}"
                        Foreground="White"
                        FontSize="20"
                        Opacity=".6"/>
@@ -258,7 +258,7 @@
         </Grid>
 
         <!--Content Section -->
-        <local:RichTextBoxControl Grid.Row="5" Margin="20 0 20 2"></local:RichTextBoxControl>
+        <local:RichTextBoxControl Grid.Row="5" Margin="20 0 20 2" />
 
     </Grid>
 </Page>

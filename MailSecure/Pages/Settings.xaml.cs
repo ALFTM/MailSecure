@@ -36,6 +36,7 @@ namespace MailSecure
         private void RefreshContent()
         {
             AddAcountButton.GetBindingExpression(Button.ContentProperty).UpdateTarget();
+            SettingText.GetBindingExpression(TextBlock.TextProperty).UpdateTarget();
         }
     }
 }

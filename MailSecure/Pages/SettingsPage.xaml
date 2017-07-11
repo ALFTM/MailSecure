@@ -20,7 +20,7 @@
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" Source="pack://application:,,,/Media/setting.png" MaxHeight="50" MaxWidth="64" HorizontalAlignment="Center" Opacity="0.6"/>
             
-            <TextBlock Grid.Column="1" Text="Paramètre"
+            <TextBlock Name="SettingText" Grid.Column="1" Text="{Binding Setting}"
                        FontFamily="{StaticResource RobotoRegular}" 
                        FontSize="20" Foreground="White" 
                        VerticalAlignment="Center" HorizontalAlignment="Left"

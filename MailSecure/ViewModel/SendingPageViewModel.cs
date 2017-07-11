@@ -7,7 +7,6 @@ using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
-using MailSecure.Security;
 
 using MailSecure.FormatConverter;
 using System;
@@ -88,6 +87,16 @@ namespace MailSecure
 
         public ObservableCollection<AttachementsFacts> AttachementsList { get; set; }
 
+        #endregion
+
+        #region Content Language
+        public string FromLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("from_lbl"); } }
+        public string ToLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("to_lbl"); } }
+        public string ObjectLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("object_lbl"); } }
+        public string CcLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("carbonCopy_lbl"); } }
+        public string BccLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("blindCarbonCopy_lbl"); } }
+        public string CcAndBccLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("ccAndBcc_lbl"); } }
+        public string AttachementLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("attachement_lbl"); } }
         #endregion
 
         #region Commands

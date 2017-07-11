@@ -9,25 +9,35 @@ namespace MailSecure
     /// </summary>
     public partial class App : Application
     {
+        #region Public Property
         public static MailSender mailSender { get; set; }
         public static UserDataContext CurrentUserData { get; set; }
-
+        public static LanguageManager ApplicationLanguage { get; private set; }
         public static SendingPageViewModel SendingPageViewModel { get; set; }
+        #endregion
 
+        #region Private Property
         private SplashScreen.SplashScreen splashScreen;
+        #endregion
 
+        #region Constructor
         public App()
         {
+            ApplicationLanguage = LanguageManager.GetInstance;
             splashScreen = new SplashScreen.SplashScreen();
             splashScreen.Show();
         }
+        #endregion
 
+        #region Public Methods
         public void getCurrentUser()
         {
             CurrentUserData.CurrentUser = BinaryMCSFileManager.ReadStructInFile();
             CurrentUserData.DisplayedName = App.CurrentUserData.CurrentUser.userName;
         }
+        #endregion
 
+        #region Protected Methods
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -52,7 +62,9 @@ namespace MailSecure
             splashScreen.Close();
             splashScreen = null;
         }
+        #endregion
 
+        #region Private Methods
         private async Task LongLoading()
         {
             bool canGetUser = true;
@@ -104,5 +116,6 @@ namespace MailSecure
 
             return true;
         }
+#endregion
     }
 }

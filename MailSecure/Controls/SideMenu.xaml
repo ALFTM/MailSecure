@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSecure"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              MaxWidth="275"
              MinWidth="275"
              d:DesignHeight="400" d:DesignWidth="275">
@@ -28,26 +28,26 @@
         </Grid>
 
         <StackPanel Height="Auto" Grid.Row="1" Background="{StaticResource PrimaryDarkBrush}" Orientation="Vertical">
-            <Button Style="{StaticResource SentMenuButton}" 
-                    Content="Sent Mail" 
+            <Button Name="SendMenuButton" Style="{StaticResource SentMenuButton}" 
+                    Content="{Binding SendMail}" 
                     Margin="0,0,0,5"
                     Command="{Binding OpenSendingMailCommand}"
                     Background="{Binding CurrentPage, Converter={local:CurrentPageTypeToColor}, ConverterParameter=send }"/>
-            
-            <Button Style="{StaticResource UnlockMenuButton}" 
-                    Content="Unlock Mail" 
+
+            <Button Name="UnlockMenuButton" Style="{StaticResource UnlockMenuButton}" 
+                    Content="{Binding UnlockMail}" 
                     Margin="0,0,0,5" 
                     Command="{Binding OpenUnlockCommand}"
                     Background="{Binding CurrentPage, Converter={local:CurrentPageTypeToColor}, ConverterParameter=unlock }"/>
-            
-            <Button Style="{StaticResource SettingButton}" 
-                    Content="Settings" 
+
+            <Button Name="SettingButton" Style="{StaticResource SettingButton}" 
+                    Content="{Binding Settings}" 
                     Margin="0,0,0,5" 
                     Command="{Binding OpenSettingCommand}" 
                     Background="{Binding CurrentPage, Converter={local:CurrentPageTypeToColor}, ConverterParameter=setting }"/>
-            
-            <Button Style="{StaticResource AboutButton}" 
-                    Content="About MailSecure" 
+
+            <Button Name="AboutButton" Style="{StaticResource AboutButton}" 
+                    Content="{Binding About}" 
                     Margin="0,0,0,5"
                     Command="{Binding OpenAboutCommand}"
                     Background="{Binding CurrentPage, Converter={local:CurrentPageTypeToColor}, ConverterParameter=about }"/>

@@ -124,7 +124,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <local:SideMenu Grid.Column="0" />
+        <local:SideMenu x:Name="SideMenuUC" Grid.Column="0" />
 
         <local:PageChangerControl Grid.Column="1" DataContext="{x:Static local:App.CurrentUserData}"/>
     </Grid>

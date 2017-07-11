@@ -12,7 +12,6 @@ namespace MailSecure
     class SettingViewModel : BaseViewModel
     {
         #region Private
-        private LanguageManager settingLanguageManager;
         private string myLanguageSelected;
         #endregion
 
@@ -24,14 +23,15 @@ namespace MailSecure
             set
             {
                 myLanguageSelected = value;
-                OnPropertyChanged(nameof(myLanguageSelected));
-                settingLanguageManager.SwitchLanguage(myLanguageSelected);
+                App.ApplicationLanguage.SwitchLanguage(myLanguageSelected);
+                OnPropertyChanged(nameof(LanguageSelected));                
             }
         }
         #endregion
 
         #region Content Language
-        public string AddAccount { get { return settingLanguageManager.GetStringFromLanguage("optionLanguage_lbl"); } }
+        public string AddAccount { get { return App.ApplicationLanguage.GetStringFromLanguage("addAcount_lbl"); } }
+        public string Setting { get { return App.ApplicationLanguage.GetStringFromLanguage("settingMenu_lbl"); } }
         #endregion
 
         #region Commands
@@ -44,7 +44,6 @@ namespace MailSecure
         /// </summary>
         public SettingViewModel()
         {
-            settingLanguageManager = LanguageManager.GetInstance;
             AddLanguage();
             OpenAccountWindowCommand = new RelayCommand(() => OpenSettingWindow());
         }
@@ -54,7 +53,7 @@ namespace MailSecure
         private void AddLanguage()
         {
             LanguageItems = new ObservableCollection<string>();
-            settingLanguageManager.GetLanguages().ForEach(str => LanguageItems.Add(str));
+            App.ApplicationLanguage.GetLanguages().ForEach(str => LanguageItems.Add(str));
             LanguageSelected = LanguageManager.Language;
         }
 

@@ -69,6 +69,13 @@ namespace MailSecure
 
         #endregion
 
+        #region Content Language
+        public string SendMail { get { return App.ApplicationLanguage.GetStringFromLanguage("sendMailMenu_lbl"); } }
+        public string UnlockMail { get { return App.ApplicationLanguage.GetStringFromLanguage("unlockMailMenu_lbl"); } }
+        public string Settings { get { return App.ApplicationLanguage.GetStringFromLanguage("settingMenu_lbl"); } }
+        public string CloseLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("aboutMenu_lbl"); } }
+        #endregion
+
         #region Private members
         /// <summary>
         /// Window that this modelView control
