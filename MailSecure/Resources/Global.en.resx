@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aboutMenu_lbl" xml:space="preserve">
-    <value>About MailSecure</value>
+    <value>About Mail Secure</value>
   </data>
   <data name="addAcount_lbl" xml:space="preserve">
     <value>Add account</value>
@@ -135,11 +135,29 @@
   <data name="ccAndBcc_lbl" xml:space="preserve">
     <value>Cc &amp; Bcc</value>
   </data>
+  <data name="close_lbl" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="copyright_lbl" xml:space="preserve">
+    <value>Copyright © 2017 MailSecure.</value>
+  </data>
+  <data name="developerALFTM1_lbl" xml:space="preserve">
+    <value>Teddy REINO</value>
+  </data>
+  <data name="developerALFTM2_lbl" xml:space="preserve">
+    <value>Maxime PELTE</value>
+  </data>
   <data name="from_lbl" xml:space="preserve">
     <value>From :</value>
   </data>
+  <data name="github_lbl" xml:space="preserve">
+    <value>Github</value>
+  </data>
   <data name="object_lbl" xml:space="preserve">
     <value>Object :</value>
+  </data>
+  <data name="organisation_lbl" xml:space="preserve">
+    <value>MailSecure® is made by ALFTM</value>
   </data>
   <data name="sendMailMenu_lbl" xml:space="preserve">
     <value>Send mail</value>
@@ -150,10 +168,16 @@
   <data name="settingMenu_lbl" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="titleApplication_lbl" xml:space="preserve">
+    <value>Mail Secure</value>
+  </data>
   <data name="to_lbl" xml:space="preserve">
     <value>To :</value>
   </data>
   <data name="unlockMailMenu_lbl" xml:space="preserve">
     <value>Unlock mail</value>
+  </data>
+  <data name="version_lbl" xml:space="preserve">
+    <value>Version 1.5.0</value>
   </data>
 </root>

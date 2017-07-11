@@ -135,11 +135,29 @@
   <data name="ccAndBcc_lbl" xml:space="preserve">
     <value>Cc &amp; Cci</value>
   </data>
+  <data name="close_lbl" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="copyright_lbl" xml:space="preserve">
+    <value>Copyright © 2017 MailSecure.</value>
+  </data>
+  <data name="developerALFTM1_lbl" xml:space="preserve">
+    <value>Teddy REINO</value>
+  </data>
+  <data name="developerALFTM2_lbl" xml:space="preserve">
+    <value>Maxime PELTE</value>
+  </data>
   <data name="from_lbl" xml:space="preserve">
     <value>De :</value>
   </data>
+  <data name="github_lbl" xml:space="preserve">
+    <value>Github</value>
+  </data>
   <data name="object_lbl" xml:space="preserve">
     <value>Objet</value>
+  </data>
+  <data name="organisation_lbl" xml:space="preserve">
+    <value>MailSecure® fait par ALFTM</value>
   </data>
   <data name="sendMailMenu_lbl" xml:space="preserve">
     <value>Envoyer</value>
@@ -150,10 +168,16 @@
   <data name="settingMenu_lbl" xml:space="preserve">
     <value>Paramètres</value>
   </data>
+  <data name="titleApplication_lbl" xml:space="preserve">
+    <value>Mail Secure</value>
+  </data>
   <data name="to_lbl" xml:space="preserve">
     <value>À :</value>
   </data>
   <data name="unlockMailMenu_lbl" xml:space="preserve">
     <value>Réception</value>
+  </data>
+  <data name="version_lbl" xml:space="preserve">
+    <value>Version 1.5.0</value>
   </data>
 </root>

@@ -88,7 +88,7 @@
             <RowDefinition Height=".2*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="About Mail Secure" 
+        <TextBlock Grid.Row="0" Text="{Binding AboutLbl}" 
                    Foreground="White"
                    FontFamily="{StaticResource RobotoRegular}"
                    VerticalAlignment="Center"
@@ -113,7 +113,7 @@
             <!-- Logo Section-->
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Image Source="pack://application:,,,/Media/Icon/logo_white_black.png" MaxHeight="128"/>
-                <TextBlock Text="Mail Secure" 
+                <TextBlock Text="{Binding ApplicationTitleLbl}" 
                            FontFamily="{StaticResource RobotoRegular}"
                            FontSize="32"
                            Foreground="White"
@@ -121,24 +121,24 @@
             </StackPanel>
             
             <!-- Version Section -->
-            <TextBlock Grid.Row="2" Text="Version 1.5.0" Foreground="White" HorizontalAlignment="Center" />
+            <TextBlock Grid.Row="2" Text="{Binding VersionLbl}" Foreground="White" HorizontalAlignment="Center" />
 
             <!-- Content Section -->
             <StackPanel Grid.Row="4"
                         Orientation="Vertical">
-                <TextBlock Text="Copyright © 2017 MailSecure." Foreground="White"  HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding CopyrightLbl}" Foreground="White"  HorizontalAlignment="Center" />
                 <Border Height="12" />
-                <TextBlock Text="MailSecure® is made by ALFTM" Foreground="White"  HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding OrganisationLbl}" Foreground="White"  HorizontalAlignment="Center" />
                 <Border Height="34" />
-                <TextBlock Text="Teddy Reino" Foreground="White"  HorizontalAlignment="Center" />
-                <TextBlock Text="Maxime Pelte" Foreground="White"  HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding Developer1Lbl}" Foreground="White"  HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding Developer2Lbl}" Foreground="White"  HorizontalAlignment="Center" />
             </StackPanel>
 
             <!-- Link Section -->
             <TextBlock Grid.Row="5" HorizontalAlignment="Center" Margin="5">
                     <Hyperlink NavigateUri="https://github.com/ALFTM/MailSecure" RequestNavigate="Hyperlink_RequestNavigate" Foreground="White">
                         <Image Source="pack://application:,,,/Media/github.png" Stretch="None"/>
-                        GitHub
+                        <TextBlock Text="{Binding GithubLbl}" Foreground="White"/>
                     </Hyperlink>
             </TextBlock>
         </Grid>
@@ -148,7 +148,7 @@
                 Margin="5"
                 Background="{StaticResource SecondaryBrush}"
                 Command="{Binding CloseCommand}">
-            <TextBlock Text="CLOSE" FontFamily="{StaticResource RobotoThin}">
+            <TextBlock Text="{Binding CloseLbl}" FontFamily="{StaticResource RobotoThin}">
             </TextBlock>
         </Button>
 
