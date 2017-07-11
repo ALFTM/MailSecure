@@ -6,56 +6,222 @@
         xmlns:local="clr-namespace:MailSecure"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Ajouter un compte" Height="450" Width="500" ResizeMode="NoResize">
-    <Grid ShowGridLines="False">
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="Ajouter un compte" Height="515" Width="520" >
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MailServerConfigurationWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer border-->
+
+                        <Border x:Name="Container" Padding="{Binding OuterMarginSizeThickness}">
+
+                            <!-- Main Window Outline -->
+
+                            <Grid>
+
+                                <!-- Op city Mask -->
+                                <Border x:Name="ClipContainer"
+                                        Background="{StaticResource PrimaryBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
+
+
+                                <!-- Window Border and drop shadow -->
+
+                                <Border CornerRadius="{Binding WindowCornerRadius}"
+                                        Background="{StaticResource SecondaryBrush}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2" />
+                                    </Border.Effect>
+
+                                </Border>
+
+                                <!-- Main Content -->
+
+                                <Grid>
+
+                                    <!-- Clip Grid Opacity -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=ClipContainer}"/>
+                                    </Grid.OpacityMask>
+
+                                    <Grid.RowDefinitions>
+
+                                        <!-- Title Bar -->
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}" />
+                                        <!-- Window Content -->
+                                        <RowDefinition Height="*" />
+
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Title Bar -->
+
+                                    <Grid Grid.Column="0" Panel.ZIndex="1">
+
+                                        <Grid.ColumnDefinitions>
+
+                                            <!-- App Icon -->
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- App Title -->
+                                            <ColumnDefinition Width="*" />
+                                            <!-- Window Button -->
+                                            <ColumnDefinition Width="Auto" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- App Icon -->
+                                        <Button Style="{StaticResource SystemIconButton}" Grid.Column="0" Padding="8" Command="{Binding MenuCommand}">
+                                            <Image Source="pack://application:,,,/Media/Icon/logo_neg.png"></Image>
+                                        </Button>
+
+                                        <!-- App Title -->
+                                        <Viewbox Grid.Column="1" Margin="0">
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="Adding User"></TextBlock>
+                                        </Viewbox>
+
+                                        <!-- Window Button -->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal" >
+                                            <Button Style="{StaticResource CloseWindowButton}" Command="{Binding CloseCommand}" Content="x" />
+                                        </StackPanel>
+
+
+                                    </Grid>
+
+                                    <!-- Page Content -->
+                                    <Border Grid.Row="2" Padding="0">
+                                        <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
+                                    </Border>
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}"
+                      CaptionHeight="{Binding TitleHeight}"
+                      GlassFrameThickness="0">
+
+        </WindowChrome>
+
+    </WindowChrome.WindowChrome>
+
+    <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height=".12*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height=".15*"></RowDefinition>
- 
+            <!-- Title -->
+            <RowDefinition Height="Auto" />
+            <!-- Content -->
+            <RowDefinition Height="*" />
+            <!-- Button -->
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Background="#FFF1F1F1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Label x:Name="userTitleLabel" Content="Informations Utilisateur" FontFamily="{StaticResource RobotoBold}" Grid.Row="0" Grid.Column="0"/>
-            <Label x:Name="userNameLabel" Content="Nom" Grid.Row="1" Grid.Column="0"/>
-            <Label x:Name="userEmailLabel" Content="Adresse mail" Grid.Row="2" Grid.Column="0"/>
+        
+        <!-- Title -->
+        <TextBlock Text="{Binding Title, FallbackValue=IMAP}"
+                   Margin="40 20"
+                   FontFamily="{StaticResource RobotoBold}"
+                   FontSize="28"
+                   Foreground="White"/>
 
-            <TextBox x:Name="userNameTextBox" Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center" />
-            <TextBox x:Name="userEmailTextBox" Text="{Binding Login}" Grid.Row="2" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center" ></TextBox>
+        <!-- Content -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+            <StackPanel Orientation="Vertical" >
+                <!-- Email section -->
+                <TextBlock Text="Addresse de Messagerie" 
+                       Foreground="White"
+                       Margin="40 10"
+                       FontSize="22"/>
+                <Grid Grid.Row="0" Margin="40 10">
+                    <Grid.ColumnDefinitions>
+                        <!-- Label -->
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Text Box -->
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-            <Label x:Name="ServerTitleLabel" Content="Informations Serveur" FontFamily="{StaticResource RobotoBold}" Grid.Row="3" Grid.Column="0"></Label>
-            <Label x:Name="smtpLabel" Content="Serveur sortant (SMTP)" Grid.Row="4" Grid.Column="0"></Label>
+                    <!-- overlay with hint text -->
+                    <TextBlock Grid.Row="0" Text="xyz@example.com"
+                           Margin="2"
+                           Foreground="White"
+                           Opacity=".6"
+                           FontSize="20"
+                           Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty, Converter={local:VisibilityToBoolConverter}}" />
+                    <!-- enter term here -->
+                    <TextBox Grid.Row="0"
+                         Text="{Binding Login}"
+                         Name="txtSearchBox" 
+                         Background="Transparent" 
+                         BorderThickness="0"
+                         FontSize="20"
+                         Foreground="White" CaretBrush="White" />
+                </Grid>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" />
 
-            <TextBox x:Name="smtpServerTextBox" Text="{Binding SmtpAddress}" IsEnabled="{Binding IsEnabled}" Grid.Row="4" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center"></TextBox>
+                <!-- Password section -->
+                <TextBlock Text="Serveur SMTP" Visibility="{Binding Visibility}"
+                       Foreground="White"
+                       Margin="40 10"
+                       FontSize="22"/>
+                <TextBox Grid.Row="0" Visibility="{Binding Visibility}"
+                         Margin="40 0 40 0"
+                         Background="Transparent" 
+                         BorderThickness="2"
+                         FontSize="20"
+                         Foreground="White" CaretBrush="White" />
+                <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" Visibility="{Binding Visibility}" />
 
-            <Label x:Name="userLoginLabel" Content="Information connexion" FontFamily="{StaticResource RobotoBold}" Grid.Row="5" Grid.Column="0"></Label>
-            <Label x:Name="loginLabel" Content="Identifiant" Grid.Row="6" Grid.Column="0"></Label>
-            <Label x:Name="passwordLabel" Content="Mot de passe" Grid.Row="7" Grid.Column="0"></Label>
+                <!-- Name section -->
+                <TextBlock Text="Nom à afficher" 
+                       Foreground="White"
+                       Margin="40 10"
+                       FontSize="22"/>
+                <TextBox Grid.Row="0"
+                     Margin="40 0 40 0"
+                     Text="{Binding Name}"
+                     Background="Transparent" 
+                     BorderThickness="2"
+                     FontSize="20"
+                     Foreground="White" CaretBrush="White" />
 
-            <TextBox x:Name="loginTextBox" Text="{Binding Login}" Grid.Row="6" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center"/>
-            <PasswordBox x:Name="passwordPasswordBox" Grid.Row="7" Grid.Column="1" Margin="5" MinHeight="12" MaxHeight="19" VerticalContentAlignment="Center"></PasswordBox>
-        </Grid>
-        <Grid Grid.Row="2" Background="White">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width=".4*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="connectionButton" Content="Ajouter" Grid.Column="1" Margin="10" Click="SaveConfiguration"/>
-        </Grid>
 
-        <Label x:Name="headerTitleLabel" Content="{Binding Title}" FontFamily="{StaticResource RobotoBold}" VerticalContentAlignment="Center"/>
+                <!-- Password section -->
+                <TextBlock Text="Mot de passe" 
+                       Foreground="White"
+                       Margin="40 10"
+                       FontSize="22"/>
+                <PasswordBox Grid.Row="0"
+                             Name="passwordBox"
+                         Margin="40 0 40 0"
+                         Background="Transparent" 
+                         BorderThickness="2"
+                         FontSize="20"
+                         Foreground="White" CaretBrush="White" />
+                <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" />
+            </StackPanel>
+        </ScrollViewer>
+        
+        
+
+        <!-- Button -->
+        <Button Grid.Row="2" Style="{StaticResource ActionButtonRed}"
+                FontFamily="{StaticResource RobotoThin}"
+                FontSize="24"
+                Foreground="White"
+                Content="Ajouter"
+                Margin="10"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Height="50"
+                Width="140"/>
+
     </Grid>
+
 </Window>

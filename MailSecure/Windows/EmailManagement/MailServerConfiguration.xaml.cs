@@ -21,6 +21,7 @@ namespace MailSecure
             DataContext = new ServerConfigurationViewModel(this, title, smtp);
         }
 
+        /*
         private void SaveConfiguration(object sender, RoutedEventArgs e)
         {
             UserMailFacts userFacts = new UserMailFacts();
@@ -59,5 +60,6 @@ namespace MailSecure
             userFacts.entropy = entropy;
             userFacts.encodingText = encodeText;
         }
+        */
     }
 }
