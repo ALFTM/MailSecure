@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/ALFTM/MailSecure/blob/dev/MailSecure/Images/logo_256.png"/>
+  <img src="https://github.com/ALFTM/MailSecure/blob/dev/MailSecure/Media/Icon/logo_256.png"/>
 </p>
 
 [![GitHub release](https://img.shields.io/github/release/ALFTM/MailSecure.svg?style=flat-square)](https://github.com/ALFTM/MailSecure/release)
