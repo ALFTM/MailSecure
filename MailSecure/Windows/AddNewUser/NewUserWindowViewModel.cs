@@ -11,6 +11,11 @@ namespace MailSecure
     {
         #region Public Members
 
+        public string Outlook { get; set; } = "pack://application:,,,/Media/Email/outlook.png";
+        public string Exchange { get; set; } = "pack://application:,,,/Media/Email/exchange.png";
+        public string Yahoo { get; set; } = "pack://application:,,,/Media/Email/yahoo.png";
+        public string ICloud { get; set; } = "pack://application:,,,/Media/Email/icloud.png";
+
         public int MinimumHeight { get; set; } = 200;
 
         public int MinimumWidth { get; set; } = 200;

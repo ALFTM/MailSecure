@@ -122,17 +122,31 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!-- Title -->
-        <TextBlock Grid.Row="0" Text="Choose an account" />
+        <TextBlock Grid.Row="0" Text="Choose an account" 
+                   Foreground="White"
+                   Margin="10"
+                   FontFamily="{StaticResource RobotoRegular}" 
+                   FontSize="24" />
         
         <!-- List of predefined server -->
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
-                <Button Content="Outlook" />
-                <Button Content="Exchange"/>
-                <Button Content="Gmail" />
-                <Button Content="Yahoo" />
-                <Button Content="iCloud" />
-                <Button Content="Imap" />
+                <Button Style="{StaticResource EmailCommonButton}" 
+                        Content="Outlook" 
+                        Tag="{Binding Outlook, Converter={local:ImagePathToImageSourceConverter}}" />
+
+                <Button Style="{StaticResource EmailCommonButton}" 
+                        Content="Exchange" 
+                        Tag="{Binding Exchange, Converter={local:ImagePathToImageSourceConverter}}" />
+
+                <Button Style="{StaticResource EmailCommonButton}" 
+                        Content="Yahoo" 
+                        Tag="{Binding Yahoo, Converter={local:ImagePathToImageSourceConverter}}" />
+
+                <Button Style="{StaticResource EmailCommonButton}" 
+                        Content="iCloud" 
+                        Tag="{Binding ICloud, Converter={local:ImagePathToImageSourceConverter}}" />
+
             </StackPanel>
         </ScrollViewer>
 

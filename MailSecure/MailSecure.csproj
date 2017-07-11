@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\ImagePathToImageSourceConverter.cs" />
     <Compile Include="ViewModel\SettingsPageViewModel.cs" />
     <Compile Include="Windows\About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
@@ -285,6 +286,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\add.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\Email\exchange.png" />
+    <Resource Include="Media\Email\google.png" />
+    <Resource Include="Media\Email\icloud.png" />
+    <Resource Include="Media\Email\outlook.png" />
+    <Resource Include="Media\Email\Yahoo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
