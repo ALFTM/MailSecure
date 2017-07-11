@@ -1,4 +1,5 @@
 ﻿using MailSecure.Core;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -103,10 +104,9 @@ namespace MailSecure
 
         #region Commands
 
-        public ICommand MinimizedCommand { get; set; }
-        public ICommand MaximizedCommand { get; set; }
         public ICommand CloseCommand { get; set; }
         public ICommand MenuCommand { get; set; }
+        public ICommand OpenServerConfigurationCommand{ get; set; }
 
         #endregion
 
@@ -127,6 +127,7 @@ namespace MailSecure
 
             CloseCommand = new RelayCommand(() => CloseApp());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(window, GetMousePosition()));
+            OpenServerConfigurationCommand = new RelayParameterizedCommand(type => GoToConfiguration(type));
 
             windowResizer = new WindowResizer(window);
 
@@ -159,6 +160,32 @@ namespace MailSecure
             OnPropertyChanged(nameof(OuterMarginSizeThickness));
             OnPropertyChanged(nameof(WindowRadius));
             OnPropertyChanged(nameof(WindowCornerRadius));
+        }
+
+        private void GoToConfiguration(object value)
+        {
+            value = Int32.Parse(value.ToString());
+
+            switch (value) {
+                case 1:
+                    Console.WriteLine("Outlook Account");
+                    break;
+                case 2:
+                    Console.WriteLine("Exchange Account");
+                    break;
+                case 3:
+                    Console.WriteLine("Gmail Account");
+                    break;
+                case 4:
+                    Console.WriteLine("Yahoo Account");
+                    break;
+                case 5:
+                    Console.WriteLine("iCloud Account");
+                    break;
+                default:
+                    Console.WriteLine("Imap Account");
+                    break;
+            }
         }
 
         #endregion

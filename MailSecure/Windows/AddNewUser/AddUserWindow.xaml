@@ -133,31 +133,43 @@
             <StackPanel Orientation="Vertical">
                 <Button Style="{StaticResource EmailCommonButton}" 
                         Background="{StaticResource BackgroundBrush}"
+                        Command="{Binding OpenServerConfigurationCommand}"
+                        CommandParameter="1"
                         Content="Outlook" 
                         Tag="{Binding Outlook, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}"
                         Background="{StaticResource BackgroundBrush}"
+                        Command="{Binding OpenServerConfigurationCommand}"
+                        CommandParameter="2"
                         Content="Exchange" 
                         Tag="{Binding Exchange, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}"
                         Background="{StaticResource BackgroundBrush}"
+                        Command="{Binding OpenServerConfigurationCommand}"
+                        CommandParameter="3"
                         Content="Gmail" 
                         Tag="{Binding Gmail, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}" 
                         Background="{StaticResource BackgroundBrush}"
+                        Command="{Binding OpenServerConfigurationCommand}"
+                        CommandParameter="4"
                         Content="Yahoo" 
                         Tag="{Binding Yahoo, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}" 
                         Background="{StaticResource BackgroundBrush}"
+                        Command="{Binding OpenServerConfigurationCommand}"
+                        CommandParameter="5"
                         Content="iCloud" 
                         Tag="{Binding ICloud, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}" 
                         Background="{StaticResource BackgroundBrush}"
+                        Command="{Binding OpenServerConfigurationCommand}"
+                        CommandParameter="6"
                         Content="Imap" 
                         Tag="{Binding Default, Converter={local:ImagePathToImageSourceConverter}}" />
 
