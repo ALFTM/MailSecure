@@ -10,11 +10,17 @@ namespace MailSecure
         public SettingsPage()
         {
             InitializeComponent();
+            DataContext = new SettingViewModel();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Language_comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            RefreshContent();
+        }
 
+        private void RefreshContent()
+        {
+            AddAcountButton.GetBindingExpression(Button.ContentProperty).UpdateTarget();
         }
     }
 }
