@@ -72,7 +72,7 @@
                                         </Grid.ColumnDefinitions>
 
                                         <!-- App Icon -->
-                                        <Button Style="{StaticResource SystemIconButton}" Grid.Column="0" Padding="8" Command="{Binding MenuCommand}">
+                                        <Button Style="{StaticResource SystemIconButton}" Grid.Column="0" Padding="8">
                                             <Image Source="pack://application:,,,/Media/Icon/logo_neg.png"></Image>
                                         </Button>
 
@@ -212,6 +212,7 @@
 
         <!-- Button -->
         <Button Grid.Row="2" Style="{StaticResource ActionButtonRed}"
+                Command="{Binding AddCommand}"
                 FontFamily="{StaticResource RobotoThin}"
                 FontSize="24"
                 Foreground="White"

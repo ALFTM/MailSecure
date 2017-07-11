@@ -7,6 +7,7 @@ using MailSecure.Core;
 using System.Security;
 using System.Windows;
 using System.Windows.Input;
+using System.Security.Cryptography;
 
 namespace MailSecure
 {
@@ -135,6 +136,7 @@ namespace MailSecure
 
         #region Commands
         public ICommand CloseCommand { get; set; }
+        public ICommand AddCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -152,8 +154,7 @@ namespace MailSecure
             };
 
 
-            // Command init
-            CloseCommand = new RelayCommand(() => CloseApp());
+            InitCommands();
 
             windowResizer = new WindowResizer(window);
             windowResizer.WindowDockChanged += (dock) => {
@@ -180,8 +181,7 @@ namespace MailSecure
             };
 
 
-            // Command init
-            CloseCommand = new RelayCommand(() => CloseApp());
+            InitCommands();
 
             windowResizer = new WindowResizer(window);
             windowResizer.WindowDockChanged += (dock) => {
@@ -212,6 +212,52 @@ namespace MailSecure
             OnPropertyChanged(nameof(OuterMarginSizeThickness));
             OnPropertyChanged(nameof(WindowRadius));
             OnPropertyChanged(nameof(WindowCornerRadius));
+        }
+        #endregion
+
+        #region Methods
+        private void InitCommands()
+        {
+            // Command init
+            CloseCommand = new RelayCommand(() => CloseApp());
+            AddCommand = new RelayCommand(() => SaveConfiguration());
+        }
+
+        private void SaveConfiguration()
+        {
+            UserMailFacts userFacts = new UserMailFacts();
+
+            this.CryptPassword(ref userFacts);
+
+            userFacts.userName = Name;
+            userFacts.login = Login;
+            userFacts.smtpAdress = SmtpAddress;
+            userFacts.email = Login;
+
+            bool res = BinaryMCSFileManager.WriteStructInFile(userFacts);
+
+            if (res) {
+                App.CurrentUserData.CurrentUser = userFacts;
+                App.CurrentUserData.DisplayedName = userFacts.userName;
+            }
+            CloseApp();
+        }
+
+        private void CryptPassword(ref UserMailFacts userFacts)
+        {
+            byte[] plainText = System.Text.Encoding.UTF8.GetBytes(window.passwordBox.Password);
+
+            // Generate additional entropy (will be used as the Initialization vector)
+            byte[] entropy = new byte[20];
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            rng.GetBytes(entropy);
+
+            byte[] encodeText = ProtectedData.Protect(plainText, entropy, DataProtectionScope.CurrentUser);
+
+            plainText.Initialize();
+
+            userFacts.entropy = entropy;
+            userFacts.encodingText = encodeText;
         }
         #endregion
     }
