@@ -51,7 +51,7 @@
                 </Viewbox>
             </Button>
             <Separator />
-            <Button HorizontalAlignment="Right" Content="Envoyer" Command="{Binding SendMailCommand}"></Button>
+            <Button HorizontalAlignment="Right" Content="{Binding SendLbl}" Command="{Binding SendMailCommand}"></Button>
         </ToolBar>
     </Grid>
 </UserControl>

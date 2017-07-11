@@ -1,57 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MailSecure
 {
     public class LanguageManager
     {
+        #region Private Property
         private static LanguageManager instance = null;
-        public static string language { get; set; }
         private ResourceManager resManag;
         private CultureInfo ci;
+        #endregion
 
+        #region Public Property
+        public static string Language { get; private set; }
+        #endregion
+
+        #region Constructor
         private LanguageManager() { }
+        #endregion
 
+        #region Methods public static
         public static LanguageManager GetInstance
         {
             get
             {
-                if (null == instance)
-                {
+                if (null == instance) {
                     instance = new LanguageManager();
-                    language = "fr";
+                    Language = "fr";
                 }
                 return instance;
             }
         }
+        #endregion
 
+        #region Methods public
         public void SwitchLanguage(string newLanguage)
         {
-            switch (newLanguage)
-            {
-                case "fr":
+            switch (newLanguage) {
+                case "FR":
                     ci = CultureInfo.CreateSpecificCulture("fr");
-                    language = "fr";
+                    Language = "FR";
                     break;
-                case "en":
+                case "EN":
                     ci = CultureInfo.CreateSpecificCulture("en");
-                    language = "en";
+                    Language = "EN";
                     break;
             }
         }
 
         public string GetStringFromLanguage(string libelle)
         {
-            if(null == resManag)
-            {
+            if (null == resManag) {
                 resManag = new ResourceManager("MailSecure.Resources.Global", typeof(LanguageManager).Assembly);
             }
             return resManag.GetString(libelle, ci);
         }
+
+        public List<string> GetLanguages()
+        {
+            return new List<string>() { "FR", "EN" };
+        }
+        #endregion
     }
 }

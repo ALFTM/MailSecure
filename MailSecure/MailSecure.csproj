@@ -298,5 +298,8 @@
     <Resource Include="Media\Email\outlook.png" />
     <Resource Include="Media\Email\Yahoo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\language.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
