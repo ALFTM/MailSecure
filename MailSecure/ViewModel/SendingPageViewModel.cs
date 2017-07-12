@@ -1,14 +1,14 @@
 ﻿using MailSecure.Core;
+using MailSecure.FormatConverter;
 using MailSecure.Security;
 using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
-using MailSecure.FormatConverter;
-using System;
 
 namespace MailSecure
 {

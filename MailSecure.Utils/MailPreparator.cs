@@ -10,9 +10,10 @@ namespace MailSecure.Security
         {
             string messageCryted = Encryption.Encrypt(body, password);
 
-            MailMessage mail = new MailMessage();
-            mail.Body = messageCryted;
-
+            MailMessage mail = new MailMessage()
+            {
+                Body = messageCryted
+            };
             return mail;
         }
 
@@ -20,9 +21,10 @@ namespace MailSecure.Security
         {
             string messageCryted = Encryption.Encrypt(body, password);
 
-            MailMessage mail = new MailMessage();
-            mail.Body = messageCryted;
-
+            MailMessage mail = new MailMessage()
+            {
+                Body = messageCryted
+            };
             AddEncryptedFiled(ref mail, ref attachmentsList, ref password);
 
             return mail;

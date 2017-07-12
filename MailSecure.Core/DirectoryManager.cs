@@ -29,7 +29,7 @@ namespace MailSecure.Core
             {
                 var dirInfoTemp = new DirectoryInfo(tempfolderPath);
                 Array.ForEach(dirInfoTemp.GetFiles(), f => f.Delete());
-                Array.ForEach(dirInfoTemp.GetDirectories(), f => f.Delete(true));
+                Array.ForEach(dirInfoTemp.GetDirectories(), d => d.Delete(true));
             }
         }
 
