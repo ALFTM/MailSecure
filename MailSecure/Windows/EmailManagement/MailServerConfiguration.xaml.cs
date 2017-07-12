@@ -15,10 +15,10 @@ namespace MailSecure
             DataContext = new ServerConfigurationViewModel(this);
         }
 
-        public MailServerConfigurationWindow(string title, string smtp)
+        public MailServerConfigurationWindow(string title, string smtp, string imap)
         {
             InitializeComponent();
-            DataContext = new ServerConfigurationViewModel(this, title, smtp);
+            DataContext = new ServerConfigurationViewModel(this, title, smtp, imap);
         }
     }
 }

@@ -9,27 +9,25 @@ namespace MailSecure.Core
         {
             string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
             string filePath = folderPath + "\\" + AppConst.USER_CONFIG_FILE_NAME;
-            FileStream fileStream;
-            BinaryWriter writer;
 
             CreateFolderAndFile();
 
-
             try
             {
-
-                fileStream = File.Open(filePath, FileMode.Open);
-                writer = new BinaryWriter(fileStream);
-
-                writer.Write(facts.UserName);
-                writer.Write(facts.EmailAdress);
-                writer.Write(facts.Login);
-                writer.Write(facts.SmtpAdress);
-                writer.Write(facts.EncodingText.Length);
-                writer.Write(facts.EncodingText);
-                writer.Write(facts.Entropy);
-
-                fileStream.Close();
+                using (FileStream fileStream = File.Open(filePath, FileMode.Open))
+                {
+                    using (BinaryWriter writer = new BinaryWriter(fileStream))
+                    {
+                        writer.Write(facts.UserName);
+                        writer.Write(facts.EmailAdress);
+                        writer.Write(facts.Login);
+                        writer.Write(facts.SmtpAdress);
+                        writer.Write(facts.ImapAdress);
+                        writer.Write(facts.EncodingText.Length);
+                        writer.Write(facts.EncodingText);
+                        writer.Write(facts.Entropy);
+                    }
+                }
 
                 return true;
             }
@@ -45,20 +43,21 @@ namespace MailSecure.Core
         {
             string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER);
             string filePath = folderPath + "\\" + AppConst.USER_CONFIG_FILE_NAME;
-            FileStream fileStream;
-            BinaryReader reader;
             UserMailFacts userFacts = new UserMailFacts();
-
-            fileStream = File.Open(filePath, FileMode.Open);
-            reader = new BinaryReader(fileStream);
-
-            userFacts.UserName = reader.ReadString();
-            userFacts.EmailAdress = reader.ReadString();
-            userFacts.Login = reader.ReadString();
-            userFacts.SmtpAdress = reader.ReadString();
-            int count = reader.ReadInt32();
-            userFacts.EncodingText = reader.ReadBytes(count);
-            userFacts.Entropy = reader.ReadBytes(20);
+            using (FileStream fileStream = File.Open(filePath, FileMode.Open))
+            {
+                using(BinaryReader reader = new BinaryReader(fileStream))
+                {
+                    userFacts.UserName = reader.ReadString();
+                    userFacts.EmailAdress = reader.ReadString();
+                    userFacts.Login = reader.ReadString();
+                    userFacts.SmtpAdress = reader.ReadString();
+                    userFacts.ImapAdress = reader.ReadString();
+                    int count = reader.ReadInt32();
+                    userFacts.EncodingText = reader.ReadBytes(count);
+                    userFacts.Entropy = reader.ReadBytes(20);
+                }
+            }
 
             return userFacts;
         }

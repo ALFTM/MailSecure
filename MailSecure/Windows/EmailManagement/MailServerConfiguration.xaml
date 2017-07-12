@@ -165,18 +165,34 @@
                 </Grid>
                 <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" />
 
-                <!-- Password section -->
+                <!-- Smtp section -->
                 <TextBlock Text="{Binding SmtpServerLbl}" Visibility="{Binding Visibility}"
                        Foreground="White"
                        Margin="40 10"
                        FontSize="22"/>
                 <TextBox Grid.Row="0" Visibility="{Binding Visibility}"
+                         Text="{Binding SmtpAdress}"
                          Margin="40 0 40 0"
                          Background="Transparent" 
                          BorderThickness="2"
                          FontSize="20"
                          Foreground="White" CaretBrush="White" />
                 <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" Visibility="{Binding Visibility}" />
+
+                <!-- Imap section -->
+                <TextBlock Text="{Binding ImapServerLbl}" Visibility="{Binding Visibility}"
+                       Foreground="White"
+                       Margin="40 10"
+                       FontSize="22"/>
+                <TextBox Grid.Row="0" Visibility="{Binding Visibility}"
+                         Text="{Binding ImapAdress}"
+                         Margin="40 0 40 0"
+                         Background="Transparent" 
+                         BorderThickness="2"
+                         FontSize="20"
+                         Foreground="White" CaretBrush="White" />
+                <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" Visibility="{Binding Visibility}" />
+
 
                 <!-- Name section -->
                 <TextBlock Text="{Binding UsernameLbl}" 

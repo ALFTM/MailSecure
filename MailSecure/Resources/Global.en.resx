@@ -177,6 +177,9 @@
   <data name="iCloud_lbl" xml:space="preserve">
     <value>iCloud</value>
   </data>
+  <data name="imapServer_lbl" xml:space="preserve">
+    <value>IMAP Server</value>
+  </data>
   <data name="imap_lbl" xml:space="preserve">
     <value>Imap</value>
   </data>

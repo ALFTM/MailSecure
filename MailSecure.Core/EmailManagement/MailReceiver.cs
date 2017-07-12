@@ -24,15 +24,22 @@ namespace MailSecure.Core
         #endregion
 
         #region Public Methods
+        public IEnumerable<MailMessage> GetRecentMessages()
+        {
+            var tenDaysBefore = DateTime.Now.AddDays(-10);
+            var uids = imapClient.Search(SearchCondition.SentSince(tenDaysBefore));
+            return imapClient.GetMessages(uids).OrderByDescending(m => m.Date());
+        }
+
         public List<MailMessage> GetAllMessages()
         {
-            var uids = imapClient.Search(SearchCondition.LessThan(50));
+            var uids = imapClient.Search(SearchCondition.All());
             return imapClient.GetMessages(uids).ToList();
         }
 
         public void PrepareImap()
         {
-            imapClient = new ImapClient(ServerFactConst.OUTLOOK_IMAP, ServerFactConst.DEFAULT_IMAP_PORT, true);
+            imapClient = new ImapClient(currentUser.ImapAdress, ServerFactConst.DEFAULT_IMAP_PORT, true);
             LoginImap();
         }
         #endregion
