@@ -61,7 +61,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converter\ImagePathToImageSourceConverter.cs" />
+    <Compile Include="Pages\UnlockPage.xaml.cs">
+      <DependentUpon>UnlockPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModel\UnlockPageViewModel.cs" />
     <Compile Include="Windows\About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
@@ -121,6 +125,10 @@
     <Compile Include="ViewModel\SideMenuViewModel.cs" />
     <Compile Include="ViewModel\WIndowViewModel.cs" />
     <Compile Include="Windows\WindowResizer.cs" />
+    <Page Include="Pages\UnlockPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\About\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

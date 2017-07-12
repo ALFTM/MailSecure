@@ -21,13 +21,13 @@ namespace MailSecure.Core
                 fileStream = File.Open(filePath, FileMode.Open);
                 writer = new BinaryWriter(fileStream);
 
-                writer.Write(facts.userName);
-                writer.Write(facts.email);
-                writer.Write(facts.login);
-                writer.Write(facts.smtpAdress);
-                writer.Write(facts.encodingText.Length);
-                writer.Write(facts.encodingText);
-                writer.Write(facts.entropy);
+                writer.Write(facts.UserName);
+                writer.Write(facts.EmailAdress);
+                writer.Write(facts.Login);
+                writer.Write(facts.SmtpAdress);
+                writer.Write(facts.EncodingText.Length);
+                writer.Write(facts.EncodingText);
+                writer.Write(facts.Entropy);
 
                 fileStream.Close();
 
@@ -52,13 +52,13 @@ namespace MailSecure.Core
             fileStream = File.Open(filePath, FileMode.Open);
             reader = new BinaryReader(fileStream);
 
-            userFacts.userName = reader.ReadString();
-            userFacts.email = reader.ReadString();
-            userFacts.login = reader.ReadString();
-            userFacts.smtpAdress = reader.ReadString();
+            userFacts.UserName = reader.ReadString();
+            userFacts.EmailAdress = reader.ReadString();
+            userFacts.Login = reader.ReadString();
+            userFacts.SmtpAdress = reader.ReadString();
             int count = reader.ReadInt32();
-            userFacts.encodingText = reader.ReadBytes(count);
-            userFacts.entropy = reader.ReadBytes(20);
+            userFacts.EncodingText = reader.ReadBytes(count);
+            userFacts.Entropy = reader.ReadBytes(20);
 
             return userFacts;
         }

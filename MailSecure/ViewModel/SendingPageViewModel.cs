@@ -182,7 +182,7 @@ namespace MailSecure
 
         public MailMessage PrepareMessage(string password)
         {
-            var user = App.CurrentUserData.CurrentUser.email;
+            var user = App.CurrentUserData.CurrentUser.EmailAdress;
             var body = GetHtmlStringFromXaml(GetXamlString());
             
 

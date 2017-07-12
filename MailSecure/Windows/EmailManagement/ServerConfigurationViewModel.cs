@@ -240,16 +240,16 @@ namespace MailSecure
 
             this.CryptPassword(ref userFacts);
 
-            userFacts.userName = Name;
-            userFacts.login = Login;
-            userFacts.smtpAdress = SmtpAddress;
-            userFacts.email = Login;
+            userFacts.UserName = Name;
+            userFacts.Login = Login;
+            userFacts.SmtpAdress = SmtpAddress;
+            userFacts.EmailAdress = Login;
 
             bool res = BinaryMCSFileManager.WriteStructInFile(userFacts);
 
             if (res) {
                 App.CurrentUserData.CurrentUser = userFacts;
-                App.CurrentUserData.DisplayedName = userFacts.userName;
+                App.CurrentUserData.DisplayedName = userFacts.UserName;
             }
             CloseApp();
         }
@@ -267,8 +267,8 @@ namespace MailSecure
 
             plainText.Initialize();
 
-            userFacts.entropy = entropy;
-            userFacts.encodingText = encodeText;
+            userFacts.Entropy = entropy;
+            userFacts.EncodingText = encodeText;
         }
         #endregion
     }

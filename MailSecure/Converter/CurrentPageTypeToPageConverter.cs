@@ -12,7 +12,7 @@ namespace MailSecure
             }
 
             if ((PageType)value == PageType.UnlockPage) {
-                return "pack://application:,,,/Pages/SendingPage.xaml";
+                return "pack://application:,,,/Pages/UnlockPage.xaml";
             }
 
             if ((PageType)value == PageType.SettingPage) {

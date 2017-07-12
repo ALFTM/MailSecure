@@ -33,7 +33,7 @@ namespace MailSecure
         public void getCurrentUser()
         {
             CurrentUserData.CurrentUser = BinaryMCSFileManager.ReadStructInFile();
-            CurrentUserData.DisplayedName = App.CurrentUserData.CurrentUser.userName;
+            CurrentUserData.DisplayedName = App.CurrentUserData.CurrentUser.UserName;
         }
         #endregion
 
