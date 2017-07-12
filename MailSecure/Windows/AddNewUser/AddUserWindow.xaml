@@ -78,7 +78,7 @@
 
                                         <!-- App Title -->
                                         <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeaderText}" Text="Adding User"></TextBlock>
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding TitleLbl}"></TextBlock>
                                         </Viewbox>
 
                                         <!-- Window Button -->
@@ -122,7 +122,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!-- Title -->
-        <TextBlock Grid.Row="0" Text="Choose an account" 
+        <TextBlock Grid.Row="0" Text="{Binding ChooseAccountLbl}" 
                    Foreground="White"
                    Margin="10"
                    FontFamily="{StaticResource RobotoRegular}" 
@@ -135,42 +135,42 @@
                         Background="{StaticResource BackgroundBrush}"
                         Command="{Binding OpenServerConfigurationCommand}"
                         CommandParameter="1"
-                        Content="Outlook" 
+                        Content="{Binding OutlookLbl, FallbackValue=Outlook}" 
                         Tag="{Binding Outlook, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}"
                         Background="{StaticResource BackgroundBrush}"
                         Command="{Binding OpenServerConfigurationCommand}"
                         CommandParameter="2"
-                        Content="Exchange" 
+                        Content="{Binding ExchangeLbl, FallbackValue=Exchange}" 
                         Tag="{Binding Exchange, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}"
                         Background="{StaticResource BackgroundBrush}"
                         Command="{Binding OpenServerConfigurationCommand}"
                         CommandParameter="3"
-                        Content="Gmail" 
+                        Content="{Binding GmailLbl, FallbackValue=Gmail}" 
                         Tag="{Binding Gmail, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}" 
                         Background="{StaticResource BackgroundBrush}"
                         Command="{Binding OpenServerConfigurationCommand}"
                         CommandParameter="4"
-                        Content="Yahoo" 
+                        Content="{Binding YahooLbl, FallbackValue=Yahoo}" 
                         Tag="{Binding Yahoo, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}" 
                         Background="{StaticResource BackgroundBrush}"
                         Command="{Binding OpenServerConfigurationCommand}"
                         CommandParameter="5"
-                        Content="iCloud" 
+                        Content="{Binding ICloudLbl, FallbackValue=iCloud}" 
                         Tag="{Binding ICloud, Converter={local:ImagePathToImageSourceConverter}}" />
 
                 <Button Style="{StaticResource EmailCommonButton}" 
                         Background="{StaticResource BackgroundBrush}"
                         Command="{Binding OpenServerConfigurationCommand}"
                         CommandParameter="6"
-                        Content="Imap" 
+                        Content="{Binding ImapLbl, FallbackValue=Imap}" 
                         Tag="{Binding Default, Converter={local:ImagePathToImageSourceConverter}}" />
 
             </StackPanel>

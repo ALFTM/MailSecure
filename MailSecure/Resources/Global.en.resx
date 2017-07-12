@@ -141,6 +141,9 @@
   <data name="ccAndBcc_lbl" xml:space="preserve">
     <value>Cc &amp; Bcc</value>
   </data>
+  <data name="chooseAccount_lbl" xml:space="preserve">
+    <value>Choose an account</value>
+  </data>
   <data name="close_lbl" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -159,11 +162,23 @@
   <data name="exampleAdress_lbl" xml:space="preserve">
     <value>xyz@example.com</value>
   </data>
+  <data name="exchange_lbl" xml:space="preserve">
+    <value>Exchange</value>
+  </data>
   <data name="from_lbl" xml:space="preserve">
     <value>From :</value>
   </data>
   <data name="github_lbl" xml:space="preserve">
     <value>Github</value>
+  </data>
+  <data name="gmail_lbl" xml:space="preserve">
+    <value>Gmail</value>
+  </data>
+  <data name="iCloud_lbl" xml:space="preserve">
+    <value>iCloud</value>
+  </data>
+  <data name="imap_lbl" xml:space="preserve">
+    <value>Imap</value>
   </data>
   <data name="mailAdress_lbl" xml:space="preserve">
     <value>Mail Adress</value>
@@ -173,6 +188,9 @@
   </data>
   <data name="organisation_lbl" xml:space="preserve">
     <value>MailSecure® is made by ALFTM</value>
+  </data>
+  <data name="outlook_lbl" xml:space="preserve">
+    <value>Outlook</value>
   </data>
   <data name="password_lbl" xml:space="preserve">
     <value>Password</value>
@@ -203,5 +221,8 @@
   </data>
   <data name="version_lbl" xml:space="preserve">
     <value>Version 1.5.0</value>
+  </data>
+  <data name="yahoo_lbl" xml:space="preserve">
+    <value>Yahoo</value>
   </data>
 </root>

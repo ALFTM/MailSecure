@@ -128,7 +128,7 @@
         <TextBlock Text="{Binding Title, FallbackValue=IMAP}"
                    Margin="40 20"
                    FontFamily="{StaticResource RobotoBold}"
-                   FontSize="28"
+                   FontSize="26"
                    Foreground="White"/>
 
         <!-- Content -->

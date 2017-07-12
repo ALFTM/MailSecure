@@ -472,11 +472,10 @@
                                    MaxHeight="20"
                                    Opacity=".6"
                                    Margin="6" 
-                                   HorizontalAlignment="Right"/>
+                                   HorizontalAlignment="Center"/>
                             <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
                                        FontFamily="{StaticResource RobotoThin}" 
                                        Opacity=".6"
-                                       Margin="50 0"
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Left"
                                        Foreground="White" />
