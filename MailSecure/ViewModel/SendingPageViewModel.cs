@@ -167,11 +167,13 @@ namespace MailSecure
         private void SendMessage()
         {
             string password = Utils.RandomPassword(8);
-            var mail = PrepareMessage(password);
-            
-            App.mailSender.setMailMessage(mail);
-            App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
-            App.mailSender.SendMail();
+
+            using (var mail = PrepareMessage(password))
+            {
+                App.mailSender.setMailMessage(mail);
+                App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
+                App.mailSender.SendMail();
+            }        
 
             DisplayPassWordBox(password);
 
@@ -185,6 +187,7 @@ namespace MailSecure
             
 
             MailMessage mail = MailPreparator.GetEncryptedMail(body, password, GetFullPathArray());
+            mail.Subject = MessageObject;
 
             MailAddress from = new MailAddress(user);
             mail.From = from;
