@@ -73,7 +73,7 @@ namespace MailSecure
             get => title;
             set
             {
-                title = baseTitle + value;
+                title = BaseTitleLbl + value;
                 OnPropertyChanged(nameof(title));
             }
         }
@@ -131,8 +131,19 @@ namespace MailSecure
         private string login = "";
         private string name;
         private string title;
-        private string baseTitle = "Configurer un serveur ";
         #endregion
+
+        #region Content Language
+        public string TitleLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("addUser_lbl"); } }
+        public string BaseTitleLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("configureServer_lbl"); } }
+        public string MailAdressLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("mailAdress_lbl"); } }
+        public string ExampleAdressLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("exampleAdress_lbl"); } }
+        public string SmtpServerLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("smtpServer_lbl"); } }
+        public string UsernameLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("userName_lbl"); } }
+        public string PasswordLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("password_lbl"); } }
+        public string AddLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("add_lbl"); } }
+        #endregion
+
 
         #region Commands
         public ICommand CloseCommand { get; set; }

@@ -102,6 +102,17 @@ namespace MailSecure
 
         #endregion
 
+        #region Content Language
+        public string TitleLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("addUser_lbl"); } }
+        public string ChooseAccountLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("chooseAccount_lbl"); } }
+        public string OutlookLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("outlook_lbl"); } }
+        public string ExchangeLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("exchange_lbl"); } }
+        public string Gmailbl { get { return App.ApplicationLanguage.GetStringFromLanguage("gmail_lbl"); } }
+        public string YahooLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("yahoo_lbl"); } }
+        public string ICloudLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("iCloud_lbl"); } }
+        public string ImapLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("imap_lbl"); } }
+        #endregion
+
         #region Commands
 
         public ICommand CloseCommand { get; set; }

@@ -52,6 +52,7 @@
     <Compile Include="EmailManagement\MailSender.cs" />
     <Compile Include="EmailManagement\UserMailFacts.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />
+    <Compile Include="DirectoryManager.cs" />
     <Compile Include="IconManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />

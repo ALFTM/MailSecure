@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Mail;
+using MailSecure.Core;
 
 namespace MailSecure.Security
 {
@@ -9,9 +10,10 @@ namespace MailSecure.Security
         {
             string messageCryted = Encryption.Encrypt(body, password);
 
-            MailMessage mail = new MailMessage();
-            mail.Body = messageCryted;
-
+            MailMessage mail = new MailMessage()
+            {
+                Body = messageCryted
+            };
             return mail;
         }
 
@@ -19,8 +21,10 @@ namespace MailSecure.Security
         {
             string messageCryted = Encryption.Encrypt(body, password);
 
-            MailMessage mail = new MailMessage();
-            mail.Body = messageCryted;
+            MailMessage mail = new MailMessage()
+            {
+                Body = messageCryted
+            };
 
             AddEncryptedFiled(ref mail, ref attachmentsList, ref password);
 
@@ -29,10 +33,11 @@ namespace MailSecure.Security
 
         private static void AddEncryptedFiled(ref MailMessage mail, ref Collection<string> list, ref string password)
         {
+            DirectoryManager.CreateTempFolder();
             for(int i = 0; i < list.Count; i++) {
                 var item = list[i];
                 string filePath = item;
-                string destPath = "./tmp/" + Utils.GetFileNameFromPath(item) + ".lock";
+                string destPath = DirectoryManager.tempfolderPath + Utils.GetFileNameFromPath(item) + ".lock";
 
                 FileEncryption fileEncryption = new FileEncryption();
 
