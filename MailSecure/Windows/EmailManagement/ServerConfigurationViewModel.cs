@@ -88,6 +88,16 @@ namespace MailSecure
             }
         }
 
+        public string ImapAddress
+        {
+            get => imapAddress;
+            set
+            {
+                imapAddress = value;
+                OnPropertyChanged(nameof(imapAddress));
+            }
+        }
+
         public string Login
         {
             get => login;
@@ -128,6 +138,7 @@ namespace MailSecure
 
         private MailServerConfigurationWindow window;
         private string smtpAddress = "";
+        private string imapAddress = "";
         private string login = "";
         private string name;
         private string title;
@@ -143,7 +154,6 @@ namespace MailSecure
         public string PasswordLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("password_lbl"); } }
         public string AddLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("add_lbl"); } }
         #endregion
-
 
         #region Commands
         public ICommand CloseCommand { get; set; }
@@ -180,17 +190,18 @@ namespace MailSecure
         /// </summary>
         /// <param name="title"></param>
         /// <param name="smtp"></param>
-        public ServerConfigurationViewModel(MailServerConfigurationWindow window, string title, string smtp)
+        public ServerConfigurationViewModel(MailServerConfigurationWindow window, string title, string smtp, string imap)
         {
             this.window = window;
             Title = title;
             SmtpAddress = smtp;
+            ImapAddress = imap;
+
             Visibility = Visibility.Collapsed;
 
             window.StateChanged += (sender, e) => {
                 WindowResized();
             };
-
 
             InitCommands();
 
@@ -240,16 +251,17 @@ namespace MailSecure
 
             this.CryptPassword(ref userFacts);
 
-            userFacts.userName = Name;
-            userFacts.login = Login;
-            userFacts.smtpAdress = SmtpAddress;
-            userFacts.email = Login;
+            userFacts.UserName = Name;
+            userFacts.Login = Login;
+            userFacts.SmtpAdress = SmtpAddress;
+            userFacts.ImapAdress = ImapAddress;
+            userFacts.EmailAdress = Login;
 
             bool res = BinaryMCSFileManager.WriteStructInFile(userFacts);
 
             if (res) {
                 App.CurrentUserData.CurrentUser = userFacts;
-                App.CurrentUserData.DisplayedName = userFacts.userName;
+                App.CurrentUserData.DisplayedName = userFacts.UserName;
             }
             CloseApp();
         }
@@ -267,8 +279,8 @@ namespace MailSecure
 
             plainText.Initialize();
 
-            userFacts.entropy = entropy;
-            userFacts.encodingText = encodeText;
+            userFacts.Entropy = entropy;
+            userFacts.EncodingText = encodeText;
         }
         #endregion
     }

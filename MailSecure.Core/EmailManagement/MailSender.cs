@@ -59,7 +59,7 @@ namespace MailSecure.Core {
         }
 
         private void prepareSmtp() {
-            smtpClient = new SmtpClient(currentUser.smtpAdress, port)
+            smtpClient = new SmtpClient(currentUser.SmtpAdress, port)
             {
                 EnableSsl = true
             };
@@ -68,10 +68,10 @@ namespace MailSecure.Core {
 
         private void setCredentials()
         {
-            byte[] plainText = ProtectedData.Unprotect(currentUser.encodingText, currentUser.entropy, DataProtectionScope.CurrentUser);
+            byte[] plainText = ProtectedData.Unprotect(currentUser.EncodingText, currentUser.Entropy, DataProtectionScope.CurrentUser);
             System.Text.Encoding.UTF8.GetString(plainText).ToString();
 
-            smtpClient.Credentials = new NetworkCredential(currentUser.login, System.Text.Encoding.UTF8.GetString(plainText).ToString());
+            smtpClient.Credentials = new NetworkCredential(currentUser.Login, System.Text.Encoding.UTF8.GetString(plainText).ToString());
 
         }
 
