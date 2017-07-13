@@ -24,10 +24,9 @@ namespace MailSecure.Core
         #endregion
 
         #region Public Methods
-        public IEnumerable<MailMessage> GetRecentMessages()
+        public IEnumerable<MailMessage> GetMessagesHeader()
         {
-            var tenDaysBefore = DateTime.Now.AddDays(-10);
-            var uids = imapClient.Search(SearchCondition.SentSince(tenDaysBefore));
+            var uids = imapClient.Search(SearchCondition.Header("MailSecure", "MailSecure_Crypt"));
             return imapClient.GetMessages(uids).OrderByDescending(m => m.Date());
         }
 

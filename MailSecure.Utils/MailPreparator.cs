@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Mail;
 using MailSecure.Core;
+using System.Collections.Specialized;
 
 namespace MailSecure.Security
 {
@@ -23,8 +24,9 @@ namespace MailSecure.Security
 
             MailMessage mail = new MailMessage()
             {
-                Body = messageCryted
+                Body = messageCryted,
             };
+            mail.Headers.Add("MailSecure", "MailSecure_Crypt");
             AddEncryptedFiled(ref mail, ref attachmentsList, ref password);
 
             return mail;

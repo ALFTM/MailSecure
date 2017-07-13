@@ -16,7 +16,7 @@ namespace MailSecure
             var mailReceiver = new MailReceiver(App.CurrentUserData.CurrentUser);
             mailReceiver.PrepareImap();
 
-            var listMessage = mailReceiver.GetRecentMessages();
+            var listMessage = mailReceiver.GetMessagesHeader();
 
             foreach(MailMessage mailMessage in listMessage)
             {
