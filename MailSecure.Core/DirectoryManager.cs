@@ -5,8 +5,8 @@ namespace MailSecure.Core
 {
     public static class DirectoryManager
     {
-        #region Private Property
-        private static string tempfolderPath = Environment.CurrentDirectory + "\\tmp\\";
+        #region Public Property
+        public static string tempfolderPath = Environment.CurrentDirectory + "\\tmp\\";
         #endregion
 
         #region Public Static Methods
