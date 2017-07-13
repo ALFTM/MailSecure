@@ -26,7 +26,9 @@ namespace MailSecure.Security
             {
                 Body = messageCryted,
             };
+          
             mail.Headers.Add("MailSecure", "MailSecure_Crypt");
+
             AddEncryptedFiled(ref mail, ref attachmentsList, ref password);
 
             return mail;
@@ -38,7 +40,7 @@ namespace MailSecure.Security
             for(int i = 0; i < list.Count; i++) {
                 var item = list[i];
                 string filePath = item;
-                string destPath = "./tmp/" + Utils.GetFileNameFromPath(item) + ".lock";
+                string destPath = DirectoryManager.tempfolderPath + Utils.GetFileNameFromPath(item) + ".lock";
 
                 FileEncryption fileEncryption = new FileEncryption();
 
