@@ -27,7 +27,16 @@
     <SolidColorBrush x:Key="SecondaryDarkBrush" Color="{StaticResource SecondaryDark}"/>
     
     <!-- Other Colors-->
-    
-    
+    <!-- Initials Image Colors -->
+
+    <Color x:Key="InitialsAToF">#ffb74d</Color>
+    <SolidColorBrush x:Key="InitialsAToFBrush" Color="{StaticResource InitialsAToF}"/>
+
+    <Color x:Key="InitialsGToN">#64b5f6</Color>
+    <SolidColorBrush x:Key="InitialsGToNBrush" Color="{StaticResource InitialsGToN}"/>
+
+    <Color x:Key="InitialsOToZ">#81c784</Color>
+    <SolidColorBrush x:Key="InitialsOToZBrush" Color="{StaticResource InitialsOToZ}"/>
+
 
 </ResourceDictionary>

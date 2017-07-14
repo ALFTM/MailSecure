@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:MailSecure"
              mc:Ignorable="d"
              Height="80"
-             Width="200"
-             d:DesignHeight="80" d:DesignWidth="200"
+             Width="250"
+             d:DesignHeight="80" d:DesignWidth="250"
              BorderThickness="1" BorderBrush="Black">
     <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
@@ -25,10 +25,11 @@
 
         <!-- Image de la fourmi -->
         <Border Grid.Column="1" Padding="8">
-            <Border Background="White" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" 
+            <Border Background="{Binding From, Converter={local:MailAddressToColorConverter}}"
+                    Width="50" Height="50"
                     CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
                 <!-- Profile picture initials -->
-                <TextBlock Text="{Binding Initials, FallbackValue=Mail}"
+                <TextBlock Text="{Binding From, FallbackValue=Mail, Converter={local:MailAddressToInitialsConverter}}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Foreground="{StaticResource PrimaryDarkBrush}"

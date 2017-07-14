@@ -68,6 +68,8 @@
     </Compile>
     <Compile Include="Converter\BoolToColorConverter.cs" />
     <Compile Include="Converter\ImagePathToImageSourceConverter.cs" />
+    <Compile Include="Converter\MailAddressToColorConverter.cs" />
+    <Compile Include="Converter\MailAddressToInitialsConverter.cs" />
     <Compile Include="Pages\UnlockPage.xaml.cs">
       <DependentUpon>UnlockPage.xaml</DependentUpon>
     </Compile>
