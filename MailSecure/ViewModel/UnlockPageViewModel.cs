@@ -37,6 +37,8 @@ namespace MailSecure
         #region Constructor
         public UnlockPageViewModel()
         {
+            LoadingIsVisible = "Visible";
+            ImapListIsVisible = "Hidden";
             ImapList = new ObservableCollection<MailMessage>();
             FullFillMessageList(App.CurrentUserData.CurrentUser);
         }
@@ -56,8 +58,8 @@ namespace MailSecure
 
                 ImapList.Add(mailMessage);
             }
-            LoadingIsVisible = "false";
-            ImapListIsVisible = "true";
+            LoadingIsVisible = "Hidden";
+            ImapListIsVisible = "Visible";
         }
         #endregion
     }

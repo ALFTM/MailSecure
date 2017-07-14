@@ -322,5 +322,8 @@
   <ItemGroup>
     <Resource Include="Media\language.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Spinner.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

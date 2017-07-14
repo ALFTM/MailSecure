@@ -7,11 +7,38 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="UnlockPage">
+
+    <Page.Resources>
+        <Storyboard x:Key="MailLoading" 
+                    Storyboard.TargetName="Spinner"
+                    Storyboard.TargetProperty="RenderTransform.(RotateTransform.Angle)">
+            <DoubleAnimation  From="0" To="360" BeginTime="00:00:00:000" Duration="00:00:00:001"
+                              RepeatBehavior="Forever"/>
+        </Storyboard>
+    </Page.Resources>
+    
     <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <local:ImapListControl></local:ImapListControl>
+        <local:ImapListControl Visibility="{Binding ImapListIsVisible}"></local:ImapListControl>
+        <Image x:Name="Spinner" Visibility="{Binding LoadingIsVisible}" Grid.Column="1" Source="pack://application:,,,/Media/spinner.png" 
+                   MaxHeight="75"
+                   MaxWidth="90" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   RenderTransformOrigin="0.5 , 0.5">
+            <Image.RenderTransform>
+                <RotateTransform Angle="0" />
+            </Image.RenderTransform>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource MailLoading}"/>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
     </Grid>
 </Page>
