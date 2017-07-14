@@ -264,7 +264,7 @@
                             <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
                                        FontFamily="{StaticResource RobotoThin}"
                                        Opacity=".6"
-                                       Margin="50 0"
+                                       Margin="30 0"
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Left"
                                        Foreground="White" />
@@ -317,7 +317,7 @@
                             <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
                                        FontFamily="{StaticResource RobotoThin}"
                                        Opacity=".6"
-                                       Margin="50 0"
+                                       Margin="30 0"
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Left"
                                        Foreground="White" />
@@ -370,7 +370,7 @@
                             <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
                                        FontFamily="{StaticResource RobotoThin}" 
                                        Opacity=".6"
-                                       Margin="50 0"
+                                       Margin="30 0"
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Left"
                                        Foreground="White" />
@@ -423,7 +423,7 @@
                             <TextBlock Grid.Column="1" Text="{TemplateBinding Content}" 
                                        FontFamily="{StaticResource RobotoThin}" 
                                        Opacity=".6"
-                                       Margin="50 0"
+                                       Margin="30 0"
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Left"
                                        Foreground="White" />
