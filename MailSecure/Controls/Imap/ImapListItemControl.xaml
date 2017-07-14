@@ -9,54 +9,90 @@
              Width="250"
              d:DesignHeight="80" d:DesignWidth="250"
              BorderThickness="1" BorderBrush="Black">
-    <Grid Background="{StaticResource BackgroundBrush}">
-        <Grid.ColumnDefinitions>
-            <!-- Selector -->
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <!-- User Logo -->
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <!-- Mail Facts -->
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
 
-        <!-- Selector -->
-        <Border Name="selecteur" Width="5"
-                Background="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Converter={local:BoolToColorConverter}}" />
+    <UserControl.Resources>
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
 
-        <!-- Image de la fourmi -->
-        <Border Grid.Column="1" Padding="8">
-            <Border Background="{Binding From, Converter={local:MailAddressToColorConverter}}"
-                    Width="50" Height="50"
-                    CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
-                <!-- Profile picture initials -->
-                <TextBlock Text="{Binding From, FallbackValue=Mail, Converter={local:MailAddressToInitialsConverter}}"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Foreground="{StaticResource PrimaryDarkBrush}"
-                           FontFamily="{StaticResource RobotoRegular}"/>
-            </Border>
-        </Border>
+                        <!-- Content -->
+                        <Grid x:Name="container" 
+                              Background="{StaticResource BackgroundBrush}">
+                            <Grid.ColumnDefinitions>
+                                <!-- Selector -->
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <!-- User Logo -->
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <!-- Mail Facts -->
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Selector -->
+                            <Border Name="selecteur" Width="5"
+                                    Background="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Converter={local:BoolToColorConverter}}" />
+
+                            <!-- Image de la fourmi -->
+                            <Border Grid.Column="1" Padding="8">
+                                <Border Background="{Binding From, Converter={local:MailAddressToColorConverter}}"
+                                        Width="50" Height="50"
+                                        CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
+                                    <!-- Profile picture initials -->
+                                    <TextBlock Text="{Binding From, Converter={local:MailAddressToInitialsConverter}}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Foreground="{StaticResource PrimaryDarkBrush}"
+                                               FontFamily="{StaticResource RobotoRegular}"/>
+                                </Border>
+                            </Border>
 
 
-        <!-- Mail Facts -->
-        <Border Grid.Column="2" Padding="0 0 15 0">
-            <StackPanel VerticalAlignment="Center">
-                <!-- Name-->
-                <TextBlock Text="{Binding From, FallbackValue=From}"
-                           Padding="0 0 0 2"
-                           Foreground="White"
-                           TextTrimming="CharacterEllipsis"
-                           FontFamily="{StaticResource RobotoRegular}"
-                                                />
-                <!-- Subject -->
-                <TextBlock Text="{Binding Subject, FallbackValue=Toto}"
-                           Padding="0 2 0 0"
-                           TextTrimming="CharacterEllipsis"
-                           Foreground="White"
-                           FontFamily="{StaticResource RobotoThin}"
-                           />
+                            <!-- Mail Facts -->
+                            <Border Grid.Column="2" Padding="0 0 15 0">
+                                <StackPanel VerticalAlignment="Center">
+                                    <!-- Name-->
+                                    <TextBlock Text="{Binding From, FallbackValue=From}"
+                                               Padding="0 0 0 2"
+                                               Foreground="White"
+                                               TextTrimming="CharacterEllipsis"
+                                               FontFamily="{StaticResource RobotoRegular}"/>
+                                    <!-- Subject -->
+                                    <TextBlock Text="{Binding Subject, FallbackValue=Toto}"
+                                               Padding="0 2 0 0"
+                                               TextTrimming="CharacterEllipsis"
+                                               Foreground="White"
+                                               FontFamily="{StaticResource RobotoThin}"/>
 
-            </StackPanel>
-        </Border>
-    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <!-- Hover -->
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource PrimaryLight}" Duration="0:0:0.3" Storyboard.TargetName="container" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource Background}" Duration="0:0:0.3" Storyboard.TargetName="container" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="container" Value="Brown"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <ContentControl Style="{StaticResource ContentStyle}"/>
 </UserControl>
