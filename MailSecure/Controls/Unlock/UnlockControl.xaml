@@ -125,6 +125,9 @@
         <!--Content Section -->
         <RichTextBox Grid.Row="7"
                      Name="rtb_content"
+                     Background="{StaticResource BackgroundBrush}"
+                     Foreground="White"
+                     IsEnabled="False"
                      Margin="20 0 20 2"></RichTextBox>
 
 
