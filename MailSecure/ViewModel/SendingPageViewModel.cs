@@ -187,7 +187,7 @@ namespace MailSecure
             
 
             MailMessage mail = MailPreparator.GetEncryptedMail(body, password, GetFullPathArray());
-            mail.Subject = MessageObject;
+            mail.Subject = MessageObject + " [Locked]";
 
             MailAddress from = new MailAddress(user);
             mail.From = from;

@@ -26,8 +26,8 @@ namespace MailSecure.Core
         #region Public Methods
         public IEnumerable<MailMessage> GetMessagesHeader()
         {
-            var uids = imapClient.Search(SearchCondition.Header("MailSecure", "MailSecure_Crypt"));
-            return imapClient.GetMessages(uids).OrderByDescending(m => m.Date());
+            var uid = imapClient.Search(SearchCondition.Subject("[Locked]"));
+            return imapClient.GetMessages(uid).OrderByDescending(m => m.Date());
         }
 
         public List<MailMessage> GetAllMessages()
