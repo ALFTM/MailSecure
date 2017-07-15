@@ -97,13 +97,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
+                    Foreground="White"
                     Style="{StaticResource ActionButton}"
-                    Content="Display"
+                    Content="{Binding DisplayMessageText}"
                     Command="{Binding DisplayMessageCommand}"></Button>
             <Button Grid.Column="1" 
+                    Foreground="White"
                     Style="{StaticResource ActionButton}"
                     Command="{Binding SaveAttchmentsCommand}"
-                    Content="Save Attchments"></Button>
+                    Content="{Binding SaveAttachmentsText}"></Button>
         </Grid>
 
         <!-- Attachements Section -->

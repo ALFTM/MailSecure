@@ -73,6 +73,22 @@ namespace MailSecure
         public UnlockControl Control { get; set; }
         #endregion
 
+        #region Content Language
+        public string DisplayMessageText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("displayMessage_lbl");
+        }
+        public string FileSavedAtText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("fileSavedAt_lbl");
+        }
+
+        public string SaveAttachmentsText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("saveAttchments_lbl");
+        }
+        #endregion
+
         #region Commands
         public ICommand SaveAttchmentsCommand { get; set; }
         public ICommand DisplayMessageCommand { get; set; }
@@ -159,7 +175,7 @@ namespace MailSecure
             }
 
             DirectoryManager.ClearTempFolder();
-            System.Windows.MessageBox.Show("File saved at " + dest);
+            System.Windows.MessageBox.Show(FileSavedAtText + dest);
         }
 
         
