@@ -46,7 +46,7 @@
                 
             </Image>
 
-            <TextBlock Name="SettingText" Grid.Column="1" Text="{Binding Setting, FallbackValue=Toto}"
+            <TextBlock Name="SettingText" Grid.Column="1" Text="{Binding Setting, FallbackValue=Settings}"
                        FontFamily="{StaticResource RobotoRegular}" 
                        FontSize="20" Foreground="White" 
                        VerticalAlignment="Center" HorizontalAlignment="Left"

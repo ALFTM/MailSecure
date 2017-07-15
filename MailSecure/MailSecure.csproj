@@ -38,14 +38,11 @@
     <ApplicationIcon>Media\Icon\app-logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,8 +61,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Imap\ImapListControl.xaml.cs">
+      <DependentUpon>ImapListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Imap\ImapListItemControl.xaml.cs">
+      <DependentUpon>ImapListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Unlock\AttachementUnlockListItemControl.xaml.cs">
+      <DependentUpon>AttachementUnlockListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Unlock\AttachemenUnlockListControl.xaml.cs">
+      <DependentUpon>AttachemenUnlockListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Unlock\UnlockControl.xaml.cs">
+      <DependentUpon>UnlockControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\BoolToColorConverter.cs" />
     <Compile Include="Converter\ImagePathToImageSourceConverter.cs" />
+    <Compile Include="Converter\MailAddressToColorConverter.cs" />
+    <Compile Include="Converter\MailAddressToInitialsConverter.cs" />
+    <Compile Include="Pages\UnlockPage.xaml.cs">
+      <DependentUpon>UnlockPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModel\UnlockPageViewModel.cs" />
     <Compile Include="Windows\About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
@@ -125,6 +144,30 @@
     <Compile Include="ViewModel\SideMenuViewModel.cs" />
     <Compile Include="ViewModel\WIndowViewModel.cs" />
     <Compile Include="Windows\WindowResizer.cs" />
+    <Page Include="Controls\Imap\ImapListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Imap\ImapListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Unlock\AttachementUnlockListItemControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Unlock\AttachemenUnlockListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Unlock\UnlockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UnlockPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\About\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -300,6 +343,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Spinner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

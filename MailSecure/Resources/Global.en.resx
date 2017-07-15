@@ -123,6 +123,12 @@
   <data name="addAcount_lbl" xml:space="preserve">
     <value>Add account</value>
   </data>
+  <data name="addUser_lbl" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="add_lbl" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="attachement_lbl" xml:space="preserve">
     <value>Attachement</value>
   </data>
@@ -135,8 +141,14 @@
   <data name="ccAndBcc_lbl" xml:space="preserve">
     <value>Cc &amp; Bcc</value>
   </data>
+  <data name="chooseAccount_lbl" xml:space="preserve">
+    <value>Choose an account</value>
+  </data>
   <data name="close_lbl" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="configureServer_lbl" xml:space="preserve">
+    <value>Configure a server </value>
   </data>
   <data name="copyright_lbl" xml:space="preserve">
     <value>Copyright © 2017 MailSecure.</value>
@@ -147,17 +159,53 @@
   <data name="developerALFTM2_lbl" xml:space="preserve">
     <value>Maxime PELTE</value>
   </data>
+  <data name="displayMessage_lbl" xml:space="preserve">
+    <value>Display Message</value>
+  </data>
+  <data name="exampleAdress_lbl" xml:space="preserve">
+    <value>xyz@example.com</value>
+  </data>
+  <data name="exchange_lbl" xml:space="preserve">
+    <value>Exchange</value>
+  </data>
+  <data name="fileSavedAt_lbl" xml:space="preserve">
+    <value>Files saved at </value>
+  </data>
   <data name="from_lbl" xml:space="preserve">
     <value>From :</value>
   </data>
   <data name="github_lbl" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="gmail_lbl" xml:space="preserve">
+    <value>Gmail</value>
+  </data>
+  <data name="iCloud_lbl" xml:space="preserve">
+    <value>iCloud</value>
+  </data>
+  <data name="imapServer_lbl" xml:space="preserve">
+    <value>IMAP Server</value>
+  </data>
+  <data name="imap_lbl" xml:space="preserve">
+    <value>Imap</value>
+  </data>
+  <data name="mailAdress_lbl" xml:space="preserve">
+    <value>Mail Adress</value>
+  </data>
   <data name="object_lbl" xml:space="preserve">
     <value>Object :</value>
   </data>
   <data name="organisation_lbl" xml:space="preserve">
     <value>MailSecure® is made by ALFTM</value>
+  </data>
+  <data name="outlook_lbl" xml:space="preserve">
+    <value>Outlook</value>
+  </data>
+  <data name="password_lbl" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="saveAttchments_lbl" xml:space="preserve">
+    <value>Save Attchments</value>
   </data>
   <data name="sendMailMenu_lbl" xml:space="preserve">
     <value>Send mail</value>
@@ -168,6 +216,9 @@
   <data name="settingMenu_lbl" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="smtpServer_lbl" xml:space="preserve">
+    <value>SMTP Server</value>
+  </data>
   <data name="titleApplication_lbl" xml:space="preserve">
     <value>Mail Secure</value>
   </data>
@@ -177,7 +228,13 @@
   <data name="unlockMailMenu_lbl" xml:space="preserve">
     <value>Unlock mail</value>
   </data>
+  <data name="userName_lbl" xml:space="preserve">
+    <value>Username</value>
+  </data>
   <data name="version_lbl" xml:space="preserve">
     <value>Version 1.5.0</value>
+  </data>
+  <data name="yahoo_lbl" xml:space="preserve">
+    <value>Yahoo</value>
   </data>
 </root>

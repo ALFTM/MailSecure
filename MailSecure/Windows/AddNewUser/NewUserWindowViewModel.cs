@@ -102,6 +102,17 @@ namespace MailSecure
 
         #endregion
 
+        #region Content Language
+        public string TitleLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("addUser_lbl"); } }
+        public string ChooseAccountLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("chooseAccount_lbl"); } }
+        public string OutlookLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("outlook_lbl"); } }
+        public string ExchangeLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("exchange_lbl"); } }
+        public string Gmailbl { get { return App.ApplicationLanguage.GetStringFromLanguage("gmail_lbl"); } }
+        public string YahooLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("yahoo_lbl"); } }
+        public string ICloudLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("iCloud_lbl"); } }
+        public string ImapLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("imap_lbl"); } }
+        #endregion
+
         #region Commands
 
         public ICommand CloseCommand { get; set; }
@@ -169,23 +180,23 @@ namespace MailSecure
             switch (value) {
                 case 1:
                     Console.WriteLine("Outlook Account");
-                    OpenWindow("Outlook", ServerFactConst.OUTLOOK_SMTP);
+                    OpenWindow("Outlook", ServerFactConst.OUTLOOK_SMTP, ServerFactConst.OUTLOOK_IMAP);
                     break;
                 case 2:
                     Console.WriteLine("Exchange Account");
-                    OpenWindow("OFFICE 365", ServerFactConst.OFFICE_365_SMTP);
+                    OpenWindow("OFFICE 365", ServerFactConst.OFFICE_365_SMTP, ServerFactConst.OFFICE_365_IMAP);
                     break;
                 case 3:
                     Console.WriteLine("Gmail Account");
-                    OpenWindow("Gmail", ServerFactConst.GMAIL_SMTP);
+                    OpenWindow("Gmail", ServerFactConst.GMAIL_SMTP, ServerFactConst.GMAIL_IMAP);
                     break;
                 case 4:
                     Console.WriteLine("Yahoo Account");
-                    OpenWindow("Yahoo!", ServerFactConst.YAHOO_SMTP);
+                    OpenWindow("Yahoo!", ServerFactConst.YAHOO_SMTP, ServerFactConst.YAHOO_IMAP);
                     break;
                 case 5:
                     Console.WriteLine("iCloud Account");
-                    OpenWindow("iCloud", ServerFactConst.ICLOUD_SMTP);
+                    OpenWindow("iCloud", ServerFactConst.ICLOUD_SMTP, ServerFactConst.ICLOUD_IMAP);
                     break;
                 default:
                     Console.WriteLine("Imap Account");
@@ -194,9 +205,9 @@ namespace MailSecure
             }
         }
 
-        private void OpenWindow(string title, string smtp)
+        private void OpenWindow(string title, string smtp, string imap)
         {
-            MailServerConfigurationWindow window = new MailServerConfigurationWindow(title, smtp);
+            MailServerConfigurationWindow window = new MailServerConfigurationWindow(title, smtp, imap);
             window.ShowDialog();
         }
 

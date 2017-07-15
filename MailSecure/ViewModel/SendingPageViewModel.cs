@@ -1,14 +1,14 @@
 ﻿using MailSecure.Core;
+using MailSecure.FormatConverter;
 using MailSecure.Security;
 using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
-using MailSecure.FormatConverter;
-using System;
 
 namespace MailSecure
 {
@@ -167,11 +167,13 @@ namespace MailSecure
         private void SendMessage()
         {
             string password = Utils.RandomPassword(8);
-            var mail = PrepareMessage(password);
-            
-            App.mailSender.setMailMessage(mail);
-            App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
-            App.mailSender.SendMail();
+
+            using (var mail = PrepareMessage(password))
+            {
+                App.mailSender.setMailMessage(mail);
+                App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
+                App.mailSender.SendMail();
+            }        
 
             DisplayPassWordBox(password);
 
@@ -180,19 +182,20 @@ namespace MailSecure
 
         public MailMessage PrepareMessage(string password)
         {
-            var user = App.CurrentUserData.CurrentUser.email;
+            var user = App.CurrentUserData.CurrentUser.EmailAdress;
             var body = GetHtmlStringFromXaml(GetXamlString());
             
 
             MailMessage mail = MailPreparator.GetEncryptedMail(body, password, GetFullPathArray());
+            mail.Subject = MessageObject + " [Locked]";
 
             MailAddress from = new MailAddress(user);
             mail.From = from;
 
             AddRecipient(ref mail);
 
-            mail.IsBodyHtml = true;
-
+            // mail.IsBodyHtml = true;
+            
             AddCcAndCciInMail(ref mail);
 
             return mail;
@@ -252,7 +255,7 @@ namespace MailSecure
             MessageObject = "";
             AttachementsList.Clear();
             RichTextBoxControler.rtbEditor.Document.Blocks.Clear();
-
+            DirectoryManager.ClearTempFolder();
         }
 
         private void DisplayPassWordBox(string password)

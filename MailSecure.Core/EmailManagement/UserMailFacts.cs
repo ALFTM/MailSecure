@@ -8,13 +8,12 @@ namespace MailSecure.Core
 {
     public class UserMailFacts
     {
-        public string userName { get; set; }
-        public string email { get; set; }
-        public string smtpAdress { get; set; }
-        public string login { get; set; }
-        public byte[] encodingText { get; set; }
-        public byte[] entropy { get; set; }
+        public string UserName { get; set; }
+        public string EmailAdress { get; set; }
+        public string SmtpAdress { get; set; }
+        public string ImapAdress { get; set; }
+        public string Login { get; set; }
+        public byte[] EncodingText { get; set; }
+        public byte[] Entropy { get; set; }
     }
-
-    
 }

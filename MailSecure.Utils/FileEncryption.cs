@@ -63,7 +63,7 @@ namespace MailSecure.Security
             aes.Mode = CipherMode.CBC;
             ICryptoTransform transform = aes.CreateEncryptor(aes.Key, aes.IV);
 
-            using (FileStream destination = new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None)) {
+            using (FileStream destination = new FileStream(destinationFilename, FileMode.Create, FileAccess.Write, FileShare.None)) {
                 using (CryptoStream cryptoStream = new CryptoStream(destination, transform, CryptoStreamMode.Write)) {
                     using (FileStream source = new FileStream(sourceFilename, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                         source.CopyTo(cryptoStream);

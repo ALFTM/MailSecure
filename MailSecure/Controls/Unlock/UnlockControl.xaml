@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="MailSecure.UnlockControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MailSecure"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="{StaticResource BackgroundBrush}" DataContext="{Binding SelectedMessage}">
+        <Grid.RowDefinitions>
+            <!--From Section -->
+            <RowDefinition Height="Auto" />
+            <!--To Section -->
+            <RowDefinition Height="Auto" />
+            <!-- Cc & Bcc section -->
+            <RowDefinition Height="Auto" />
+            <!--Object Section -->
+            <RowDefinition Height="Auto" />
+            <!-- Password section -->
+            <RowDefinition Height="Auto" />
+            <!-- Buttons section -->
+            <RowDefinition Height="Auto" />
+            <!--Attachements Section -->
+            <RowDefinition Height="Auto" />
+            <!--Content Section -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--From Section -->
+        <Grid Grid.Row="0" Margin="20 10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- Text Box -->
+            <TextBlock Grid.Row="0"
+                        Text="{Binding From}"
+                        Background="{StaticResource BackgroundBrush}"
+                        Foreground="White"
+                        Margin="5 0"
+                        FontSize="20">
+            </TextBlock>
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" 
+                    BorderBrush="{DynamicResource PrimaryLightBrush}" />
+        </Grid>
+
+        <!--Object Section -->
+        <Grid Grid.Row="3" Margin="20 10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                     Text="{Binding Subject}"
+                     Name="txtSearchBox" 
+                     Background="Transparent" 
+                     FontSize="20"
+                     Foreground="White" />
+
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" 
+                    BorderBrush="{DynamicResource PrimaryLightBrush}" />
+        </Grid>
+
+        <!-- Password section -->
+        <Grid Grid.Row="4" Margin="20 10">
+            <Grid.ColumnDefinitions>
+                <!-- Password Box -->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- overlay with hint text -->
+            <TextBlock Grid.Row="0" Text="{Binding PasswordLbl, FallbackValue=Password}"
+                       Margin="2"
+                       Foreground="White"
+                       Opacity=".6"
+                       FontSize="20"
+                       Visibility="{Binding ElementName=passwordBox, Path=Text.IsEmpty, Converter={local:VisibilityToBoolConverter}}" />
+            <!-- enter term here -->
+            <TextBox Grid.Row="0"
+                     DataContext="{x:Static local:App.UnlockPageViewModel}"
+                     Text="{Binding Password}"
+                     Name="passwordBox" 
+                     Background="Transparent" 
+                     BorderThickness="1"
+                     FontSize="20"
+                     Foreground="White" CaretBrush="White" />
+
+        </Grid>
+        
+        <!-- Buttons section -->
+        <Grid Grid.Row="5" 
+              DataContext="{x:Static local:App.UnlockPageViewModel}"
+              Margin="20 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Foreground="White"
+                    Style="{StaticResource ActionButton}"
+                    Content="{Binding DisplayMessageText}"
+                    Command="{Binding DisplayMessageCommand}"></Button>
+            <Button Grid.Column="1" 
+                    Foreground="White"
+                    Style="{StaticResource ActionButton}"
+                    Command="{Binding SaveAttchmentsCommand}"
+                    Content="{Binding SaveAttachmentsText}"></Button>
+        </Grid>
+
+        <!-- Attachements Section -->
+        <Grid Grid.Row="6" Margin="20 10" Visibility="{Binding AttachementVisibility}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Text Box -->
+            <local:AttachementUnlockListControl Grid.Row="0" Margin="0 0 2 4"/>
+
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" 
+                    BorderBrush="{DynamicResource PrimaryLightBrush}" />
+        </Grid>
+
+        <!--Content Section -->
+        <RichTextBox Grid.Row="7"
+                     Name="rtb_content"
+                     Background="{StaticResource BackgroundBrush}"
+                     Foreground="White"
+                     IsEnabled="False"
+                     Margin="20 0 20 2"></RichTextBox>
+
+
+    </Grid>
+</UserControl>

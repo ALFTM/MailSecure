@@ -78,7 +78,7 @@
 
                                         <!-- App Title -->
                                         <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeaderText}" Text="Adding User"></TextBlock>
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding TitleLbl}"></TextBlock>
                                         </Viewbox>
 
                                         <!-- Window Button -->
@@ -128,14 +128,14 @@
         <TextBlock Text="{Binding Title, FallbackValue=IMAP}"
                    Margin="40 20"
                    FontFamily="{StaticResource RobotoBold}"
-                   FontSize="28"
+                   FontSize="26"
                    Foreground="White"/>
 
         <!-- Content -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
             <StackPanel Orientation="Vertical" >
                 <!-- Email section -->
-                <TextBlock Text="Addresse de Messagerie" 
+                <TextBlock Text="{Binding MailAdressLbl}" 
                        Foreground="White"
                        Margin="40 10"
                        FontSize="22"/>
@@ -148,7 +148,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- overlay with hint text -->
-                    <TextBlock Grid.Row="0" Text="xyz@example.com"
+                    <TextBlock Grid.Row="0" Text="{Binding ExampleAdressLbl, FallbackValue=xyz@example.com}"
                            Margin="2"
                            Foreground="White"
                            Opacity=".6"
@@ -165,12 +165,13 @@
                 </Grid>
                 <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" />
 
-                <!-- Password section -->
-                <TextBlock Text="Serveur SMTP" Visibility="{Binding Visibility}"
+                <!-- Smtp section -->
+                <TextBlock Text="{Binding SmtpServerLbl}" Visibility="{Binding Visibility}"
                        Foreground="White"
                        Margin="40 10"
                        FontSize="22"/>
                 <TextBox Grid.Row="0" Visibility="{Binding Visibility}"
+                         Text="{Binding SmtpAdress}"
                          Margin="40 0 40 0"
                          Background="Transparent" 
                          BorderThickness="2"
@@ -178,8 +179,23 @@
                          Foreground="White" CaretBrush="White" />
                 <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" Visibility="{Binding Visibility}" />
 
+                <!-- Imap section -->
+                <TextBlock Text="{Binding ImapServerLbl}" Visibility="{Binding Visibility}"
+                       Foreground="White"
+                       Margin="40 10"
+                       FontSize="22"/>
+                <TextBox Grid.Row="0" Visibility="{Binding Visibility}"
+                         Text="{Binding ImapAdress}"
+                         Margin="40 0 40 0"
+                         Background="Transparent" 
+                         BorderThickness="2"
+                         FontSize="20"
+                         Foreground="White" CaretBrush="White" />
+                <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource PrimaryLightBrush}" Margin="40 0 40 20" Visibility="{Binding Visibility}" />
+
+
                 <!-- Name section -->
-                <TextBlock Text="Nom à afficher" 
+                <TextBlock Text="{Binding UsernameLbl}" 
                        Foreground="White"
                        Margin="40 10"
                        FontSize="22"/>
@@ -193,7 +209,7 @@
 
 
                 <!-- Password section -->
-                <TextBlock Text="Mot de passe" 
+                <TextBlock Text="{Binding PasswordLbl}" 
                        Foreground="White"
                        Margin="40 10"
                        FontSize="22"/>
@@ -216,7 +232,7 @@
                 FontFamily="{StaticResource RobotoThin}"
                 FontSize="24"
                 Foreground="White"
-                Content="Ajouter"
+                Content="{Binding AddLbl}"
                 Margin="10"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"

@@ -73,7 +73,7 @@ namespace MailSecure
             get => title;
             set
             {
-                title = baseTitle + value;
+                title = BaseTitleLbl + value;
                 OnPropertyChanged(nameof(title));
             }
         }
@@ -85,6 +85,16 @@ namespace MailSecure
             {
                 smtpAddress = value;
                 OnPropertyChanged(nameof(smtpAddress));
+            }
+        }
+
+        public string ImapAddress
+        {
+            get => imapAddress;
+            set
+            {
+                imapAddress = value;
+                OnPropertyChanged(nameof(imapAddress));
             }
         }
 
@@ -128,10 +138,21 @@ namespace MailSecure
 
         private MailServerConfigurationWindow window;
         private string smtpAddress = "";
+        private string imapAddress = "";
         private string login = "";
         private string name;
         private string title;
-        private string baseTitle = "Configurer un serveur ";
+        #endregion
+
+        #region Content Language
+        public string TitleLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("addUser_lbl"); } }
+        public string BaseTitleLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("configureServer_lbl"); } }
+        public string MailAdressLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("mailAdress_lbl"); } }
+        public string ExampleAdressLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("exampleAdress_lbl"); } }
+        public string SmtpServerLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("smtpServer_lbl"); } }
+        public string UsernameLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("userName_lbl"); } }
+        public string PasswordLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("password_lbl"); } }
+        public string AddLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("add_lbl"); } }
         #endregion
 
         #region Commands
@@ -169,17 +190,18 @@ namespace MailSecure
         /// </summary>
         /// <param name="title"></param>
         /// <param name="smtp"></param>
-        public ServerConfigurationViewModel(MailServerConfigurationWindow window, string title, string smtp)
+        public ServerConfigurationViewModel(MailServerConfigurationWindow window, string title, string smtp, string imap)
         {
             this.window = window;
             Title = title;
             SmtpAddress = smtp;
+            ImapAddress = imap;
+
             Visibility = Visibility.Collapsed;
 
             window.StateChanged += (sender, e) => {
                 WindowResized();
             };
-
 
             InitCommands();
 
@@ -229,16 +251,17 @@ namespace MailSecure
 
             this.CryptPassword(ref userFacts);
 
-            userFacts.userName = Name;
-            userFacts.login = Login;
-            userFacts.smtpAdress = SmtpAddress;
-            userFacts.email = Login;
+            userFacts.UserName = Name;
+            userFacts.Login = Login;
+            userFacts.SmtpAdress = SmtpAddress;
+            userFacts.ImapAdress = ImapAddress;
+            userFacts.EmailAdress = Login;
 
             bool res = BinaryMCSFileManager.WriteStructInFile(userFacts);
 
             if (res) {
                 App.CurrentUserData.CurrentUser = userFacts;
-                App.CurrentUserData.DisplayedName = userFacts.userName;
+                App.CurrentUserData.DisplayedName = userFacts.UserName;
             }
             CloseApp();
         }
@@ -256,8 +279,8 @@ namespace MailSecure
 
             plainText.Initialize();
 
-            userFacts.entropy = entropy;
-            userFacts.encodingText = encodeText;
+            userFacts.Entropy = entropy;
+            userFacts.EncodingText = encodeText;
         }
         #endregion
     }
