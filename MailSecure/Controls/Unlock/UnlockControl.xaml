@@ -112,28 +112,13 @@
         <Grid Grid.Row="6" Margin="20 10" Visibility="{Binding AttachementVisibility}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="5 10">
-                <Grid.ColumnDefinitions>
-                    <!-- Label -->
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
 
-                <!-- Label -->
-                <TextBlock Grid.Column="0" 
-                       Text="{Binding AttachementLbl}"
-                       Foreground="White"
-                       FontSize="20"
-                       Opacity=".6"/>
-
-
-            </Grid>
             <!-- Text Box -->
-            <local:AttachementListControl Grid.Row="1" Margin="0 0 2 4"/>
+            <local:AttachementUnlockListControl Grid.Row="0" Margin="0 0 2 4"/>
 
-            <Border Grid.Row="2" BorderThickness="0 0 0 1" 
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" 
                     BorderBrush="{DynamicResource PrimaryLightBrush}" />
         </Grid>
 
