@@ -100,7 +100,9 @@
                     Style="{StaticResource ActionButton}"
                     Content="Display"
                     Command="{Binding DisplayMessageCommand}"></Button>
-            <Button Grid.Column="1" Style="{StaticResource ActionButton}"
+            <Button Grid.Column="1" 
+                    Style="{StaticResource ActionButton}"
+                    Command="{Binding SaveAttchmentsCommand}"
                     Content="Save Attchments"></Button>
         </Grid>
 

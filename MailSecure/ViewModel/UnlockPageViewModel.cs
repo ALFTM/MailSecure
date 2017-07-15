@@ -6,9 +6,10 @@ using MailSecure.Security;
 using MailSecure.FormatConverter;
 using System.Windows.Documents;
 using System.Windows.Markup;
-using System.Xml;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
+using System.IO;
 
 namespace MailSecure
 {
@@ -73,7 +74,7 @@ namespace MailSecure
         #endregion
 
         #region Commands
-        //public ICommand SaveAttchmentsCommand;
+        public ICommand SaveAttchmentsCommand { get; set; }
         public ICommand DisplayMessageCommand { get; set; }
         #endregion
 
@@ -84,6 +85,7 @@ namespace MailSecure
             ImapListIsVisible = Visibility.Collapsed;
             UnlockControlVisibility = Visibility.Collapsed;
             DisplayMessageCommand = new RelayCommand(() => DisplayMessage());
+            SaveAttchmentsCommand = new RelayCommand(() => SaveAttachment());
             ImapList = new ObservableCollection<MailMessage>();
             FullFillMessageList(App.CurrentUserData.CurrentUser);
         }
@@ -109,13 +111,58 @@ namespace MailSecure
 
         private void DisplayMessage()
         {
-            //XmlReader reader = XmlReader.Create(SelectedMessage.Body);
             string cryptedMessage = SelectedMessage.Body;
             string html = Encryption.Decrypt(cryptedMessage, Password);
             string xaml = HtmlToXamlConverter.ConvertHtmlToXaml(html, true);
 
             Control.rtb_content.Document = XamlReader.Parse(xaml) as FlowDocument;
         }
+
+        private void SaveAttachment()
+        {
+            string folderPath;
+            var dialog = new FolderBrowserDialog();
+            if(dialog.ShowDialog() == DialogResult.OK) {
+                folderPath = dialog.SelectedPath;
+                SaveFiles();
+                UnlockAttachments(folderPath);
+            }
+            
+        }
+
+        private void SaveFiles()
+        {
+            if (!DirectoryManager.CheckIfTempFolderExist()) {
+                DirectoryManager.CreateTempFolder();
+            }
+            DirectoryManager.ClearTempFolder();
+
+            foreach (Attachment attachment in SelectedMessage.Attachments) {
+                byte[] allBytes = new byte[attachment.ContentStream.Length];
+                int bytesRead = attachment.ContentStream.Read(allBytes, 0, (int)attachment.ContentStream.Length);
+                string destinationFile = DirectoryManager.tempfolderPath + attachment.Name;
+                BinaryWriter writer = new BinaryWriter(new FileStream(destinationFile, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None));
+                writer.Write(allBytes);
+                writer.Close();
+            }
+        }
+
+        private void UnlockAttachments(string dest)
+        {
+            FileEncryption decryptor = new FileEncryption();
+            foreach (Attachment attachment in SelectedMessage.Attachments) {
+                string source = DirectoryManager.tempfolderPath + attachment.Name;
+                string resultFileName = attachment.Name.Replace(".lock", "");
+                string destFile = dest + "\\" + resultFileName;
+
+                decryptor.DecryptFile(source, destFile, Password);
+            }
+
+            DirectoryManager.ClearTempFolder();
+            System.Windows.MessageBox.Show("File saved at " + dest);
+        }
+
+        
         #endregion
     }
 
