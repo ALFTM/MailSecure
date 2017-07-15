@@ -8,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Markup;
 using System.Xml;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MailSecure
 {
@@ -16,8 +17,9 @@ namespace MailSecure
         #region Private Members
         private MailMessage selectedMessage;
         private string password;
-        private string loadingIsVisible;
-        private string imapListIsVisible;
+        private Visibility loadingIsVisible;
+        private Visibility imapListIsVisible;
+        private Visibility unlockControlVisibility;
         #endregion
 
         #region Public Members
@@ -31,7 +33,7 @@ namespace MailSecure
             }
         }
         public ObservableCollection<MailMessage> ImapList { get; set; }
-        public string LoadingIsVisible
+        public Visibility LoadingIsVisible
         {
             get => loadingIsVisible;
             set
@@ -40,13 +42,22 @@ namespace MailSecure
                 OnPropertyChanged(nameof(loadingIsVisible));
             }
         }
-        public string ImapListIsVisible
+        public Visibility ImapListIsVisible
         {
             get => imapListIsVisible;
             set
             {
                 imapListIsVisible = value;
                 OnPropertyChanged(nameof(imapListIsVisible));
+            }
+        }
+        public Visibility UnlockControlVisibility
+        {
+            get => unlockControlVisibility;
+            set
+            {
+                unlockControlVisibility = value;
+                OnPropertyChanged(nameof(unlockControlVisibility));
             }
         }
         public MailMessage SelectedMessage
@@ -69,8 +80,9 @@ namespace MailSecure
         #region Constructor
         public UnlockPageViewModel()
         {
-            LoadingIsVisible = "Visible";
-            ImapListIsVisible = "Hidden";
+            LoadingIsVisible = Visibility.Visible;
+            ImapListIsVisible = Visibility.Collapsed;
+            UnlockControlVisibility = Visibility.Collapsed;
             DisplayMessageCommand = new RelayCommand(() => DisplayMessage());
             ImapList = new ObservableCollection<MailMessage>();
             FullFillMessageList(App.CurrentUserData.CurrentUser);
@@ -90,8 +102,9 @@ namespace MailSecure
 
                 ImapList.Add(mailMessage);
             }
-            LoadingIsVisible = "Hidden";
-            ImapListIsVisible = "Visible";
+            LoadingIsVisible = Visibility.Collapsed;
+            ImapListIsVisible = Visibility.Visible;
+            UnlockControlVisibility = Visibility.Visible;
         }
 
         private void DisplayMessage()

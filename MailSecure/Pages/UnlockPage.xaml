@@ -20,10 +20,14 @@
     <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <local:ImapListControl Visibility="{Binding ImapListIsVisible}"></local:ImapListControl>
-        <Image x:Name="Spinner" Visibility="{Binding LoadingIsVisible}" Grid.Column="1" Source="pack://application:,,,/Media/spinner.png" 
+        <Image x:Name="Spinner" 
+               Visibility="{Binding LoadingIsVisible}" 
+               Grid.ColumnSpan="2"
+               Grid.Column="1" Source="pack://application:,,,/Media/spinner.png" 
                    MaxHeight="75"
                    MaxWidth="90" 
                    HorizontalAlignment="Center"
@@ -40,6 +44,6 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
-        <local:UnlockControl Grid.Column="1" DataContext="{Binding SelectedMessage}" />
+        <local:UnlockControl Grid.Column="2" Visibility="{Binding UnlockControlVisibility}" />
     </Grid>
 </Page>

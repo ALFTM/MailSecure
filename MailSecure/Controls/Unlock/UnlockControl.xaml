@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MailSecure"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="{StaticResource BackgroundBrush}">
+    <Grid Background="{StaticResource BackgroundBrush}" DataContext="{Binding SelectedMessage}">
         <Grid.RowDefinitions>
             <!--From Section -->
             <RowDefinition Height="Auto" />
