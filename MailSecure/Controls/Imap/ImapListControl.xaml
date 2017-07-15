@@ -9,7 +9,7 @@
     <Grid Background="{StaticResource BackgroundBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ListBox ItemsSource="{Binding ImapList}" 
-                     SelectedItem="{Binding FourmisSelect}" 
+                     SelectedItem="{Binding SelectedMessage}" 
                      Padding="-1" 
                      Margin="0"
                      Background="{StaticResource BackgroundBrush}">

@@ -14,6 +14,7 @@ namespace MailSecure
         public static UserDataContext CurrentUserData { get; set; }
         public static LanguageManager ApplicationLanguage { get; private set; }
         public static SendingPageViewModel SendingPageViewModel { get; set; }
+        public static UnlockPageViewModel UnlockPageViewModel { get; set; }
         #endregion
 
         #region Private Property

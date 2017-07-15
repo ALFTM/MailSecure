@@ -194,7 +194,7 @@ namespace MailSecure
 
             AddRecipient(ref mail);
 
-            mail.IsBodyHtml = true;
+            // mail.IsBodyHtml = true;
             
             AddCcAndCciInMail(ref mail);
 

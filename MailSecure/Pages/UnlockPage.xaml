@@ -40,5 +40,6 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+        <local:UnlockControl Grid.Column="1" DataContext="{Binding SelectedMessage}" />
     </Grid>
 </Page>

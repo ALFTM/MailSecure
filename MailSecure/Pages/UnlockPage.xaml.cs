@@ -9,8 +9,9 @@ namespace MailSecure
     {
         public UnlockPage()
         {
-            InitializeComponent();
-            DataContext = new UnlockPageViewModel();
+            App.UnlockPageViewModel = new UnlockPageViewModel();
+            DataContext = App.UnlockPageViewModel;
+            InitializeComponent();         
         }
     }
 }

@@ -66,6 +66,9 @@
     <Compile Include="Controls\Imap\ImapListItemControl.xaml.cs">
       <DependentUpon>ImapListItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Unlock\UnlockControl.xaml.cs">
+      <DependentUpon>UnlockControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converter\BoolToColorConverter.cs" />
     <Compile Include="Converter\ImagePathToImageSourceConverter.cs" />
     <Compile Include="Converter\MailAddressToColorConverter.cs" />
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Imap\ImapListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Unlock\UnlockControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
