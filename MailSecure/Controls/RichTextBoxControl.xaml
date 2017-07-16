@@ -51,7 +51,8 @@
                 </Viewbox>
             </Button>
             <Separator />
-            <Button HorizontalAlignment="Right" Content="{Binding SendLbl}" Command="{Binding SendMailCommand}"></Button>
+            <Button HorizontalAlignment="Right" Grid.Column="1" Height="Auto" Content="{Binding SendLbl}" Command="{Binding SendMailCommand}" IsEnabled="{Binding To, Converter={local:StringToBoolConverter}}" />
+            <ProgressBar Name="SendingBar" Grid.Column="0" Value="{Binding SendingProgressBar}" Visibility="{Binding SendingBarIsVisible, FallbackValue=Hidden}" Maximum="100" Minimum="0" Width="200" HorizontalContentAlignment="Stretch" Margin="10,0,0,0" Foreground="#ff6659" />
         </ToolBar>
     </Grid>
 </UserControl>

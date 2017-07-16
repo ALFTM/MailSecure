@@ -232,9 +232,12 @@
     <value>Username</value>
   </data>
   <data name="version_lbl" xml:space="preserve">
-    <value>Version 1.5.0</value>
+    <value>Version 2.0.0</value>
   </data>
   <data name="yahoo_lbl" xml:space="preserve">
     <value>Yahoo</value>
+  </data>
+  <data name="youMustConfigureUser_lbl" xml:space="preserve">
+    <value>You must configure an user to send email</value>
   </data>
 </root>

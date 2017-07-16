@@ -88,6 +88,7 @@
                 <!-- Text Box -->
                 <TextBox Grid.Column="1"
                          Text="{Binding To}"
+                         Name="to_tb"
                          Background="{StaticResource BackgroundBrush}"
                          Foreground="White"
                          Opacity=".6"
