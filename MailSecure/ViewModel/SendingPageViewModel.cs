@@ -4,6 +4,7 @@ using MailSecure.Security;
 using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Net.Mail;
 using System.Windows;
@@ -21,6 +22,10 @@ namespace MailSecure
         private string cc = "";
         private string cci = "";
         private string messageObject = "";
+        private string password;
+        private MailMessage mail;
+        private double sendingProgressBar = 0;
+        private Visibility sendingBarIsVisible;
         #endregion
 
         #region Public members
@@ -86,6 +91,25 @@ namespace MailSecure
 
         public ObservableCollection<AttachementsFacts> AttachementsList { get; set; }
 
+        public double SendingProgressBar
+        {
+            get => sendingProgressBar;
+            set
+            {
+                sendingProgressBar = value;
+                OnPropertyChanged(nameof(sendingProgressBar));
+            }
+        }
+
+        public Visibility SendingBarIsVisible
+        {
+            get => sendingBarIsVisible;
+            set
+            {
+                sendingBarIsVisible = value;
+                OnPropertyChanged(nameof(sendingBarIsVisible));
+            }
+        }
         #endregion
 
         #region Content Language
@@ -112,6 +136,7 @@ namespace MailSecure
         /// </summary>
         public SendingPageViewModel()
         {
+            SendingBarIsVisible = Visibility.Hidden;
             AttachementsList = new ObservableCollection<AttachementsFacts>();
             DisplayCopyFieldsCommand = new RelayCommand(() => SetCopyVisibility());
             AddAttachementCommand = new RelayCommand(() => AddAttachement());
@@ -166,18 +191,41 @@ namespace MailSecure
 
         private void SendMessage()
         {
-            string password = Utils.RandomPassword(8);
+            SendingBarIsVisible = Visibility.Visible;
+            password = Utils.RandomPassword(8);
+            mail = PrepareMessage(password);
 
-            using (var mail = PrepareMessage(password))
-            {
-                App.mailSender.setMailMessage(mail);
-                App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
-                App.mailSender.SendMail();
-            }        
+            var worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += Worker_DoWork;
+            worker.ProgressChanged += Worker_ProgressChanged;
+            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
 
+            worker.RunWorkerAsync();
+        }
+
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            mail.Dispose();
             DisplayPassWordBox(password);
-
             ClearFields();
+            SendingBarIsVisible = Visibility.Hidden;
+        }
+
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            SendingProgressBar = e.ProgressPercentage;
+        }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            App.mailSender.setMailMessage(mail);
+            worker.ReportProgress(20);
+            App.mailSender.setCurrentUser(App.CurrentUserData.CurrentUser);
+            worker.ReportProgress(50);
+            App.mailSender.SendMail();
+            worker.ReportProgress(100);
         }
 
         public MailMessage PrepareMessage(string password)
@@ -253,6 +301,7 @@ namespace MailSecure
             Cc = "";
             Cci = "";
             MessageObject = "";
+            SendingProgressBar = 0;
             AttachementsList.Clear();
             RichTextBoxControler.rtbEditor.Document.Blocks.Clear();
             DirectoryManager.ClearTempFolder();
