@@ -201,6 +201,9 @@
   <data name="outlook_lbl" xml:space="preserve">
     <value>Outlook</value>
   </data>
+  <data name="passwordGenerated_lbl" xml:space="preserve">
+    <value>Password generated : </value>
+  </data>
   <data name="password_lbl" xml:space="preserve">
     <value>Password</value>
   </data>
