@@ -98,11 +98,14 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Foreground="White"
+                    IsEnabled="{Binding ElementName=passwordBox, Path=Text.IsEmpty, Converter={local:BoolToInvertBoolConverter}}"
                     Style="{StaticResource ActionButton}"
                     Content="{Binding DisplayMessageText}"
                     Command="{Binding DisplayMessageCommand}"></Button>
             <Button Grid.Column="1" 
                     Foreground="White"
+                    IsEnabled="{Binding ElementName=passwordBox, Path=Text.IsEmpty, Converter={local:BoolToInvertBoolConverter}}"
+                    Visibility="{Binding Path=SelectedMessage.Attachments.Count, Converter={local:SizeToVisibilityConverter}}"
                     Style="{StaticResource ActionButton}"
                     Command="{Binding SaveAttchmentsCommand}"
                     Content="{Binding SaveAttachmentsText}"></Button>

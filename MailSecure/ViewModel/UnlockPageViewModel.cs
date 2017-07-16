@@ -17,6 +17,7 @@ namespace MailSecure
     {
         #region Private Members
         private MailMessage selectedMessage;
+        private MailMessage previousMessage;
         private string password;
         private Visibility loadingIsVisible;
         private Visibility imapListIsVisible;
@@ -92,6 +93,8 @@ namespace MailSecure
         #region Commands
         public ICommand SaveAttchmentsCommand { get; set; }
         public ICommand DisplayMessageCommand { get; set; }
+
+        public ICommand ManageVisibilityCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -102,6 +105,7 @@ namespace MailSecure
             UnlockControlVisibility = Visibility.Collapsed;
             DisplayMessageCommand = new RelayCommand(() => DisplayMessage());
             SaveAttchmentsCommand = new RelayCommand(() => SaveAttachment());
+            ManageVisibilityCommand = new RelayCommand(() => ManageControlVisibility());
             ImapList = new ObservableCollection<MailMessage>();
             FullFillMessageList(App.CurrentUserData.CurrentUser);
         }
@@ -122,7 +126,6 @@ namespace MailSecure
             }
             LoadingIsVisible = Visibility.Collapsed;
             ImapListIsVisible = Visibility.Visible;
-            UnlockControlVisibility = Visibility.Visible;
         }
 
         private void DisplayMessage()
@@ -176,6 +179,21 @@ namespace MailSecure
 
             DirectoryManager.ClearTempFolder();
             System.Windows.MessageBox.Show(FileSavedAtText + dest);
+        }
+
+        private void ManageControlVisibility()
+        {
+            System.Console.WriteLine("Trigger Event");
+            if (previousMessage == null) {
+                UnlockControlVisibility = Visibility.Visible;
+            }
+            else if (previousMessage == SelectedMessage) {
+                UnlockControlVisibility = UnlockControlVisibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            } else {
+                UnlockControlVisibility = Visibility.Visible;
+            }
+
+            previousMessage = SelectedMessage;  
         }
 
         
