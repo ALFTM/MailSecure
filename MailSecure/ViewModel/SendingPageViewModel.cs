@@ -321,7 +321,8 @@ namespace MailSecure
 
         private void DisplayWarningMessage()
         {
-            MessageBox.Show("You must configure a user", "Sending Mail", MessageBoxButton.OK, MessageBoxImage.Error);
+            string message = App.ApplicationLanguage.GetStringFromLanguage("youMustConfigureUser_lbl");
+            MessageBox.Show(message, "MailSecure:Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         #endregion

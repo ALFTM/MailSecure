@@ -237,4 +237,7 @@
   <data name="yahoo_lbl" xml:space="preserve">
     <value>Yahoo</value>
   </data>
+  <data name="youMustConfigureUser_lbl" xml:space="preserve">
+    <value>You must configure an user to send email</value>
+  </data>
 </root>

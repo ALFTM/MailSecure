@@ -237,4 +237,7 @@
   <data name="saveAttchments_lbl" xml:space="preserve">
     <value>Sauvegarder les pièces jointes</value>
   </data>
+  <data name="youMustConfigureUser_lbl" xml:space="preserve">
+    <value>Vous devez configurer un compte avant d'envoyer un email</value>
+  </data>
 </root>
