@@ -44,6 +44,7 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+        <TextBlock Text="{Binding NoMessageText}" Visibility="{Binding NoMessageFound}" Grid.ColumnSpan="2" Grid.Column="1" MaxHeight="32" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource SecondaryBrush}" FontFamily="{StaticResource RobotoThin}" FontSize="20" />
         <local:UnlockControl Grid.Column="2" Visibility="{Binding UnlockControlVisibility}" />
     </Grid>
 </Page>
