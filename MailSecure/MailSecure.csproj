@@ -79,9 +79,11 @@
       <DependentUpon>UnlockControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\BoolToColorConverter.cs" />
+    <Compile Include="Converter\BoolToInvertBoolConverter.cs" />
     <Compile Include="Converter\ImagePathToImageSourceConverter.cs" />
     <Compile Include="Converter\MailAddressToColorConverter.cs" />
     <Compile Include="Converter\MailAddressToInitialsConverter.cs" />
+    <Compile Include="Converter\SizeToVisibilityConverter.cs" />
     <Compile Include="Pages\UnlockPage.xaml.cs">
       <DependentUpon>UnlockPage.xaml</DependentUpon>
     </Compile>
