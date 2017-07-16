@@ -52,7 +52,7 @@ namespace MailSecure
 
             if (!await this.ShortLoading()) {
                 MainWindow.Show();
-                MailServerConfigurationWindow mailConfigurationWindow = new MailServerConfigurationWindow();
+                AddUserWindow mailConfigurationWindow = new AddUserWindow();
                 mailConfigurationWindow.Show();
             }
             else {

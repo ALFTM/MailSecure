@@ -153,6 +153,7 @@ namespace MailSecure
         public string UsernameLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("userName_lbl"); } }
         public string PasswordLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("password_lbl"); } }
         public string AddLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("add_lbl"); } }
+        public string ImapServerLbl { get => App.ApplicationLanguage.GetStringFromLanguage("imap_lbl"); }
         #endregion
 
         #region Commands
