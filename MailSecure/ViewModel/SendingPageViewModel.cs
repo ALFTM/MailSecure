@@ -191,6 +191,11 @@ namespace MailSecure
 
         private void SendMessage()
         {
+            if(App.CurrentUserData.CurrentUser == null) {
+                DisplayWarningMessage();
+                return;
+            }
+
             SendingBarIsVisible = Visibility.Visible;
             password = Utils.RandomPassword(8);
             mail = PrepareMessage(password);
@@ -312,6 +317,11 @@ namespace MailSecure
             var passwordPopup = new PasswordPopup();
             passwordPopup.passwordGeneratedLabel.Content = "Password généré : " + password;
             passwordPopup.Show();
+        }
+
+        private void DisplayWarningMessage()
+        {
+            MessageBox.Show("You must configure a user", "Sending Mail", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         #endregion
