@@ -22,6 +22,7 @@ namespace MailSecure
         private Visibility loadingIsVisible;
         private Visibility imapListIsVisible;
         private Visibility unlockControlVisibility;
+        private Visibility noMessageFound;
         #endregion
 
         #region Public Members
@@ -62,6 +63,15 @@ namespace MailSecure
                 OnPropertyChanged(nameof(unlockControlVisibility));
             }
         }
+        public Visibility NoMessageFound
+        {
+            get => noMessageFound;
+            set
+            {
+                noMessageFound = value;
+                OnPropertyChanged(nameof(noMessageFound));
+            }
+        }
         public MailMessage SelectedMessage
         {
             get => selectedMessage;
@@ -88,6 +98,11 @@ namespace MailSecure
         {
             get => App.ApplicationLanguage.GetStringFromLanguage("saveAttchments_lbl");
         }
+
+        public string NoMessageText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("noMessage_lbl");
+        }
         #endregion
 
         #region Commands
@@ -103,6 +118,7 @@ namespace MailSecure
             LoadingIsVisible = Visibility.Visible;
             ImapListIsVisible = Visibility.Collapsed;
             UnlockControlVisibility = Visibility.Collapsed;
+            NoMessageFound = Visibility.Collapsed;
             DisplayMessageCommand = new RelayCommand(() => DisplayMessage());
             SaveAttchmentsCommand = new RelayCommand(() => SaveAttachment());
             ManageVisibilityCommand = new RelayCommand(() => ManageControlVisibility());
@@ -119,13 +135,21 @@ namespace MailSecure
 
             var listMessage = await Task.Run(() => mailReceiver.GetMessagesHeader());
 
-            foreach (MailMessage mailMessage in listMessage) {
-                var from = mailMessage.From;
+            if (!listMessage.IsAny())
+            {
+                NoMessageFound = Visibility.Visible;
+            }
+            else
+            {
+                foreach (MailMessage mailMessage in listMessage)
+                {
+                    var from = mailMessage.From;
 
-                ImapList.Add(mailMessage);
+                    ImapList.Add(mailMessage);
+                }
+                ImapListIsVisible = Visibility.Visible;
             }
             LoadingIsVisible = Visibility.Collapsed;
-            ImapListIsVisible = Visibility.Visible;
         }
 
         private void DisplayMessage()

@@ -121,6 +121,7 @@ namespace MailSecure
         public string BccLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("blindCarbonCopy_lbl"); } }
         public string CcAndBccLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("ccAndBcc_lbl"); } }
         public string AttachementLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("attachement_lbl"); } }
+        public string PasswordGeneratedLbl { get { return App.ApplicationLanguage.GetStringFromLanguage("passwordGenerated_lbl"); } }
         #endregion
 
         #region Commands
@@ -315,7 +316,7 @@ namespace MailSecure
         private void DisplayPassWordBox(string password)
         {
             var passwordPopup = new PasswordPopup();
-            passwordPopup.passwordGeneratedLabel.Content = "Password généré : " + password;
+            passwordPopup.passwordGeneratedLabel.Content = PasswordGeneratedLbl + password;
             passwordPopup.Show();
         }
 

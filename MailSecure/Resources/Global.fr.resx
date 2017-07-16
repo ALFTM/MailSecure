@@ -240,4 +240,10 @@
   <data name="youMustConfigureUser_lbl" xml:space="preserve">
     <value>Vous devez configurer un compte avant d'envoyer un email</value>
   </data>
+  <data name="passwordGenerated_lbl" xml:space="preserve">
+    <value>Mot de passe généré : </value>
+  </data>
+  <data name="noMessage_lbl" xml:space="preserve">
+    <value>Aucun Message</value>
+  </data>
 </root>

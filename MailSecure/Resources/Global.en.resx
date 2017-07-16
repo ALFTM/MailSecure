@@ -192,6 +192,9 @@
   <data name="mailAdress_lbl" xml:space="preserve">
     <value>Mail Adress</value>
   </data>
+  <data name="noMessage_lbl" xml:space="preserve">
+    <value>No Message</value>
+  </data>
   <data name="object_lbl" xml:space="preserve">
     <value>Object :</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="outlook_lbl" xml:space="preserve">
     <value>Outlook</value>
+  </data>
+  <data name="passwordGenerated_lbl" xml:space="preserve">
+    <value>Password generated : </value>
   </data>
   <data name="password_lbl" xml:space="preserve">
     <value>Password</value>
