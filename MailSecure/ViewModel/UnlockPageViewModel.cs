@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.IO;
+using System;
 
 namespace MailSecure
 {
@@ -103,6 +104,11 @@ namespace MailSecure
         {
             get => App.ApplicationLanguage.GetStringFromLanguage("noMessage_lbl");
         }
+
+        public string WrongpasswordText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("wrongPassword_lbl");
+        }
         #endregion
 
         #region Commands
@@ -155,7 +161,16 @@ namespace MailSecure
         private void DisplayMessage()
         {
             string cryptedMessage = SelectedMessage.Body;
-            string html = Encryption.Decrypt(cryptedMessage, Password);
+            var html = string.Empty;
+            try
+            {
+                html = Encryption.Decrypt(cryptedMessage, Password);
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show(WrongpasswordText);
+                return;
+            }
             string xaml = HtmlToXamlConverter.ConvertHtmlToXaml(html, true);
 
             Control.rtb_content.Document = XamlReader.Parse(xaml) as FlowDocument;
@@ -197,7 +212,7 @@ namespace MailSecure
                 string source = DirectoryManager.tempfolderPath + attachment.Name;
                 string resultFileName = attachment.Name.Replace(".lock", "");
                 string destFile = dest + "\\" + resultFileName;
-
+                
                 decryptor.DecryptFile(source, destFile, Password);
             }
 

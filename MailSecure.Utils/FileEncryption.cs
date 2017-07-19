@@ -27,15 +27,20 @@ namespace MailSecure.Security
             aes.IV = key.GetBytes(aes.BlockSize / 8);
             aes.Mode = CipherMode.CBC;
             ICryptoTransform transform = aes.CreateDecryptor(aes.Key, aes.IV);
-
-            using (FileStream destination = new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None)) {
-                using (CryptoStream cryptoStream = new CryptoStream(destination, transform, CryptoStreamMode.Write)) {
-                    try {
-                        using (FileStream source = new FileStream(sourceFilename, FileMode.Open, FileAccess.Read, FileShare.Read)) {
+            
+            using (FileStream destination = new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None))
+            {
+                using (CryptoStream cryptoStream = new CryptoStream(destination, transform, CryptoStreamMode.Write))
+                {
+                    try
+                    {
+                        using (FileStream source = new FileStream(sourceFilename, FileMode.Open, FileAccess.Read, FileShare.Read))
+                        {
                             source.CopyTo(cryptoStream);
                         }
                     }
-                    catch (CryptographicException exception) {
+                    catch (CryptographicException exception)
+                    {
                         if (exception.Message == "Padding is invalid and cannot be removed.")
                             throw new ApplicationException("Universal Microsoft Cryptographic Exception (Not to be believed!)", exception);
                         else

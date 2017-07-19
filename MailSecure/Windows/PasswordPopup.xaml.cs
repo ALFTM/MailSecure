@@ -22,6 +22,7 @@ namespace MailSecure
         public PasswordPopup()
         {
             InitializeComponent();
+            DataContext = new PasswordPopupViewModel();
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)

@@ -84,13 +84,20 @@ namespace MailSecure.Security
                     {
                         using (var memoryStream = new MemoryStream(cipherTextBytes))
                         {
-                            using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                            try
                             {
-                                var plainTextBytes = new byte[cipherTextBytes.Length];
-                                var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-                                memoryStream.Close();
-                                cryptoStream.Close();
-                                return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
+                                using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                                {
+                                    var plainTextBytes = new byte[cipherTextBytes.Length];
+                                    var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+                                    memoryStream.Close();
+                                    cryptoStream.Close();
+                                    return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
+                                }
+                            }
+                            catch (CryptographicException)
+                            {
+                                throw new Exception();
                             }
                         }
                     }
