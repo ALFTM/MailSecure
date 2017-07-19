@@ -246,4 +246,13 @@
   <data name="noMessage_lbl" xml:space="preserve">
     <value>Aucun Message</value>
   </data>
+  <data name="copy_lbl" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="passwordPopupTitle_lbl" xml:space="preserve">
+    <value>Mot de passe généré</value>
+  </data>
+  <data name="wrongPassword_lbl" xml:space="preserve">
+    <value>Mauvais mot de passe</value>
+  </data>
 </root>
