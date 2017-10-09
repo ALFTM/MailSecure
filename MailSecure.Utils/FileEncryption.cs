@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace MailSecure.Security
 {
-    public class FileEncryption
+    public class FileEncryption: IFileEncryption
     {
         public readonly byte[] salt = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }; // Must be at least eight bytes.  MAKE THIS SALTIER!
         public const int iterations = 1042; // Recommendation is >= 1000.
