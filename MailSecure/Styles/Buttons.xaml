@@ -198,7 +198,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <!-- Text Button Square -->
     <Style TargetType="{x:Type Button}" x:Key="TextButtonSquare" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
@@ -676,5 +675,16 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+    
+    <!-- Hyperlink style -->
+    <Style TargetType="{x:Type Hyperlink}" x:Key="HyperlinkThemed">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Red" />
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="TextBlock.TextDecorations" Value="Underline" />
     </Style>
 </ResourceDictionary>

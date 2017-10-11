@@ -11,6 +11,12 @@ namespace MailSecure
         {
             InitializeComponent();
             DataContext = new LoginWindowViewModel(this);
+            PrepareForm();
+        }
+
+        private void PrepareForm()
+        {
+            loginId.Focus();
         }
     }
 }

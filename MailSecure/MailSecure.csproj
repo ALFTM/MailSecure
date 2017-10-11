@@ -361,5 +361,11 @@
   <ItemGroup>
     <Resource Include="Media\Spinner.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\person.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
