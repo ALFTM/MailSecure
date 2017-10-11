@@ -10,7 +10,7 @@ namespace MailSecure
         public LoginWindow()
         {
             InitializeComponent();
-            DataContext = new LoginWindowViewModel();
+            DataContext = new LoginWindowViewModel(this);
         }
     }
 }
