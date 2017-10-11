@@ -261,4 +261,7 @@
   <data name="signIn_lbl" xml:space="preserve">
     <value>Connexion</value>
   </data>
+  <data name="doesntHaveAccount_lbl" xml:space="preserve">
+    <value>Pas encore inscrit ?</value>
+  </data>
 </root>

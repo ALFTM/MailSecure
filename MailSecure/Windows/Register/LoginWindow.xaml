@@ -165,7 +165,7 @@
             <!-- Account Creation button section -->
             <TextBlock TextAlignment="Center">
                 <Hyperlink Style="{StaticResource HyperlinkThemed}">
-                    <TextBlock Text="Doesn't have an account ?">
+                    <TextBlock Text="{Binding DoesntHaveAccountText}">
                     </TextBlock>
                 </Hyperlink>
             </TextBlock>

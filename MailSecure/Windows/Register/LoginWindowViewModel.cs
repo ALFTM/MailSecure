@@ -84,6 +84,11 @@ namespace MailSecure
             get => App.ApplicationLanguage.GetStringFromLanguage("signIn_lbl");
         }
 
+        public string DoesntHaveAccountText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("doesntHaveAccount_lbl");
+        }
+
         #endregion
 
         #region Commands
