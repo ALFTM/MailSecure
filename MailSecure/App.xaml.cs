@@ -56,6 +56,8 @@ namespace MailSecure
                 mailConfigurationWindow.Show();
             }
             else {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
                 //MainWindow.Show();
                 MainWindow.Show();
             }

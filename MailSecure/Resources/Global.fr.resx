@@ -255,4 +255,10 @@
   <data name="wrongPassword_lbl" xml:space="preserve">
     <value>Mauvais mot de passe</value>
   </data>
+  <data name="login_lbl" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="signIn_lbl" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
 </root>

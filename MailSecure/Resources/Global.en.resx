@@ -255,4 +255,10 @@
   <data name="youMustConfigureUser_lbl" xml:space="preserve">
     <value>You must configure an user to send email</value>
   </data>
+  <data name="login_lbl" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="signIn_lbl" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
 </root>
