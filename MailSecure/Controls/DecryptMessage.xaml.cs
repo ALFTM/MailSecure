@@ -45,7 +45,7 @@ namespace MailSecure
                     destPath = saveFileDialog.FileName;
                 }
 
-                FileEncryption fileEncryption = new FileEncryption();
+                IFileEncryption fileEncryption = new FileEncryptionCBC();
 
                 fileEncryption.DecryptFile(fullPath, destPath, passwordTextBox.Text);
             }

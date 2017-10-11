@@ -43,12 +43,17 @@
   <ItemGroup>
     <Compile Include="Encryption.cs" />
     <Compile Include="FileEncryption.cs" />
+    <Compile Include="FileEncryptionCBC.cs" />
     <Compile Include="IFileEncryption.cs" />
     <Compile Include="MailPreparator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MailSecure.Cbc\MailSecure.Cbc.csproj">
+      <Project>{A1C34CE8-B54F-43FF-A5F3-B75D6AA89119}</Project>
+      <Name>MailSecure.Cbc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MailSecure.Core\MailSecure.Core.csproj">
       <Project>{a47aae88-2f39-4955-957c-03a36f49edc9}</Project>
       <Name>MailSecure.Core</Name>

@@ -207,7 +207,7 @@ namespace MailSecure
 
         private void UnlockAttachments(string dest)
         {
-            FileEncryption decryptor = new FileEncryption();
+            IFileEncryption decryptor = new FileEncryptionCBC();
             foreach (Attachment attachment in SelectedMessage.Attachments) {
                 string source = DirectoryManager.tempfolderPath + attachment.Name;
                 string resultFileName = attachment.Name.Replace(".lock", "");

@@ -42,7 +42,7 @@ namespace MailSecure.Security
                 string filePath = item;
                 string destPath = DirectoryManager.tempfolderPath + Utils.GetFileNameFromPath(item) + ".lock";
 
-                FileEncryption fileEncryption = new FileEncryption();
+                IFileEncryption fileEncryption = new FileEncryptionCBC();
 
                 fileEncryption.EncryptFile(filePath, destPath, password);
                 mail.Attachments.Add(new Attachment(destPath));
