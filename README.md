@@ -22,3 +22,5 @@ Launch it and set your name, email, and the SMTP address of your email server.
 
 - [xTeddyR](https://github.com/xTeddyR)
 - [Sorion](https://github.com/Sorion)
+- [jeremyboehm](https://github.com/jeremyboehm)
+- [AurelienDuval6](https://github.com/AurelienDuval6)
