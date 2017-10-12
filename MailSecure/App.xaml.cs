@@ -58,8 +58,7 @@ namespace MailSecure
             else {
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.Show();
-                //MainWindow.Show();
-                //MainWindow.Show();
+                MainWindow.Show();
             }
 
             splashScreen.Close();

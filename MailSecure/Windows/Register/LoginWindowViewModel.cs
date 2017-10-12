@@ -79,21 +79,10 @@ namespace MailSecure
         #endregion
 
         #region Content Language
-        public string SignInText
-        {
-            get => App.ApplicationLanguage.GetStringFromLanguage("signIn_lbl");
-        }
-
-        public string DoesntHaveAccountText
-        {
-            get => App.ApplicationLanguage.GetStringFromLanguage("doesntHaveAccount_lbl");
-        }
-
         #endregion
 
         #region Commands
         public ICommand CloseCommand { get; set; }
-        public ICommand LoginCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -108,12 +97,6 @@ namespace MailSecure
         private void InitCommands()
         {
             CloseCommand = new RelayCommand(() => window.Close());
-            LoginCommand = new RelayCommand(() => Login());
-        }
-
-        private void Login()
-        {
-            System.Console.WriteLine("LOG IN SUCCESSFULL");
         }
     }
 }

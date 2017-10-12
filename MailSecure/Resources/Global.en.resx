@@ -262,6 +262,15 @@
     <value>Sign In</value>
   </data>
   <data name="doesntHaveAccount_lbl" xml:space="preserve">
-    <value>Doesn't have an account ?</value>
+    <value>Doesn't have an account?</value>
+  </data>
+  <data name="createAccount_lbl" xml:space="preserve">
+    <value>Create Account</value>
+  </data>
+  <data name="signUp_lbl" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="alreadyHaveAccount_lbl" xml:space="preserve">
+    <value>Already have an account?</value>
   </data>
 </root>

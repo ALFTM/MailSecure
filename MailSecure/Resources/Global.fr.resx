@@ -264,4 +264,13 @@
   <data name="doesntHaveAccount_lbl" xml:space="preserve">
     <value>Pas encore inscrit ?</value>
   </data>
+  <data name="createAccount_lbl" xml:space="preserve">
+    <value>Créer le compte</value>
+  </data>
+  <data name="signUp_lbl" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="alreadyHaveAccount_lbl" xml:space="preserve">
+    <value>Déjà utilisateur ?</value>
+  </data>
 </root>

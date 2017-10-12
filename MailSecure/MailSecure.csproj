@@ -69,6 +69,12 @@
     <Compile Include="Controls\Imap\ImapListItemControl.xaml.cs">
       <DependentUpon>ImapListItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Register\LoginControl.xaml.cs">
+      <DependentUpon>LoginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Register\SignUpControl.xaml.cs">
+      <DependentUpon>SignUpControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Unlock\AttachementUnlockListItemControl.xaml.cs">
       <DependentUpon>AttachementUnlockListItemControl.xaml</DependentUpon>
     </Compile>
@@ -88,7 +94,9 @@
     <Compile Include="Pages\UnlockPage.xaml.cs">
       <DependentUpon>UnlockPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\RegisterViewModel\LoginControlViewModel.cs" />
     <Compile Include="ViewModel\PasswordPopupViewModel.cs" />
+    <Compile Include="ViewModel\RegisterViewModel\SignUpControlViewModel.cs" />
     <Compile Include="ViewModel\SettingsPageViewModel.cs" />
     <Compile Include="ViewModel\UnlockPageViewModel.cs" />
     <Compile Include="Windows\About\AboutWindow.xaml.cs">
@@ -159,6 +167,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Imap\ImapListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Register\LoginControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Register\SignUpControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
