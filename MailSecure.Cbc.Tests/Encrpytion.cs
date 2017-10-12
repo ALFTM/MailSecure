@@ -5,9 +5,11 @@ using System.Collections.Generic;
 namespace MailSecure.Cbc.Tests
 {
     [TestClass]
+    [TestCategory("CBC")]
     public class Encrpytion
     {
         [TestMethod]
+        [TestCategory("CBC")]
         public void Should_Be_Equals_After_Encryption()
         {
             BytesGenerator generator = BytesGenerator.getInstance();

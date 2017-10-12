@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MailSecure.Security.Tests
 {
     [TestClass]
+    [TestCategory("Encryption")]
     public class EncryptionTests
     {
         [TestMethod]
