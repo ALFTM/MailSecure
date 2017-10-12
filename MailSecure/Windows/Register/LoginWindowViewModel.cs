@@ -19,6 +19,7 @@ namespace MailSecure
 
         private WindowDockPosition dockerPosition = WindowDockPosition.Undocked;
         private LoginWindow window;
+        private uint switchView;
         #endregion
 
         #region Public Members
@@ -76,19 +77,60 @@ namespace MailSecure
         /// Header size / Caption size
         /// </summary>
         public GridLength TitleHeightGridLength => new GridLength(TitleHeight + ResizeBorder);
+
+        public uint SwitchView
+        {
+            get { return switchView; }
+            set
+            {
+                switchView = value;
+                OnPropertyChanged(nameof(switchView));
+            }
+        }
+
         #endregion
 
         #region Content Language
+        public string SignUpText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("signUp_lbl");
+        }
+
+        public string CreateAccountText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("createAccount_lbl");
+        }
+
+        public string AlreadyHaveAccountText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("alreadyHaveAccount_lbl");
+        }
+
+        public string SignInText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("signIn_lbl");
+        }
+
+        public string DoesntHaveAccountText
+        {
+            get => App.ApplicationLanguage.GetStringFromLanguage("doesntHaveAccount_lbl");
+        }
+
         #endregion
 
         #region Commands
         public ICommand CloseCommand { get; set; }
+        public ICommand SwitchToCreateAccountCommand { get; set; }
+        public ICommand SwitchToSignInFormCommand { get; set; }
+        public ICommand CreateAccountCommand { get; set; }
+        public ICommand SignInCommand { get; set; }
         #endregion
 
         #region Constructor
         public LoginWindowViewModel(LoginWindow window)
         {
             this.window = window;
+            switchView = 0;
             InitCommands();
 
         }
@@ -97,6 +139,26 @@ namespace MailSecure
         private void InitCommands()
         {
             CloseCommand = new RelayCommand(() => window.Close());
+            SwitchToCreateAccountCommand = new RelayCommand(() => SwitchForm(1));
+            SwitchToSignInFormCommand = new RelayCommand(() => SwitchForm(0));
+            CreateAccountCommand = new RelayCommand(() => CreateAccount());
+            SignInCommand = new RelayCommand(() => SignIn());
+        }
+
+        private void SwitchForm(uint value)
+        {
+            System.Console.WriteLine("SWTICH TO CREATION");
+            SwitchView = value;
+        }
+
+        private void CreateAccount()
+        {
+            throw new System.NotImplementedException("This metohds is in progress...");
+        }
+
+        private void SignIn()
+        {
+            throw new System.NotImplementedException("This metohds is in progress...");
         }
     }
 }

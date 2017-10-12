@@ -94,9 +94,7 @@
     <Compile Include="Pages\UnlockPage.xaml.cs">
       <DependentUpon>UnlockPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\RegisterViewModel\LoginControlViewModel.cs" />
     <Compile Include="ViewModel\PasswordPopupViewModel.cs" />
-    <Compile Include="ViewModel\RegisterViewModel\SignUpControlViewModel.cs" />
     <Compile Include="ViewModel\SettingsPageViewModel.cs" />
     <Compile Include="ViewModel\UnlockPageViewModel.cs" />
     <Compile Include="Windows\About\AboutWindow.xaml.cs">

@@ -10,7 +10,6 @@ namespace MailSecure
         public SignUpControl()
         {
             InitializeComponent();
-            DataContext = new SignUpControlViewModel();
         }
     }
 }

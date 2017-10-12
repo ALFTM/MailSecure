@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSecure"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="400">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="30 5 30 5" Opacity="1">
             <!-- Logo Section -->
@@ -66,8 +66,8 @@
             <!-- Account Creation button section -->
             <TextBlock TextAlignment="Center">
                 <Hyperlink Style="{StaticResource HyperlinkThemed}" 
-                           Command="{Binding CreateNewAccountCommand}">
-                    <TextBlock Text="{Binding DoesntHaveAccountText}">
+                           Command="{Binding SwitchToCreateAccountCommand}">
+                    <TextBlock Text="{Binding DoesntHaveAccountText, FallbackValue='CreateAccount'}">
                     </TextBlock>
                 </Hyperlink>
             </TextBlock>
@@ -81,8 +81,8 @@
                     Height="35"
                     Margin="5"
                     Background="{StaticResource SecondaryBrush}"
-                    Command="{Binding CloseCommand}">
-                <TextBlock Text="{Binding SignInText, FallbackValue='Login'}" 
+                    Command="{Binding SignInCommand}">
+                <TextBlock Text="{Binding SignInText, FallbackValue=Login}" 
                            FontFamily="{StaticResource RobotoThin}"
                            Foreground="White">
                 </TextBlock>

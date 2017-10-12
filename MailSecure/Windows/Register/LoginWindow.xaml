@@ -94,6 +94,15 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <DataTemplate x:Key="loginTemplate">
+            <local:LoginControl></local:LoginControl>
+        </DataTemplate>
+
+        <DataTemplate x:Key="signUpTemplate">
+            <local:SignUpControl></local:SignUpControl>
+        </DataTemplate>
+        
     </Window.Resources>
 
     <WindowChrome.WindowChrome>
@@ -106,6 +115,17 @@
     </WindowChrome.WindowChrome>
 
     <Grid Background="#00000000" >
-        <local:LoginControl></local:LoginControl>
+        <ContentControl Content="{Binding}">
+            <ContentControl.Style>
+                <Style TargetType="{x:Type ContentControl}">
+                    <Setter Property="ContentTemplate" Value="{StaticResource loginTemplate}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SwitchView}" Value="1">
+                            <Setter Property="ContentTemplate" Value="{StaticResource signUpTemplate}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
     </Grid>
 </Window>

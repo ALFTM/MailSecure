@@ -10,7 +10,6 @@ namespace MailSecure
         public LoginControl()
         {
             InitializeComponent();
-            DataContext = new LoginControlViewModel();
             PrepareForm();
         }
 

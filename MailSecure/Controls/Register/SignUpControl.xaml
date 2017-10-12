@@ -66,8 +66,8 @@
             <!-- Account Creation button section -->
             <TextBlock TextAlignment="Center">
                 <Hyperlink Style="{StaticResource HyperlinkThemed}" 
-                           Command="{Binding GoToLoginFormCommand}">
-                    <TextBlock Text="{Binding AlreadyHaveAccountText}">
+                           Command="{Binding SwitchToSignInFormCommand}">
+                    <TextBlock Text="{Binding AlreadyHaveAccountText, FallbackValue='Sign In'}">
                     </TextBlock>
                 </Hyperlink>
             </TextBlock>
@@ -81,7 +81,7 @@
                     Height="35"
                     Margin="5"
                     Background="{StaticResource SecondaryBrush}"
-                    Command="{Binding CreateNewAccountCommand}">
+                    Command="{Binding CreateAccountCommand}">
                 <TextBlock Text="{Binding CreateAccountText, FallbackValue='Create'}" 
                            FontFamily="{StaticResource RobotoThin}"
                            Foreground="White">
