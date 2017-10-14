@@ -1,7 +1,5 @@
-﻿using System;
-using MailSecure.Security;
-
-namespace MailSecure.Cbc
+﻿
+namespace MailSecure.Security
 {
 	public class CbcCypher
 	{
