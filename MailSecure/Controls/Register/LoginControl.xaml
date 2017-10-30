@@ -77,7 +77,7 @@
 
             <!-- Button section -->
             <Button Style="{StaticResource TextButton}" Grid.Row="2" 
-                    Width="100"
+                    Width="120"
                     Height="35"
                     Margin="5"
                     Background="{StaticResource SecondaryBrush}"

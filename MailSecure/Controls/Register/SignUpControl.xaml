@@ -10,7 +10,7 @@
         <StackPanel Orientation="Vertical" Margin="30 5 30 5" Opacity="1">
             <!-- Logo Section -->
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="pack://application:,,,/Media/Icon/logo_256.png" MaxHeight="100"/>
+                <Image Source="pack://application:,,,/Media/Icon/logo_256.png" MaxHeight="112"/>
             </StackPanel>
 
             <!-- Subtitle section -->
@@ -77,7 +77,7 @@
 
             <!-- Button section -->
             <Button Style="{StaticResource TextButton}" Grid.Row="2" 
-                    Width="100"
+                    Width="120"
                     Height="35"
                     Margin="5"
                     Background="{StaticResource SecondaryBrush}"
