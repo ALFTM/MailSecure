@@ -147,7 +147,8 @@ namespace MailSecure
 
         private void SwitchForm(uint value)
         {
-            System.Console.WriteLine("SWTICH TO CREATION");
+            string mode = value == 0 ? "SIGN IN" : "SIGN UP";
+            System.Console.WriteLine("SWTICH TO " + mode + " MODE");
             SwitchView = value;
         }
 
@@ -156,9 +157,6 @@ namespace MailSecure
             throw new System.NotImplementedException("This metohds is in progress...");
         }
 
-        private void SignIn()
-        {
-            throw new System.NotImplementedException("This metohds is in progress...");
-        }
+        private void SignIn() => throw new System.NotImplementedException("This metohds is in progress...");
     }
 }
