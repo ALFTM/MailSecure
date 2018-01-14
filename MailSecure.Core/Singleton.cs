@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MailSecure.Cbc
+namespace MailSecure.Core
 {
 	public abstract class Singleton<T> where T : new()
 	{

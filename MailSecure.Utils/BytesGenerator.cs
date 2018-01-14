@@ -1,6 +1,7 @@
-﻿using System;
+﻿using MailSecure.Core;
+using System;
 
-namespace MailSecure.Cbc
+namespace MailSecure.Security
 {
 	public class BytesGenerator : Singleton<BytesGenerator>
 	{
