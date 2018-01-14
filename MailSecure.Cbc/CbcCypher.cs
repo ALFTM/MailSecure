@@ -1,9 +1,8 @@
-﻿using System;
-using MailSecure.Security;
+﻿using MailSecure.Security;
 
 namespace MailSecure.Cbc
 {
-	public class CbcCypher
+    public class CbcCypher
 	{
 		public uint blockSize { get; set; }
 

@@ -8,6 +8,7 @@ namespace MailSecure.Security.Tests
     public class CbcTests
     {
         [TestMethod]
+        [TestCategory("CBC")]
         public void ShouldBeEqualsAfterCbcEncryption()
         {
             BytesGenerator generator = BytesGenerator.getInstance();

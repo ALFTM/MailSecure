@@ -1,13 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MailSecure.Security.Tests
 {
     [TestClass]
+    [TestCategory("PGP")]
     public class PgpCypherTests
     {
         private static string KEY_LOGIN = "login";

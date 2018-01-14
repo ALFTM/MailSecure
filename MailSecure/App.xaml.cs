@@ -2,6 +2,7 @@
 using System.Windows;
 using MailSecure.Core;
 
+
 namespace MailSecure
 {
     /// <summary>
@@ -57,7 +58,7 @@ namespace MailSecure
             }
             else {
                 LoginWindow loginWindow = new LoginWindow();
-                loginWindow.Show();
+                loginWindow.ShowDialog();
                 MainWindow.Show();
             }
 

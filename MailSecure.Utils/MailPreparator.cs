@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Mail;
 using MailSecure.Core;
-using System.Collections.Specialized;
 
 namespace MailSecure.Security
 {

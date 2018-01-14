@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MailSecure.Cbc</RootNamespace>
     <AssemblyName>MailSecure.Cbc</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MailSecure.Core\MailSecure.Core.csproj">
+      <Project>{A47AAE88-2F39-4955-957C-03A36F49EDC9}</Project>
+      <Name>MailSecure.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MailSecure.Utils\MailSecure.Security.csproj">
       <Project>{8bb1c827-0033-413b-943b-51f0bfc6532a}</Project>
       <Name>MailSecure.Security</Name>

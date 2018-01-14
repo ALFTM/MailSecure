@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+using MailSecure.Security;
 
 namespace MailSecure.Cbc.Tests
 {

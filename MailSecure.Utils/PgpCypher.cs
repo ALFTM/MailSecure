@@ -157,7 +157,9 @@ namespace MailSecure.Security
                     throw new InvalidDataException("Partial PGP data found.");
                 else
                     throw e;
+#pragma warning disable CS0162 // Impossible d'atteindre le code détecté
                 Exception underlyingException = e.InnerException;
+#pragma warning restore CS0162 // Impossible d'atteindre le code détecté
                 if (underlyingException != null)
                     throw underlyingException;
 

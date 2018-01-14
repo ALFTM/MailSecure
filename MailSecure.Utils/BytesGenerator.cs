@@ -1,9 +1,8 @@
 ﻿using MailSecure.Core;
-using System;
 
 namespace MailSecure.Security
 {
-	public class BytesGenerator : Singleton<BytesGenerator>
+    public class BytesGenerator : Singleton<BytesGenerator>
 	{
 		RandomNumberGenerator generator { get; }
 
