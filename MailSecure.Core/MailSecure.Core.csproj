@@ -62,7 +62,7 @@
     <Compile Include="DirectoryManager.cs" />
     <Compile Include="IconManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserManageer\SQLiteHelper.cs" />
+    <Compile Include="UserManager\SQLiteHelper.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\RelayParameterizedCommand.cs" />
