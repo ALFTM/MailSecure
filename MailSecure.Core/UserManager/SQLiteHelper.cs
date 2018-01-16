@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.IO;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 
 namespace MailSecure.Core
 {
@@ -18,6 +21,7 @@ namespace MailSecure.Core
             
             try {
                 GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
             catch {
                 throw new Exception("GC failed to collect");
@@ -25,13 +29,30 @@ namespace MailSecure.Core
             
 
             try {
-                SQLiteConnection.ClearAllPools();
+                FlushBase();
             }
             catch {
                 throw new Exception("Failed to clear all pools");
             }
 
-            File.Delete(AppConst.APP_DATABASE_NAME);
+            bool worked = false;
+            int tries = 1;
+            while ((tries < 4) && (!worked)) {
+                try {
+                    Thread.Sleep(tries * 100);
+                    if (File.Exists(AppConst.APP_DATABASE_NAME))
+                        File.Delete(AppConst.APP_DATABASE_NAME);
+                    worked = true;
+                }
+                catch (IOException e)   // delete only throws this on locking
+                {
+                    Console.WriteLine("Delete failed cause: "+ e.Message);
+                    Console.WriteLine("Retry...");
+                    tries++;
+                }
+            }
+            if (!worked)
+                throw new IOException("Unable to close file " + AppConst.APP_DATABASE_NAME);
         }
 
         public void FlushBase()
@@ -48,12 +69,12 @@ namespace MailSecure.Core
 
         public void CloseDataBase()
         {
-            connection.Close();
+            connection.Dispose();
         }
 
         public int InitTables()
         {
-            string sql = "create table users (name text, hash text)";
+            string sql = "create table users (name text, hash BLOB, pass BLOB)";
 
             OpenDataBase();
 
@@ -65,14 +86,18 @@ namespace MailSecure.Core
             return result;
         }
 
-        public int AddUser(string name, byte[] hash)
+        public int AddUser(string name, byte[] hash, byte[] pass)
         {
             string hashInString = System.Text.Encoding.ASCII.GetString(hash);
-            string sql = "insert into users (name, hash) values ('"+ name +"', '" + hashInString + "')";
+            string sql = "insert into users (name, hash, pass) values (@Name, @Hash, @Pass)";
+
 
             OpenDataBase();
 
             SQLiteCommand command = new SQLiteCommand(sql, connection);
+            command.Parameters.Add("@Name", System.Data.DbType.String).Value = name;
+            command.Parameters.Add("@Hash", System.Data.DbType.Object, hash.Length).Value = hash;
+            command.Parameters.Add("@Pass", System.Data.DbType.Object, pass.Length).Value = pass;
             int result = command.ExecuteNonQuery();
 
             CloseDataBase();
@@ -80,19 +105,60 @@ namespace MailSecure.Core
             return result;
         }
 
-        public void ReadAll()
+        public DataBaseUser GetUser(string name)
         {
+            string sql = "SELECT * FROM users WHERE name=@Name";
+            DataBaseUser user;
+            OpenDataBase();
+
+            SQLiteCommand command = new SQLiteCommand(sql, connection);
+            command.Parameters.Add("@Name", System.Data.DbType.String).Value = name;
+            SQLiteDataReader reader = command.ExecuteReader();
+            reader.Read();
+            user = new DataBaseUser {
+                Name = (string)reader["name"],
+                Hash = (byte[])reader["hash"],
+                Pass = (byte[])reader["pass"]
+            };
+            CloseDataBase();
+            return user;
+        }
+
+        public bool CheckIfUserExist(string name)
+        {
+            string sql = "SELECT * FROM users WHERE name=@Name";
+            OpenDataBase();
+
+            SQLiteCommand command = new SQLiteCommand(sql, connection);
+            command.Parameters.Add("@Name", System.Data.DbType.String).Value = name;
+            SQLiteDataReader reader = command.ExecuteReader();
+            bool hasData = reader.HasRows;
+            CloseDataBase();
+            return hasData;
+        }
+
+        public List<DataBaseUser> ReadAll()
+        {
+            List<DataBaseUser> users = new List<DataBaseUser>();
             string sql = "select * from users order by name desc";
 
             OpenDataBase();
 
             SQLiteCommand command = new SQLiteCommand(sql, connection);
             SQLiteDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-                Console.WriteLine("Name: " + reader["name"] + "\tHash: " + reader["hash"]);
+            Debug.WriteLine("Getting All Users");
+            while (reader.Read()) {
+                DataBaseUser user = new DataBaseUser {
+                    Name = (string)reader["name"],
+                    Hash = (byte[])reader["hash"],
+                    Pass = (byte[])reader["pass"]
+                };
+                users.Add(user);
+                Debug.WriteLine(user);
+            }
 
             CloseDataBase();
+            return users;
         }
     }
 }
