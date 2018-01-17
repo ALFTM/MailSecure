@@ -89,7 +89,7 @@ namespace MailSecure.Core
         public int AddUser(string name, byte[] hash, byte[] pass)
         {
             string hashInString = System.Text.Encoding.ASCII.GetString(hash);
-            string sql = "insert into users (name, hash, pass) values (@Name, @Hash, @Pass)";
+            string sql = "INSERT INTO users (name, hash, pass) VALUES (@Name, @Hash, @Pass)";
 
 
             OpenDataBase();
@@ -126,7 +126,7 @@ namespace MailSecure.Core
 
         public bool CheckIfUserExist(string name)
         {
-            string sql = "SELECT * FROM users WHERE name=@Name";
+            string sql = "SELECT name, hash, pass FROM users WHERE name=@Name";
             OpenDataBase();
 
             SQLiteCommand command = new SQLiteCommand(sql, connection);
@@ -140,7 +140,7 @@ namespace MailSecure.Core
         public List<DataBaseUser> ReadAll()
         {
             List<DataBaseUser> users = new List<DataBaseUser>();
-            string sql = "select * from users order by name desc";
+            string sql = "SELECT name, hash, pass FROM users ORDER BY name desc";
 
             OpenDataBase();
 
