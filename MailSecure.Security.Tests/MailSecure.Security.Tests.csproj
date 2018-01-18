@@ -71,6 +71,7 @@
     <Compile Include="EncryptionTests.cs" />
     <Compile Include="PgpCypherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HashTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

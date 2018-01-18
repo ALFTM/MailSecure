@@ -11,6 +11,11 @@ namespace MailSecure.Core
     {
         private readonly string connectionInfo = ("Data Source =" + AppConst.APP_DATABASE_NAME + ";Version=3;");
         private SQLiteConnection connection;
+
+        public bool CheckIfDataBaseExist()
+        {
+            return File.Exists(AppConst.APP_DATABASE_NAME);
+        }
         public void CreateFile()
         {
             SQLiteConnection.CreateFile(AppConst.APP_DATABASE_NAME);

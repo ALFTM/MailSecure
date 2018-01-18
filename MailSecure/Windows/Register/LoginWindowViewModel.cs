@@ -19,6 +19,7 @@ namespace MailSecure
 
         private WindowDockPosition dockerPosition = WindowDockPosition.Undocked;
         private LoginWindow window;
+        private SignUpControl control;
         private uint switchView;
         #endregion
 
@@ -88,6 +89,12 @@ namespace MailSecure
             }
         }
 
+        public SignUpControl Control
+        {
+            get { return control; }
+            set { control = value; }
+        }
+
         #endregion
 
         #region Content Language
@@ -136,6 +143,12 @@ namespace MailSecure
         }
         #endregion
 
+        public bool Terminate(bool result)
+        {
+            window.Close();
+            return result;
+        }
+
         private void InitCommands()
         {
             CloseCommand = new RelayCommand(() => window.Close());
@@ -154,6 +167,7 @@ namespace MailSecure
 
         private void CreateAccount()
         {
+            var template = window.ContentTemplate;
             throw new System.NotImplementedException("This metohds is in progress...");
         }
 

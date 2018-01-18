@@ -116,6 +116,7 @@
       <DependentUpon>UnlockPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\PasswordPopupViewModel.cs" />
+    <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\SettingsPageViewModel.cs" />
     <Compile Include="ViewModel\UnlockPageViewModel.cs" />
     <Compile Include="Windows\About\AboutWindow.xaml.cs">

@@ -84,6 +84,7 @@
     <Compile Include="UserManager\SQLiteHelper.cs" />
     <Compile Include="RandomNumberGenerator.cs" />
     <Compile Include="Singleton.cs" />
+    <Compile Include="UserManager\UserManager.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\RelayParameterizedCommand.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using MailSecure.Core;
 
@@ -58,12 +59,14 @@ namespace MailSecure
             }
             else {
                 LoginWindow loginWindow = new LoginWindow();
+                splashScreen.Close();
+                splashScreen = null;
                 loginWindow.ShowDialog();
+                Debug();
                 MainWindow.Show();
             }
 
-            splashScreen.Close();
-            splashScreen = null;
+
         }
         #endregion
 
@@ -99,6 +102,10 @@ namespace MailSecure
             CurrentUserData = new UserDataContext();
             await Task.Delay(500);
 
+            splashScreen.SetProgress(2.5);
+            InitDatabase();
+            await Task.Delay(500);
+
             splashScreen.SetProgress(3);
             if (canGetUser) {
                 getCurrentUser();
@@ -118,6 +125,27 @@ namespace MailSecure
             }
 
             return true;
+        }
+
+        private void InitDatabase()
+        {
+            SQLiteHelper helper = new SQLiteHelper();
+
+            if (!helper.CheckIfDataBaseExist()) {
+                System.Console.WriteLine("CREATE DATABASE");
+                helper.CreateFile();
+                helper.InitTables();
+            }
+        }
+
+        private void Debug()
+        {
+            SQLiteHelper helper = new SQLiteHelper();
+            List<DataBaseUser> users = helper.ReadAll();
+
+            users.ForEach((User) => {
+                System.Console.WriteLine(User.Name);
+            });
         }
         #endregion
     }
