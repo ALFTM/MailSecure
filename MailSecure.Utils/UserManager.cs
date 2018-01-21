@@ -95,5 +95,48 @@ namespace MailSecure.Security
             return true;
         }
 
+        public bool getLogin(string login, SecureString pass)
+        {
+            SQLiteHelper sqliteHelper = new SQLiteHelper();
+
+            DataBaseUser userToTest = sqliteHelper.GetUser(login);
+            var hash = userToTest.Hash;
+
+            // Initialize a random number generator.
+            //RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+
+            // Fill the salt with cryptographically strong byte values.
+            //rng.GetNonZeroBytes(hash);
+
+            HashAlgorithm algorithm = new SHA512Managed();
+
+            byte[] plainText = Encoding.ASCII.GetBytes(Utils.ConvertToUnsecureString(pass));
+
+            byte[] plainTextWithSaltBytes =
+              new byte[plainText.Length + hash.Length];
+
+            for (int i = 0; i < plainText.Length; i++)
+            {
+                plainTextWithSaltBytes[i] = plainText[i];
+            }
+            for (int i = 0; i < hash.Length; i++)
+            {
+                plainTextWithSaltBytes[plainText.Length + i] = hash[i];
+            }
+
+            var algo = algorithm.ComputeHash(plainTextWithSaltBytes);
+
+            if (algo.Length != userToTest.Pass.Length)
+                return false;
+
+            for (int i = 0; i < userToTest.Pass.Length; i++)
+            {
+                if (algo[i] != userToTest.Pass[i])
+                    return false;
+            }
+
+            return true;
+        }
+
     }
 }

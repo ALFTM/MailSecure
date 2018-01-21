@@ -146,6 +146,7 @@ namespace MailSecure
         public bool Terminate(bool result)
         {
             window.Close();
+            System.Console.WriteLine(result);
             return result;
         }
 

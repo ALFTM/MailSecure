@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSecure"
+             x:Name="This"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
     <Grid>
@@ -55,7 +56,8 @@
                              Margin="0 0 0 0"
                              BorderThickness="0"
                              VerticalAlignment="Center"
-                             Background="{x:Null}" TabIndex="1">
+                             Background="{x:Null}" TabIndex="1"
+                             x:Name="UserPassword">
 
                 </PasswordBox>
             </Grid>
@@ -81,7 +83,8 @@
                     Height="35"
                     Margin="5"
                     Background="{StaticResource SecondaryBrush}"
-                    Command="{Binding SignInCommand}">
+                    Command="{Binding SignInCommand}"
+                    CommandParameter="{Binding ElementName=This}">
                 <TextBlock Text="{Binding SignInText, FallbackValue=Login}" 
                            FontFamily="{StaticResource RobotoThin}"
                            Foreground="White">
