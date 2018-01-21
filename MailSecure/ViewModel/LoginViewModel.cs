@@ -30,7 +30,7 @@ namespace MailSecure
         #endregion
 
         #region Commands
-        public ICommand SwitchToSignInFormCommand { get; set; }
+        public ICommand SwitchToCreateAccountCommand { get; set; }
         public ICommand SignInCommand { get; set; }
         #endregion
 
@@ -38,7 +38,7 @@ namespace MailSecure
         public LoginViewModel(LoginControl control)
         {
             Control = control;
-            SwitchToSignInFormCommand = new RelayCommand(() => SwitchForm(0));
+            SwitchToCreateAccountCommand = new RelayCommand(() => SwitchForm(1));
             SignInCommand = new RelayParameterizedCommand((parameter) => Login(parameter));
         }
         #endregion
@@ -46,11 +46,13 @@ namespace MailSecure
         #region Public Methods
         private void SwitchForm(uint value)
         {
+            Window parent = Window.GetWindow(control) as LoginWindow;
+            var controller = parent.DataContext as LoginWindowViewModel;
+            controller.SwitchForm(value);
         }
 
         private void Login(object parameter)
         {
-            System.Console.WriteLine("jebozsbgienogineiogneziongezoingrioenoeing");
             IHavePassword passwordContainer = parameter as IHavePassword;
             if (passwordContainer != null)
             {

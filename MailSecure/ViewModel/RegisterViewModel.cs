@@ -47,8 +47,9 @@ namespace MailSecure.ViewModel
         #region Public Methods
         private void SwitchForm(uint value)
         {
-            string mode = value == 0 ? "SIGN IN" : "SIGN UP";
-            System.Console.WriteLine("SWTICH TO " + mode + " MODE");
+            Window parent = Window.GetWindow(control) as LoginWindow;
+            var controller = parent.DataContext as LoginWindowViewModel;
+            controller.SwitchForm(value);
         }
 
         private void CreateAccount(object parameter)

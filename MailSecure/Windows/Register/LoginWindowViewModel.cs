@@ -159,7 +159,7 @@ namespace MailSecure
             SignInCommand = new RelayCommand(() => SignIn());
         }
 
-        private void SwitchForm(uint value)
+        public void SwitchForm(uint value)
         {
             string mode = value == 0 ? "SIGN IN" : "SIGN UP";
             System.Console.WriteLine("SWTICH TO " + mode + " MODE");
