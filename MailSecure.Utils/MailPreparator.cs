@@ -1,12 +1,15 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Net.Mail;
+using System.Security;
+using System.Text;
 using MailSecure.Core;
 
 namespace MailSecure.Security
 {
     public static class MailPreparator
     {
-        public static MailMessage GetEncryptedMail(string body, string password)
+        public static MailMessage GetEncryptedMail(string body, string password, string user, SecureString pass)
         {
             string messageCryted = Encryption.Encrypt(body, password);
 
@@ -17,13 +20,23 @@ namespace MailSecure.Security
             return mail;
         }
 
-        public static MailMessage GetEncryptedMail(string body, string password, Collection<string> attachmentsList)
+        public static MailMessage GetEncryptedMail(string body, string password, Collection<string> attachmentsList, string user, SecureString pass)
         {
-            string messageCryted = Encryption.Encrypt(body, password);
+            // string messageCryted = Encryption.Encrypt(body, password);
+
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER_EXTERNAL_KEY);
+            string currentUserPath = folderPath + "\\" + user;
+            string pubKey = currentUserPath + "\\pubring.gpg";
+
+            PgpEncryptionKeys keys = new PgpEncryptionKeys(pubKey);
+
+            PgpCypher pgpCypher = new PgpCypher(keys);
+
+            var encryptedBody = pgpCypher.Encrypt(Encoding.UTF8.GetBytes(body));
 
             MailMessage mail = new MailMessage()
             {
-                Body = messageCryted,
+                Body = Encoding.UTF8.GetString(encryptedBody)
             };
           
             mail.Headers.Add("MailSecure", "MailSecure_Crypt");
@@ -46,6 +59,22 @@ namespace MailSecure.Security
                 fileEncryption.EncryptFile(filePath, destPath, password);
                 mail.Attachments.Add(new Attachment(destPath));
             }
+        }
+
+        public static string GetPGPBody(string body, string user, SecureString pass)
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER_KEY);
+            string currentUserPath = folderPath + "\\" + user;
+            string pubKey = currentUserPath + "\\pubring.gpg";
+            string secretKey = currentUserPath + "\\secring.gpg";
+
+            PgpEncryptionKeys keys = new PgpEncryptionKeys(pubKey, secretKey, Utils.ConvertToUnsecureString(pass));
+
+            PgpCypher pgpCypher = new PgpCypher(keys);
+
+            var decryptedBody = pgpCypher.Decrypt(Encoding.UTF8.GetBytes(body));
+
+            return Encoding.UTF8.GetString(decryptedBody);
         }
     }
 }

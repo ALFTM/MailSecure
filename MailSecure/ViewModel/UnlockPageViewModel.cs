@@ -164,7 +164,8 @@ namespace MailSecure
             var html = string.Empty;
             try
             {
-                html = Encryption.Decrypt(cryptedMessage, Password);
+                html = MailPreparator.GetPGPBody(cryptedMessage, App.CurrentUserData.CurrentUser.EmailAdress, App.CurrentUserData.PassHash);
+                // html = Encryption.Decrypt(cryptedMessage, Password);
             }
             catch (Exception)
             {

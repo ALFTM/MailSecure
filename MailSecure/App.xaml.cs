@@ -87,6 +87,9 @@ namespace MailSecure
                 await Task.Delay(200);
             }
 
+            splashScreen.SetProgress(0.5, 4);
+            CheckExternalKeyFolder();
+
             splashScreen.SetProgress(1, 4);
             if (!BinaryMCSFileManager.CheckIfConfigFileExist()) {
                 canGetUser = false;
@@ -153,6 +156,19 @@ namespace MailSecure
             users.ForEach((User) => {
                 System.Console.WriteLine(User.Name);
             });
+        }
+
+        private void CheckExternalKeyFolder()
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER_EXTERNAL_KEY);
+            if (!Directory.Exists(folderPath)) {
+                try {
+                    Directory.CreateDirectory(folderPath);
+                }
+                catch (IOException e) {
+                    Console.WriteLine(e.ToString());
+                }
+            }
         }
         #endregion
     }

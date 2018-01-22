@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Net.Mail;
+using System.Security;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -236,11 +237,14 @@ namespace MailSecure
 
         public MailMessage PrepareMessage(string password)
         {
-            var user = App.CurrentUserData.CurrentUser.EmailAdress;
+            string user = "";
             var body = GetHtmlStringFromXaml(GetXamlString());
-            
 
-            MailMessage mail = MailPreparator.GetEncryptedMail(body, password, GetFullPathArray());
+            SecureString secureString = App.CurrentUserData.PassHash;
+            foreach (var address in To.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries)) {
+                user = address;
+            }
+            MailMessage mail = MailPreparator.GetEncryptedMail(body, password, GetFullPathArray(), user, secureString);
             mail.Subject = MessageObject + " [Locked]";
 
             MailAddress from = new MailAddress(user);

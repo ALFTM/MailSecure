@@ -54,7 +54,14 @@ namespace MailSecure.Security
             PrivateKeyPath = privateKeyPath;
         }
 
-            #region Secret Key
+        public PgpEncryptionKeys(string publicKeyPath)
+        {
+            PublicKey = ReadPublicKey(publicKeyPath);
+        }
+
+
+
+        #region Secret Key
 
         private PgpSecretKey ReadSecretKey(string privateKeyPath)
         {
