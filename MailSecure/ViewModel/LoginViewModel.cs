@@ -15,6 +15,7 @@ namespace MailSecure
 
         #region Public Members
         public LoginControl Control { get => control; set => control = value; }
+        public int tries { get; set; }
         #endregion
 
         #region Content Language
@@ -40,6 +41,7 @@ namespace MailSecure
             Control = control;
             SwitchToCreateAccountCommand = new RelayCommand(() => SwitchForm(1));
             SignInCommand = new RelayParameterizedCommand((parameter) => Login(parameter));
+            tries = 0;
         }
         #endregion
 
@@ -65,8 +67,14 @@ namespace MailSecure
                 var controller = parent.DataContext as LoginWindowViewModel;
 
                 DisplayNotification(result);
+                System.Threading.Thread.Sleep((int)Math.Pow(1000, tries));
                 if (result)
+                {
+                    tries = 0;
                     controller.Terminate(result);
+                }
+                else
+                    tries++;
             }
         }
 
