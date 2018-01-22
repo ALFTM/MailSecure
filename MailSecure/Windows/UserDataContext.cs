@@ -1,6 +1,7 @@
 ﻿using MailSecure.Core;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Security;
 
 namespace MailSecure
 {
@@ -9,6 +10,8 @@ namespace MailSecure
         private UserMailFacts currentUser;
         private PageType currentPage = PageType.SendingPage;
         private string displayedName;
+        
+        public SecureString PassHash { get; set; }
 
         public UserMailFacts CurrentUser {
             get { return this.currentUser; }

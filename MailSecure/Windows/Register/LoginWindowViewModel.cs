@@ -1,4 +1,7 @@
 ﻿using MailSecure.Core;
+using MailSecure.Security;
+using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -114,6 +117,7 @@ namespace MailSecure
         public void Terminate(bool result)
         {
             if (result) {
+                CheckIfPGPKeyExist();
                 App.BaseWindow = new FlatWindow();
                 App.BaseWindow.Show();
             }  
@@ -141,5 +145,37 @@ namespace MailSecure
         }
 
         private void SignIn() => throw new System.NotImplementedException("This metohds is in progress...");
+
+        private void CheckIfPGPKeyExist()
+        {
+            string folderPath = Environment.ExpandEnvironmentVariables(AppConst.APP_DATA_FOLDER_KEY);
+            string currentUserPath = folderPath + "\\" + App.CurrentUserData.CurrentUser.EmailAdress;
+            string keyFile = currentUserPath + "\\pubring.gpg";
+            if (!Directory.Exists(folderPath)) {
+                try {
+                    Directory.CreateDirectory(folderPath);
+                }
+                catch (IOException e) {
+                    Console.WriteLine(e.ToString());
+                }
+            }
+
+            if (!Directory.Exists(currentUserPath)) {
+                try {
+                    Directory.CreateDirectory(currentUserPath);
+                }
+                catch (IOException e) {
+                    Console.WriteLine(e.ToString());
+                }
+            }
+
+            if (!File.Exists(keyFile)) {
+                PgpKeyGen.generateKeys(App.CurrentUserData.CurrentUser.EmailAdress, Utils.ConvertToUnsecureString(App.CurrentUserData.PassHash), currentUserPath);
+                PgpEncryptionKeys keys = new PgpEncryptionKeys(currentUserPath + "\\pubring.gpg",
+                    currentUserPath + "\\secring.gpg", Utils.ConvertToUnsecureString(App.CurrentUserData.PassHash));
+            }
+
+
+        }
     }
 }

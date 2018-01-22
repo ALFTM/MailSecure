@@ -4,8 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using MailSecure.Core;
-using Windows.Data.Xml.Dom;
-using Windows.UI.Notifications;
+using MailSecure.Security;
 
 
 namespace MailSecure

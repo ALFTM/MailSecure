@@ -72,6 +72,7 @@ namespace MailSecure
                 if (result)
                 {
                     tries = 0;
+                    App.CurrentUserData.PassHash = secureString;
                     controller.Terminate(result);
                 }
                 else
