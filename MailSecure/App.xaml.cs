@@ -68,7 +68,7 @@ namespace MailSecure
                 LoginWindow loginWindow = new LoginWindow();
                 splashScreen.Close();
                 splashScreen = null;
-                loginWindow.ShowDialog();
+                loginWindow.Show();
                 Debug();
             }
 

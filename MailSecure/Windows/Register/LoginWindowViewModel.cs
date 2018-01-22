@@ -97,40 +97,8 @@ namespace MailSecure
 
         #endregion
 
-        #region Content Language
-        public string SignUpText
-        {
-            get => App.ApplicationLanguage.GetStringFromLanguage("signUp_lbl");
-        }
-
-        public string CreateAccountText
-        {
-            get => App.ApplicationLanguage.GetStringFromLanguage("createAccount_lbl");
-        }
-
-        public string AlreadyHaveAccountText
-        {
-            get => App.ApplicationLanguage.GetStringFromLanguage("alreadyHaveAccount_lbl");
-        }
-
-        public string SignInText
-        {
-            get => App.ApplicationLanguage.GetStringFromLanguage("signIn_lbl");
-        }
-
-        public string DoesntHaveAccountText
-        {
-            get => App.ApplicationLanguage.GetStringFromLanguage("doesntHaveAccount_lbl");
-        }
-
-        #endregion
-
         #region Commands
         public ICommand CloseCommand { get; set; }
-        public ICommand SwitchToCreateAccountCommand { get; set; }
-        public ICommand SwitchToSignInFormCommand { get; set; }
-        public ICommand CreateAccountCommand { get; set; }
-        public ICommand SignInCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -157,10 +125,6 @@ namespace MailSecure
         private void InitCommands()
         {
             CloseCommand = new RelayCommand(() => window.Close());
-            SwitchToCreateAccountCommand = new RelayCommand(() => SwitchForm(1));
-            SwitchToSignInFormCommand = new RelayCommand(() => SwitchForm(0));
-            CreateAccountCommand = new RelayCommand(() => CreateAccount());
-            SignInCommand = new RelayCommand(() => SignIn());
         }
 
         public void SwitchForm(uint value)

@@ -18,14 +18,14 @@ namespace MailSecure
         #endregion
 
         #region Content Language
-        public string CreateAccountText
+        public string DoesntHaveAccountText
         {
-            get => App.ApplicationLanguage.GetStringFromLanguage("createAccount_lbl");
+            get => App.ApplicationLanguage.GetStringFromLanguage("doesntHaveAccount_lbl");
         }
 
-        public string AlreadyHaveAccountText
+        public string SignInText
         {
-            get => App.ApplicationLanguage.GetStringFromLanguage("alreadyHaveAccount_lbl");
+            get => App.ApplicationLanguage.GetStringFromLanguage("signIn_lbl");
         }
         #endregion
 
@@ -53,6 +53,7 @@ namespace MailSecure
 
         private void Login(object parameter)
         {
+            control.loginId.Focus();
             IHavePassword passwordContainer = parameter as IHavePassword;
             if (passwordContainer != null)
             {

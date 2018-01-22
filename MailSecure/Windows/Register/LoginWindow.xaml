@@ -69,7 +69,7 @@
 
                                         <!-- App Title -->
                                         <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding TitleLbl}"></TextBlock>
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding TitleLbl, FallbackValue='Mail Secure'}"></TextBlock>
                                         </Viewbox>
 
                                         <!-- Window Button -->
