@@ -63,8 +63,18 @@ namespace MailSecure
                 Window parent = Window.GetWindow(control) as LoginWindow;
 
                 var controller = parent.DataContext as LoginWindowViewModel;
-                controller.Terminate(result);
+
+                DisplayNotification(result);
+                if (result)
+                    controller.Terminate(result);
             }
+        }
+
+        private void DisplayNotification(bool value)
+        {
+            if (value)
+                App.NotificationHelper.DisplayNotification("Welcome \"" + control.loginId.Text + "\"");
+            App.NotificationHelper.DisplayNotification("Failed to login as user \"" + control.loginId.Text + "\"");
         }
         #endregion
     }

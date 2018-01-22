@@ -119,6 +119,7 @@
     <Compile Include="Converter\MailAddressToInitialsConverter.cs" />
     <Compile Include="Converter\SizeToVisibilityConverter.cs" />
     <Compile Include="Converter\StringToBoolConverter.cs" />
+    <Compile Include="NotificationSystem.cs" />
     <Compile Include="Pages\UnlockPage.xaml.cs">
       <DependentUpon>UnlockPage.xaml</DependentUpon>
     </Compile>

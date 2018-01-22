@@ -21,6 +21,9 @@ namespace MailSecure
         public static LanguageManager ApplicationLanguage { get; private set; }
         public static SendingPageViewModel SendingPageViewModel { get; set; }
         public static UnlockPageViewModel UnlockPageViewModel { get; set; }
+        public static NotificationSystem NotificationHelper { get; set; }
+        public static Window BaseWindow { get; set; }
+        
         #endregion
 
         #region Private Property
@@ -31,6 +34,7 @@ namespace MailSecure
         public App()
         {
             ApplicationLanguage = LanguageManager.GetInstance;
+            NotificationHelper = new NotificationSystem();
             splashScreen = new SplashScreen.SplashScreen();
             splashScreen.Show();
         }
@@ -52,8 +56,7 @@ namespace MailSecure
             // Longest loading
             await LongLoading();
 
-
-            MainWindow = new FlatWindow();
+            BaseWindow = MainWindow;
             // Shortest loading
 
             if (!await this.ShortLoading()) {
@@ -67,7 +70,6 @@ namespace MailSecure
                 splashScreen = null;
                 loginWindow.ShowDialog();
                 Debug();
-                MainWindow.Show();
             }
 
 
@@ -139,27 +141,9 @@ namespace MailSecure
                 Console.WriteLine("CREATE DATABASE");
                 helper.CreateFile();
                 helper.InitTables();
-                DisplayNotification("Database created");
+                NotificationHelper.DisplayNotification("Database created");
             }
 
-        }
-
-        private void DisplayNotification(string message)
-        {
-            // Get a toast XML template
-            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastImageAndText04);
-
-            // Fill in the text elements
-            XmlNodeList stringElements = toastXml.GetElementsByTagName("text");
-            stringElements[0].AppendChild(toastXml.CreateTextNode(message));
-            
-            // Specify the absolute path to an image
-            String imagePath = "C://logo_white_black.png";
-            XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
-            imageElements[0].Attributes.GetNamedItem("src").NodeValue = imagePath;
-            ToastNotification toast = new ToastNotification(toastXml);
-
-            ToastNotificationManager.CreateToastNotifier("MailSecure").Show(toast);
         }
 
         private void Debug()

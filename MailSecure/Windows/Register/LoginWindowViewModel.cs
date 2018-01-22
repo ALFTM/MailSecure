@@ -143,11 +143,15 @@ namespace MailSecure
         }
         #endregion
 
-        public bool Terminate(bool result)
+        public void Terminate(bool result)
         {
-            window.Close();
+            if (result) {
+                App.BaseWindow = new FlatWindow();
+                App.BaseWindow.Show();
+            }  
             System.Console.WriteLine(result);
-            return result;
+            window.Close();
+            
         }
 
         private void InitCommands()

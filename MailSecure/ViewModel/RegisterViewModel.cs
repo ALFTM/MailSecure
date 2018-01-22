@@ -60,11 +60,21 @@ namespace MailSecure.ViewModel
                 UserManager userManager = new UserManager();
                 string login = control.loginId.Text;
                 bool result = userManager.AddUserInDataBase(login, secureString);
-                Window parent = Window.GetWindow(control) as LoginWindow;
 
+                Window parent = Window.GetWindow(control) as LoginWindow;
                 var controller = parent.DataContext as LoginWindowViewModel;
-                controller.Terminate(result);
+
+                this.DisplayNotification(result);
+
+                controller.SwitchForm(0);
             }
+        }
+
+        private void DisplayNotification(bool value)
+        {
+            if (value)
+                App.NotificationHelper.DisplayNotification("User \"" + control.loginId.Text + "\" created");
+            App.NotificationHelper.DisplayNotification("Failed to create user \"" + control.loginId.Text +"\"");
         }
         #endregion
     }
